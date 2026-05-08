@@ -1,0 +1,1636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>ODL — Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<style>
+  /* ─────────── Tokens (palette pulled from current site) ─────────── */
+  :root {
+    --blue-normal:  #1D4696;
+    --blue-dark:    #0B1E3B;
+    --blue-mid:     #163680;
+    --white:        #FFFFFF;
+    --bg-soft:      #F8FAFC;
+    --text-main:    #0B1E3B;
+    --text-muted:   #4B5E77;
+    --text-light:   #8A9BB8;
+    --border-clean: #E2E8F0;
+    --border-mid:   #CBD5E8;
+
+    /* Extended scale derived from existing palette */
+    --blue-deepest: #050F22;     /* below blue-dark for hero gradients */
+    --blue-tint-1:  #E8EEF9;     /* faintest blue wash */
+    --blue-tint-2:  #C9D6EE;
+    --blue-accent:  #3D6EC9;     /* lighter, hover/focus */
+
+    --signal-amber: #E0A53A;     /* warm accent for callouts */
+    --signal-green: #2E8B6A;     /* approvals / positive */
+
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-serif: 'Fraunces', serif;
+
+    --r-sm: 6px;
+    --r-md: 12px;
+    --r-lg: 18px;
+    --r-xl: 28px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-soft);
+    color: var(--text-main);
+    line-height: 1.5;
+  }
+
+  /* ───────────── Page chrome ───────────── */
+  .page-head {
+    padding: 56px 64px 40px;
+    border-bottom: 1px solid var(--border-clean);
+    background: var(--white);
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 40px;
+    flex-wrap: wrap;
+  }
+  .page-head h1 {
+    margin: 0;
+    font-size: 44px; font-weight: 800; letter-spacing: -0.03em;
+    color: var(--text-main);
+  }
+  .page-head p {
+    margin: 10px 0 0;
+    max-width: 560px;
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+  .page-head .meta {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-light);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .section {
+    padding: 64px;
+    border-bottom: 1px solid var(--border-clean);
+  }
+  .section--dark {
+    background: var(--blue-dark);
+    color: var(--white);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+  .section--gradient {
+    background: linear-gradient(180deg, var(--blue-deepest) 0%, var(--blue-dark) 60%, var(--blue-mid) 100%);
+    color: var(--white);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+  .section--photo {
+    background:
+      linear-gradient(180deg, rgba(11,30,59,0.55), rgba(11,30,59,0.85)),
+      repeating-linear-gradient(135deg, #1f2d48 0 8px, #182539 8px 16px);
+    color: var(--white);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .section__head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 28px; gap: 24px;
+  }
+  .section__num {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .section--dark .section__num,
+  .section--gradient .section__num,
+  .section--photo .section__num { color: rgba(255,255,255,0.45); }
+
+  .section__title {
+    margin: 4px 0 0;
+    font-size: 28px; font-weight: 700; letter-spacing: -0.02em;
+  }
+  .section__sub {
+    margin: 8px 0 0;
+    font-size: 14px; color: var(--text-muted); max-width: 640px;
+  }
+  .section--dark .section__sub,
+  .section--gradient .section__sub,
+  .section--photo .section__sub { color: rgba(255,255,255,0.6); }
+
+  /* ───────────── Color palette ───────────── */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .swatch {
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--border-clean);
+    background: var(--white);
+  }
+  .swatch__chip {
+    height: 110px;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+    padding: 12px;
+  }
+  .swatch__chip .role-pin {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.85);
+    color: var(--text-main);
+  }
+  .swatch__chip.dark .role-pin {
+    background: rgba(0,0,0,0.35);
+    color: rgba(255,255,255,0.85);
+  }
+  .swatch__meta {
+    padding: 12px 14px 14px;
+    border-top: 1px solid var(--border-clean);
+  }
+  .swatch__name {
+    font-size: 13px; font-weight: 600; color: var(--text-main);
+    margin-bottom: 4px;
+  }
+  .swatch__hex {
+    font-family: var(--font-mono);
+    font-size: 11px; color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .swatch__var {
+    font-family: var(--font-mono);
+    font-size: 10px; color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  /* Tonal scale row */
+  .scale-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--border-clean);
+    margin-top: 24px;
+  }
+  .scale-row .step {
+    padding: 28px 14px;
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .scale-row .step b {
+    display: block; font-weight: 700; font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  /* ───────────── Buttons ───────────── */
+  .btn {
+    appearance: none; -webkit-appearance: none;
+    border: none; cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 14px; font-weight: 600;
+    letter-spacing: -0.005em;
+    padding: 14px 22px;
+    border-radius: 100px;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: transform 120ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn .arrow {
+    width: 14px; height: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    font-size: 14px;
+    transition: transform 260ms cubic-bezier(0.34, 1.4, 0.64, 1);
+    will-change: transform;
+  }
+  .btn:hover .arrow { transform: translate(3px, -3px); }
+  .btn--sm { padding: 10px 16px; font-size: 13px; }
+  .btn--lg { padding: 18px 28px; font-size: 15px; }
+
+  /* Primary — solid blue */
+  .btn--primary {
+    background: var(--blue-normal);
+    color: var(--white);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset, 0 6px 16px -8px rgba(29,70,150,0.6);
+  }
+  .btn--primary:hover {
+    background: var(--blue-mid);
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 12px 24px -10px rgba(29,70,150,0.55);
+  }
+
+  /* Secondary on light — outlined */
+  .btn--secondary {
+    background: var(--white);
+    color: var(--blue-dark);
+    border: 1.5px solid var(--border-mid);
+  }
+  .btn--secondary:hover { border-color: var(--blue-normal); color: var(--blue-normal); }
+
+  /* Ghost on dark */
+  .btn--ghost-light {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.32);
+  }
+  .btn--ghost-light:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }
+
+  /* Solid on dark */
+  .btn--invert {
+    background: var(--white);
+    color: var(--blue-dark);
+  }
+  .btn--invert:hover { background: var(--bg-soft); }
+
+  /* Quiet text link */
+  .btn--quiet {
+    background: transparent;
+    color: var(--blue-normal);
+    padding: 12px 0;
+    border-radius: 0;
+    border-bottom: 1.5px solid transparent;
+  }
+  .btn--quiet:hover { border-bottom-color: var(--blue-normal); }
+
+  /* Danger / destructive — restrained, brand-aligned */
+  .btn--danger {
+    background: transparent;
+    color: #B23A3A;
+    border: 1.5px solid #B23A3A;
+  }
+  .btn--danger:hover { background: rgba(178,58,58,0.08); }
+
+  .btn--disabled {
+    background: var(--border-clean);
+    color: var(--text-light);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .btn-row {
+    display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+  }
+  .btn-row + .btn-row { margin-top: 14px; }
+
+  .btn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .btn-cell {
+    background: var(--white);
+    border: 1px solid var(--border-clean);
+    border-radius: var(--r-md);
+    padding: 24px;
+  }
+  .section--dark .btn-cell,
+  .section--gradient .btn-cell,
+  .section--photo .btn-cell {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .btn-cell__label {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .section--dark .btn-cell__label,
+  .section--gradient .btn-cell__label,
+  .section--photo .btn-cell__label { color: rgba(255,255,255,0.45); }
+
+  .btn-cell__row {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .btn-cell__states {
+    display: grid; grid-template-columns: repeat(2, auto); gap: 10px; justify-content: start;
+  }
+
+  /* ───────────── Forms ───────────── */
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--border-clean);
+    border-radius: var(--r-lg);
+    padding: 36px;
+  }
+  .section--dark .form-card,
+  .section--gradient .form-card,
+  .section--photo .form-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .form-card h3 {
+    margin: 0 0 6px;
+    font-size: 20px; font-weight: 700; letter-spacing: -0.02em;
+  }
+  .form-card p {
+    margin: 0 0 24px;
+    font-size: 13px; color: var(--text-muted);
+  }
+  .section--dark .form-card p,
+  .section--gradient .form-card p,
+  .section--photo .form-card p { color: rgba(255,255,255,0.55); }
+
+  .field { margin-bottom: 18px; }
+  .field__label {
+    display: block;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .section--dark .field__label,
+  .section--gradient .field__label,
+  .section--photo .field__label { color: rgba(255,255,255,0.55); }
+  .field__hint {
+    font-size: 11px; color: var(--text-light);
+    margin-top: 6px;
+  }
+
+  .input, .textarea, .select {
+    width: 100%;
+    appearance: none; -webkit-appearance: none;
+    font-family: var(--font-sans); font-size: 14px;
+    color: var(--text-main);
+    padding: 12px 14px;
+    background: var(--white);
+    border: 1.5px solid var(--border-mid);
+    border-radius: var(--r-sm);
+    transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  }
+  .input:focus, .textarea:focus, .select:focus {
+    outline: none;
+    border-color: var(--blue-normal);
+    box-shadow: 0 0 0 3px rgba(29,70,150,0.15);
+  }
+  .textarea { min-height: 96px; resize: vertical; line-height: 1.55; }
+  .input::placeholder { color: var(--text-light); }
+
+  .section--dark .input,
+  .section--gradient .input,
+  .section--photo .input,
+  .section--dark .textarea,
+  .section--gradient .textarea,
+  .section--photo .textarea,
+  .section--dark .select,
+  .section--gradient .select,
+  .section--photo .select {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.18);
+    color: var(--white);
+  }
+  .section--dark .input::placeholder,
+  .section--gradient .input::placeholder,
+  .section--photo .input::placeholder { color: rgba(255,255,255,0.4); }
+  .section--dark .input:focus,
+  .section--gradient .input:focus,
+  .section--photo .input:focus,
+  .section--dark .textarea:focus,
+  .section--gradient .textarea:focus,
+  .section--photo .textarea:focus {
+    border-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.1);
+  }
+
+  .field--error .input {
+    border-color: #B23A3A;
+    box-shadow: 0 0 0 3px rgba(178,58,58,0.12);
+  }
+  .field--error .field__hint { color: #B23A3A; }
+
+  /* Custom checkbox + radio */
+  .check-row, .radio-row {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .check, .radio {
+    display: flex; gap: 10px; align-items: flex-start;
+    cursor: pointer; font-size: 14px; color: var(--text-main);
+  }
+  .section--dark .check,
+  .section--gradient .check,
+  .section--photo .check,
+  .section--dark .radio,
+  .section--gradient .radio,
+  .section--photo .radio { color: var(--white); }
+
+  .check input, .radio input { display: none; }
+  .check__box, .radio__dot {
+    flex-shrink: 0;
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--border-mid);
+    background: var(--white);
+    transition: all 160ms ease;
+    margin-top: 2px;
+    position: relative;
+  }
+  .check__box { border-radius: 4px; }
+  .radio__dot { border-radius: 50%; }
+  .check input:checked ~ .check__box {
+    background: var(--blue-normal);
+    border-color: var(--blue-normal);
+  }
+  .check input:checked ~ .check__box::after {
+    content: ''; position: absolute;
+    left: 5px; top: 1px; width: 5px; height: 10px;
+    border: solid var(--white); border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .radio input:checked ~ .radio__dot {
+    border-color: var(--blue-normal);
+  }
+  .radio input:checked ~ .radio__dot::after {
+    content: ''; position: absolute;
+    inset: 3px; border-radius: 50%;
+    background: var(--blue-normal);
+  }
+  .section--dark .check__box,
+  .section--gradient .check__box,
+  .section--photo .check__box,
+  .section--dark .radio__dot,
+  .section--gradient .radio__dot,
+  .section--photo .radio__dot {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  /* Toggle switch */
+  .toggle { display: inline-flex; align-items: center; gap: 12px; cursor: pointer; font-size: 14px; }
+  .toggle input { display: none; }
+  .toggle__track {
+    width: 40px; height: 22px; border-radius: 100px;
+    background: var(--border-mid);
+    position: relative; transition: background 160ms ease;
+  }
+  .toggle__track::after {
+    content: ''; position: absolute;
+    width: 16px; height: 16px;
+    background: var(--white); border-radius: 50%;
+    top: 3px; left: 3px;
+    transition: left 160ms ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .toggle input:checked ~ .toggle__track { background: var(--blue-normal); }
+  .toggle input:checked ~ .toggle__track::after { left: 21px; }
+
+  /* ───────────── Cards ───────────── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  /* Solid card on light */
+  .card-solid {
+    background: var(--white);
+    border: 1px solid var(--border-clean);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  }
+  .card-solid:hover {
+    border-color: var(--border-mid);
+    box-shadow: 0 16px 40px -20px rgba(11,30,59,0.18);
+    transform: translateY(-2px);
+  }
+
+  /* Bordered accent card */
+  .card-accent {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-clean);
+    border-left: 4px solid var(--blue-normal);
+    border-radius: var(--r-md);
+    padding: 28px;
+  }
+
+  /* Solid blue card */
+  .card-brand {
+    background: var(--blue-dark);
+    color: var(--white);
+    border-radius: var(--r-lg);
+    padding: 28px;
+  }
+  .card-brand .card__label { color: rgba(255,255,255,0.4); }
+  .card-brand .card__body  { color: rgba(255,255,255,0.7); }
+
+  /* Glass cards (used inside dark/gradient/photo sections) */
+  .card-glass {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    color: var(--white);
+    transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+  }
+  .card-glass:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(255,255,255,0.22);
+    transform: translateY(-2px);
+  }
+  .card-glass--strong {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.18);
+  }
+  .card-glass--frosted {
+    background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 18px 40px -20px rgba(0,0,0,0.6),
+                inset 0 1px 0 rgba(255,255,255,0.18);
+  }
+  .card-glass--tinted {
+    background: linear-gradient(135deg, rgba(29,70,150,0.45), rgba(11,30,59,0.45));
+    border-color: rgba(255,255,255,0.18);
+  }
+
+  .card__label {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 14px;
+  }
+  .card__title {
+    font-size: 18px; font-weight: 700; letter-spacing: -0.015em;
+    margin: 0 0 8px;
+  }
+  .card__body {
+    font-size: 14px; color: var(--text-muted); line-height: 1.65;
+    margin: 0 0 18px;
+  }
+  .card-glass .card__label { color: rgba(255,255,255,0.5); }
+  .card-glass .card__body  { color: rgba(255,255,255,0.7); }
+
+  /* ───────────── Badges & meta ───────────── */
+  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    border-radius: 100px;
+  }
+  .badge--solid     { background: var(--blue-normal); color: var(--white); }
+  .badge--soft      { background: rgba(29,70,150,0.1); color: var(--blue-normal); border: 1px solid rgba(29,70,150,0.2); }
+  .badge--outline   { background: transparent; color: var(--text-muted); border: 1px solid var(--border-mid); }
+  .badge--success   { background: rgba(46,139,106,0.12); color: var(--signal-green); border: 1px solid rgba(46,139,106,0.25); }
+  .badge--amber     { background: rgba(224,165,58,0.14); color: var(--signal-amber); border: 1px solid rgba(224,165,58,0.3); }
+  .badge--ghost-light { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.2); }
+  .badge--with-dot::before {
+    content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor;
+  }
+
+  /* ───────────── Type ───────────── */
+  .type-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 220px;
+    align-items: baseline;
+    padding: 22px 0;
+    border-top: 1px solid var(--border-clean);
+    gap: 24px;
+  }
+  .type-row:first-of-type { border-top: 0; padding-top: 0; }
+  .type-row .role {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .type-row .specs {
+    font-family: var(--font-mono);
+    font-size: 11px; color: var(--text-muted);
+    text-align: right;
+    line-height: 1.6;
+  }
+  .display-1 { font-size: 64px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; color: var(--text-main); }
+  .display-1 em { font-style: italic; color: var(--text-light); font-family: var(--font-serif); font-weight: 400; }
+  .h1 { font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--text-main); }
+  .h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; color: var(--text-main); }
+  .h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-main); }
+  .body-l { font-size: 17px; line-height: 1.75; color: var(--text-muted); font-weight: 400; }
+  .body { font-size: 15px; line-height: 1.7; color: var(--text-muted); font-weight: 400; }
+  .small { font-size: 13px; color: var(--text-muted); }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); }
+
+  /* ───────────── Misc bits ───────────── */
+  .stat {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .stat__num {
+    font-size: 48px; font-weight: 800; letter-spacing: -0.03em;
+    color: var(--blue-normal); line-height: 1;
+  }
+  .card-glass .stat__num { color: var(--white); }
+  .stat__lbl {
+    font-size: 12px; color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .card-glass .stat__lbl { color: rgba(255,255,255,0.65); }
+
+  .stat-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: var(--blue-normal);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+  }
+  .stat-strip .cell {
+    padding: 28px;
+    border-right: 1px solid rgba(255,255,255,0.14);
+    color: var(--white);
+  }
+  .stat-strip .cell:last-child { border-right: none; }
+  .stat-strip .cell .num { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; }
+  .stat-strip .cell .lbl { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 4px; letter-spacing: 0.05em; }
+
+  /* Divider with eyebrow */
+  .div-rule {
+    display: flex; align-items: center; gap: 14px;
+    margin: 6px 0 18px;
+  }
+  .div-rule .line { flex: 1; height: 1px; background: var(--border-clean); }
+  .section--dark .div-rule .line,
+  .section--gradient .div-rule .line,
+  .section--photo .div-rule .line { background: rgba(255,255,255,0.12); }
+
+  /* Banners / callouts */
+  .banner {
+    border-radius: var(--r-md);
+    padding: 18px 22px;
+    display: flex; align-items: center; gap: 16px;
+    font-size: 14px;
+  }
+  .banner--info {
+    background: rgba(29,70,150,0.06);
+    border: 1px solid rgba(29,70,150,0.18);
+    color: var(--text-main);
+  }
+  .banner--success {
+    background: rgba(46,139,106,0.08);
+    border: 1px solid rgba(46,139,106,0.22);
+    color: var(--text-main);
+  }
+  .banner--warning {
+    background: rgba(224,165,58,0.1);
+    border: 1px solid rgba(224,165,58,0.3);
+    color: var(--text-main);
+  }
+  .banner__icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 14px; font-weight: 700;
+  }
+  .banner--info .banner__icon { background: var(--blue-normal); color: var(--white); }
+  .banner--success .banner__icon { background: var(--signal-green); color: var(--white); }
+  .banner--warning .banner__icon { background: var(--signal-amber); color: var(--white); }
+
+  /* Effect spec */
+  .effect-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .effect {
+    border-radius: var(--r-md);
+    padding: 22px;
+    background: var(--white);
+    border: 1px solid var(--border-clean);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .effect h4 {
+    margin: 0 0 14px;
+    font-family: var(--font-sans);
+    font-size: 13px; font-weight: 700; color: var(--text-main);
+    letter-spacing: -0.005em;
+  }
+  .effect .demo {
+    margin-top: 14px;
+    height: 70px;
+    border-radius: var(--r-sm);
+    background: var(--blue-normal);
+  }
+
+  /* Background swatches for context */
+  .bg-strip {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    border-radius: var(--r-md); overflow: hidden;
+    border: 1px solid var(--border-clean);
+    margin-top: 8px;
+  }
+  .bg-strip > div {
+    padding: 36px 18px;
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* Photo / hero context box for cards */
+  .photo-canvas {
+    border-radius: var(--r-lg);
+    padding: 36px;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(29,70,150,0.45), transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(11,30,59,0.6), transparent 65%),
+      linear-gradient(135deg, #0B1E3B 0%, #163680 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .photo-canvas::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+  .photo-canvas > * { position: relative; }
+
+  /* Footer */
+  .page-foot {
+    padding: 36px 64px;
+    background: var(--blue-dark);
+    color: rgba(255,255,255,0.45);
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <div>
+    <div class="eyebrow" style="margin-bottom:10px;">ODL · Brand foundations</div>
+    <h1>Design system, v1</h1>
+    <p>Working palette, components and surfaces for the ODL site rebuild. Pulled directly from the existing brand colors — everything else is new.</p>
+  </div>
+  <div class="meta">
+    File · ODL Design System.html<br/>
+    Owner · OnDemand Leaders<br/>
+    Status · Draft · v0.1
+  </div>
+</div>
+
+<!-- ─────────── 01 · COLOR ─────────── -->
+<section class="section">
+  <div class="section__head">
+    <div>
+      <div class="section__num">01 · Color</div>
+      <h2 class="section__title">Palette</h2>
+      <p class="section__sub">Two anchor blues — deep navy for ground, mid blue for accent — plus a clean neutral stack for surfaces and type.</p>
+    </div>
+  </div>
+
+  <div style="margin-bottom:36px;">
+    <div class="eyebrow" style="margin-bottom:12px;">Brand</div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch__chip dark" style="background:#0B1E3B"><span class="role-pin">Ground</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Blue Dark</div>
+          <div class="swatch__hex">#0B1E3B</div>
+          <div class="swatch__var">--blue-dark</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip dark" style="background:#163680"><span class="role-pin">Mid</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Blue Mid</div>
+          <div class="swatch__hex">#163680</div>
+          <div class="swatch__var">--blue-mid</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip dark" style="background:#1D4696"><span class="role-pin">Action</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Blue Normal</div>
+          <div class="swatch__hex">#1D4696</div>
+          <div class="swatch__var">--blue-normal</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip dark" style="background:#3D6EC9"><span class="role-pin">Hover</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Blue Accent</div>
+          <div class="swatch__hex">#3D6EC9</div>
+          <div class="swatch__var">--blue-accent</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:36px;">
+    <div class="eyebrow" style="margin-bottom:12px;">Surface &amp; Neutrals</div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#FFFFFF;border-bottom:1px solid var(--border-clean);"><span class="role-pin">Page</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">White</div>
+          <div class="swatch__hex">#FFFFFF</div>
+          <div class="swatch__var">--white</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#F8FAFC"><span class="role-pin">Soft</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Background Soft</div>
+          <div class="swatch__hex">#F8FAFC</div>
+          <div class="swatch__var">--bg-soft</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#E8EEF9"><span class="role-pin">Wash</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Blue Tint 1</div>
+          <div class="swatch__hex">#E8EEF9</div>
+          <div class="swatch__var">--blue-tint-1</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#E2E8F0"><span class="role-pin">Border</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Border Clean</div>
+          <div class="swatch__hex">#E2E8F0</div>
+          <div class="swatch__var">--border-clean</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#CBD5E8"><span class="role-pin">Border+</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Border Mid</div>
+          <div class="swatch__hex">#CBD5E8</div>
+          <div class="swatch__var">--border-mid</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:36px;">
+    <div class="eyebrow" style="margin-bottom:12px;">Type</div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch__chip dark" style="background:#0B1E3B"><span class="role-pin">Primary</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Text Main</div>
+          <div class="swatch__hex">#0B1E3B</div>
+          <div class="swatch__var">--text-main</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip dark" style="background:#4B5E77"><span class="role-pin">Body</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Text Muted</div>
+          <div class="swatch__hex">#4B5E77</div>
+          <div class="swatch__var">--text-muted</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip dark" style="background:#8A9BB8"><span class="role-pin">Meta</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Text Light</div>
+          <div class="swatch__hex">#8A9BB8</div>
+          <div class="swatch__var">--text-light</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="eyebrow" style="margin-bottom:12px;">Signals</div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch__chip dark" style="background:#2E8B6A"><span class="role-pin">Success</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Signal Green</div>
+          <div class="swatch__hex">#2E8B6A</div>
+          <div class="swatch__var">--signal-green</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip dark" style="background:#E0A53A"><span class="role-pin">Warning</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Signal Amber</div>
+          <div class="swatch__hex">#E0A53A</div>
+          <div class="swatch__var">--signal-amber</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip dark" style="background:#B23A3A"><span class="role-pin">Error</span></div>
+        <div class="swatch__meta">
+          <div class="swatch__name">Signal Red</div>
+          <div class="swatch__hex">#B23A3A</div>
+          <div class="swatch__var">--signal-red</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <div class="eyebrow" style="margin-bottom:12px;">Tonal scale — Blue</div>
+    <div class="scale-row">
+      <div class="step" style="background:#E8EEF9;color:#0B1E3B"><b>50</b>E8EEF9</div>
+      <div class="step" style="background:#C9D6EE;color:#0B1E3B"><b>100</b>C9D6EE</div>
+      <div class="step" style="background:#8FA6D4;color:#0B1E3B"><b>200</b>8FA6D4</div>
+      <div class="step" style="background:#3D6EC9;color:#FFFFFF"><b>400</b>3D6EC9</div>
+      <div class="step" style="background:#1D4696;color:#FFFFFF"><b>600</b>1D4696</div>
+      <div class="step" style="background:#163680;color:#FFFFFF"><b>800</b>163680</div>
+      <div class="step" style="background:#0B1E3B;color:#FFFFFF"><b>950</b>0B1E3B</div>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <div class="eyebrow" style="margin-bottom:12px;">Background contexts (cards live on these)</div>
+    <div class="bg-strip">
+      <div style="background:#FFFFFF;color:var(--text-light)">WHITE · #FFFFFF</div>
+      <div style="background:#F8FAFC;color:var(--text-light)">SOFT · #F8FAFC</div>
+      <div style="background:#0B1E3B;color:rgba(255,255,255,0.6)">DARK · #0B1E3B</div>
+      <div style="background:linear-gradient(135deg,#050F22,#163680);color:rgba(255,255,255,0.7)">GRADIENT</div>
+      <div style="background:linear-gradient(135deg,#0B1E3B,#163680),repeating-linear-gradient(135deg,#1f2d48 0 8px,#182539 8px 16px);background-blend-mode:overlay;color:rgba(255,255,255,0.7)">PHOTO</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── 02 · TYPE ─────────── -->
+<section class="section">
+  <div class="section__head">
+    <div>
+      <div class="section__num">02 · Type</div>
+      <h2 class="section__title">Plus Jakarta Sans + Fraunces</h2>
+      <p class="section__sub">Plus Jakarta carries the entire UI — display through small. Fraunces italic appears only as a quiet inflection inside large headlines and pull-quotes.</p>
+    </div>
+  </div>
+
+  <div class="type-row">
+    <div class="role">Display</div>
+    <div class="display-1">Make the plan <em>believable.</em></div>
+    <div class="specs">Plus Jakarta · 800<br/>64 / 67 · -3.5%</div>
+  </div>
+  <div class="type-row">
+    <div class="role">H1</div>
+    <div class="h1">Urgency became your operating system.</div>
+    <div class="specs">Plus Jakarta · 800<br/>44 / 48 · -3%</div>
+  </div>
+  <div class="type-row">
+    <div class="role">H2</div>
+    <div class="h2">The H.E.L.P. operating system</div>
+    <div class="specs">Plus Jakarta · 700<br/>32 / 37 · -2.5%</div>
+  </div>
+  <div class="type-row">
+    <div class="role">H3</div>
+    <div class="h3">Three to twelve months, embedded</div>
+    <div class="specs">Plus Jakarta · 700<br/>22 / 28 · -2%</div>
+  </div>
+  <div class="type-row">
+    <div class="role">Body L</div>
+    <div class="body-l">When three parts of the business are each solving a different version of the same situation, the noise gets louder and the progress stalls.</div>
+    <div class="specs">Plus Jakarta · 400<br/>17 / 30</div>
+  </div>
+  <div class="type-row">
+    <div class="role">Body</div>
+    <div class="body">Decisions made with full context and clear ownership compress time. The team moves because they understand, not because they were told to.</div>
+    <div class="specs">Plus Jakarta · 400<br/>15 / 26</div>
+  </div>
+  <div class="type-row">
+    <div class="role">Small / meta</div>
+    <div class="small">Based in the Greater Toronto Area · Serving North America &amp; APAC</div>
+    <div class="specs">Plus Jakarta · 400<br/>13 / 19</div>
+  </div>
+  <div class="type-row">
+    <div class="role">Eyebrow</div>
+    <div class="eyebrow">The H.E.L.P. System · Section 03</div>
+    <div class="specs">JetBrains Mono · 400<br/>11 / 18 · 0.18em</div>
+  </div>
+</section>
+
+<!-- ─────────── 03 · BUTTONS ─────────── -->
+<section class="section">
+  <div class="section__head">
+    <div>
+      <div class="section__num">03 · Buttons</div>
+      <h2 class="section__title">Buttons &amp; actions</h2>
+      <p class="section__sub">Pill geometry, two-tier hierarchy: solid blue is the only primary action; outlined is everything else. Ghost variants only on dark.</p>
+    </div>
+  </div>
+
+  <div class="btn-grid">
+    <div class="btn-cell">
+      <div class="btn-cell__label">Primary · light</div>
+      <div class="btn-cell__row">
+        <div class="btn-row">
+          <button class="btn btn--primary">Book a strategy call <span class="arrow">↗</span></button>
+        </div>
+        <div class="btn-cell__states">
+          <button class="btn btn--primary btn--sm">Default</button>
+          <button class="btn btn--primary btn--sm" style="background:var(--blue-mid);">Hover</button>
+          <button class="btn btn--primary btn--sm" style="background:var(--blue-mid);box-shadow:0 0 0 3px rgba(29,70,150,0.25);">Focus</button>
+          <button class="btn btn--disabled btn--sm">Disabled</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-cell">
+      <div class="btn-cell__label">Secondary · light</div>
+      <div class="btn-cell__row">
+        <div class="btn-row">
+          <button class="btn btn--secondary">View track record</button>
+        </div>
+        <div class="btn-cell__states">
+          <button class="btn btn--secondary btn--sm">Default</button>
+          <button class="btn btn--secondary btn--sm" style="border-color:var(--blue-normal);color:var(--blue-normal)">Hover</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-cell">
+      <div class="btn-cell__label">Quiet text link</div>
+      <div class="btn-cell__row">
+        <div class="btn-row">
+          <a class="btn btn--quiet" href="#">Read the H.E.L.P. system <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-cell">
+      <div class="btn-cell__label">Sizes</div>
+      <div class="btn-cell__row">
+        <div class="btn-row">
+          <button class="btn btn--primary btn--sm">Small</button>
+          <button class="btn btn--primary">Default</button>
+          <button class="btn btn--primary btn--lg">Large</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-cell">
+      <div class="btn-cell__label">Destructive</div>
+      <div class="btn-cell__row">
+        <div class="btn-row">
+          <button class="btn btn--danger">Delete engagement</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-cell">
+      <div class="btn-cell__label">Disabled</div>
+      <div class="btn-cell__row">
+        <div class="btn-row">
+          <button class="btn btn--disabled">Submitting…</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── 03b · BUTTONS on dark ─────────── -->
+<section class="section section--dark">
+  <div class="section__head">
+    <div>
+      <div class="section__num">03b · Buttons · dark</div>
+      <h2 class="section__title">On navy ground</h2>
+      <p class="section__sub">White inverts as the primary; ghost picks up the secondary role.</p>
+    </div>
+  </div>
+
+  <div class="btn-grid">
+    <div class="btn-cell">
+      <div class="btn-cell__label">Primary inverted</div>
+      <div class="btn-row">
+        <button class="btn btn--invert">Book a strategy call <span class="arrow">↗</span></button>
+      </div>
+    </div>
+
+    <div class="btn-cell">
+      <div class="btn-cell__label">Ghost on dark</div>
+      <div class="btn-row">
+        <button class="btn btn--ghost-light">View services</button>
+      </div>
+    </div>
+
+    <div class="btn-cell">
+      <div class="btn-cell__label">Pair lockup</div>
+      <div class="btn-row">
+        <button class="btn btn--invert">Book a call <span class="arrow">↗</span></button>
+        <button class="btn btn--ghost-light">Send a message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── 04 · FORMS ─────────── -->
+<section class="section">
+  <div class="section__head">
+    <div>
+      <div class="section__num">04 · Forms</div>
+      <h2 class="section__title">Inputs &amp; controls</h2>
+      <p class="section__sub">Generous padding, soft borders. Focus state uses the brand blue with a 3-px halo. Same controls re-skin to glass on dark surfaces.</p>
+    </div>
+  </div>
+
+  <div class="form-grid">
+    <div class="form-card">
+      <h3>Book an interim consultation</h3>
+      <p>30-minute call. No deck. Just whether Chris is the right operator for it.</p>
+
+      <div class="field">
+        <label class="field__label">Full name</label>
+        <input class="input" type="text" placeholder="Alex Singh" />
+      </div>
+
+      <div class="field">
+        <label class="field__label">Work email</label>
+        <input class="input" type="email" placeholder="alex@company.com" value="alex@company.com" />
+        <div class="field__hint">We'll never share this. Used to confirm the meeting only.</div>
+      </div>
+
+      <div class="field field--error">
+        <label class="field__label">Company URL</label>
+        <input class="input" type="text" placeholder="company.com" value="company..com" />
+        <div class="field__hint">That doesn't look like a valid domain.</div>
+      </div>
+
+      <div class="field">
+        <label class="field__label">Stage</label>
+        <select class="select">
+          <option>Pre-seed</option>
+          <option>Series A · &lt;$10M ARR</option>
+          <option selected>Series B · $10–30M ARR</option>
+          <option>Growth · $30M+ ARR</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field__label">What's the situation?</label>
+        <textarea class="textarea" placeholder="Two sentences is fine. We'll dig in on the call."></textarea>
+      </div>
+
+      <div class="field">
+        <div class="check-row">
+          <label class="check">
+            <input type="checkbox" checked />
+            <span class="check__box"></span>
+            <span>Capital event in the next 12 months</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" />
+            <span class="check__box"></span>
+            <span>Recently changed CRO / Head of Sales</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field__label">Engagement format</label>
+        <div class="radio-row">
+          <label class="radio">
+            <input type="radio" name="fmt" checked />
+            <span class="radio__dot"></span>
+            <span>Interim C-suite (3–12 months)</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="fmt" />
+            <span class="radio__dot"></span>
+            <span>Three-hour strategic session</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="fmt" />
+            <span class="radio__dot"></span>
+            <span>Speaking / workshop</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:0;">
+        <label class="toggle">
+          <input type="checkbox" checked />
+          <span class="toggle__track"></span>
+          <span>Subscribe to the operator's note (monthly)</span>
+        </label>
+      </div>
+
+      <div style="margin-top:28px;display:flex;gap:12px;align-items:center;">
+        <button class="btn btn--primary">Request the call <span class="arrow">↗</span></button>
+        <a class="btn btn--quiet" href="#">Or send a direct message →</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="form-card" style="margin-bottom:24px;">
+        <h3>Compact field set</h3>
+        <p>For inline / footer use.</p>
+        <div class="field">
+          <label class="field__label">Email</label>
+          <input class="input" type="email" placeholder="you@company.com" />
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button class="btn btn--primary btn--sm">Subscribe</button>
+          <span class="small" style="color:var(--text-light);">No spam. Unsubscribe anytime.</span>
+        </div>
+      </div>
+
+      <div class="banner banner--info" style="margin-bottom:14px;">
+        <div class="banner__icon">i</div>
+        <div>Forms persist locally — refresh-safe across page reloads.</div>
+      </div>
+      <div class="banner banner--success" style="margin-bottom:14px;">
+        <div class="banner__icon">✓</div>
+        <div>Consultation request sent. Chris will respond within one business day.</div>
+      </div>
+      <div class="banner banner--warning">
+        <div class="banner__icon">!</div>
+        <div>Calendar is currently booking 4 weeks out. Add a note if it's urgent.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── 05 · CARDS · light ─────────── -->
+<section class="section">
+  <div class="section__head">
+    <div>
+      <div class="section__num">05 · Cards · light</div>
+      <h2 class="section__title">Surfaces on white &amp; soft</h2>
+      <p class="section__sub">Three flavors: clean white card, accented bordered card, and brand-solid block.</p>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card-solid">
+      <div class="card__label">Solid · white</div>
+      <h3 class="card__title">Repair broken pipeline structures</h3>
+      <p class="card__body">Move from founder-led selling into a real GTM system that survives the next quarter without you.</p>
+      <a class="btn btn--quiet" href="#">Read more <span class="arrow">→</span></a>
+    </div>
+    <div class="card-accent">
+      <div class="card__label">Accent · left rule</div>
+      <h3 class="card__title">Three-hour strategic session</h3>
+      <p class="card__body">A focused diagnosis and action plan. Walk out with accountability, not a deck.</p>
+      <a class="btn btn--quiet" href="#">Book a session <span class="arrow">→</span></a>
+    </div>
+    <div class="card-brand">
+      <div class="card__label">Brand · solid</div>
+      <h3 class="card__title">Interim C-suite</h3>
+      <p class="card__body">Chris embeds as your operating executive. Owns the number. Leaves the system running without him.</p>
+      <a class="btn btn--quiet" href="#" style="color:var(--white);border-color:rgba(255,255,255,0.5)">Right for you? <span class="arrow">→</span></a>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;">
+    <div class="badge-row" style="margin-bottom:14px;">
+      <span class="badge badge--solid">Primary engagement</span>
+      <span class="badge badge--soft">3 to 12 months</span>
+      <span class="badge badge--outline">CRO · President · CEO-level</span>
+      <span class="badge badge--success badge--with-dot">Available now</span>
+      <span class="badge badge--amber badge--with-dot">Booking 4w out</span>
+    </div>
+    <div class="stat-strip">
+      <div class="cell">
+        <div class="num">25+</div>
+        <div class="lbl">Years B2B SaaS leadership</div>
+      </div>
+      <div class="cell">
+        <div class="num">$1B</div>
+        <div class="lbl">NetSuite revenue at exit</div>
+      </div>
+      <div class="cell">
+        <div class="num">3</div>
+        <div class="lbl">Continents · NA · APAC</div>
+      </div>
+      <div class="cell">
+        <div class="num">$9.3B</div>
+        <div class="lbl">Oracle acquisition</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── 06 · GLASS on dark ─────────── -->
+<section class="section section--dark">
+  <div class="section__head">
+    <div>
+      <div class="section__num">06 · Glass · on dark</div>
+      <h2 class="section__title">Glass cards on navy</h2>
+      <p class="section__sub">Translucent surfaces with backdrop blur. Three weights: standard, strong, frosted.</p>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card-glass">
+      <div class="card__label">Glass · standard</div>
+      <h3 class="card__title">Hear</h3>
+      <p class="card__body">Before you solve, listen. Most leadership breakdowns are diagnosed before the picture is complete.</p>
+      <a class="btn btn--quiet" href="#" style="color:var(--white);">Open phase <span class="arrow">→</span></a>
+    </div>
+    <div class="card-glass card-glass--strong">
+      <div class="card__label">Glass · strong</div>
+      <h3 class="card__title">Evidence</h3>
+      <p class="card__body">Separate fact from interpretation. The forecast is fact. The story about why is interpretation.</p>
+      <a class="btn btn--quiet" href="#" style="color:var(--white);">Open phase <span class="arrow">→</span></a>
+    </div>
+    <div class="card-glass card-glass--frosted">
+      <div class="card__label">Glass · frosted</div>
+      <h3 class="card__title">Learn</h3>
+      <p class="card__body">Markets shift faster than playbooks. Build the habit of updating what you know.</p>
+      <a class="btn btn--quiet" href="#" style="color:var(--white);">Open phase <span class="arrow">→</span></a>
+    </div>
+    <div class="card-glass card-glass--tinted">
+      <div class="card__label">Glass · tinted</div>
+      <h3 class="card__title">Proceed</h3>
+      <p class="card__body">Decisions made with full context and clear ownership compress time.</p>
+      <a class="btn btn--quiet" href="#" style="color:var(--white);">Open phase <span class="arrow">→</span></a>
+    </div>
+  </div>
+
+  <div class="card-grid" style="margin-top:24px;">
+    <div class="card-glass" style="grid-column:span 2;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:32px;align-items:start;">
+      <div>
+        <div class="stat__num">$30M</div>
+        <div class="stat__lbl">NetSuite starting point</div>
+      </div>
+      <div>
+        <div class="stat__num">$1B+</div>
+        <div class="stat__lbl">Revenue at exit</div>
+      </div>
+      <div>
+        <div class="stat__num">15<span style="font-size:24px;opacity:0.6;">yr</span></div>
+        <div class="stat__lbl">Inside the engine</div>
+      </div>
+      <div>
+        <div class="stat__num">$9.3B</div>
+        <div class="stat__lbl">Oracle acquisition</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── 07 · GLASS on gradient ─────────── -->
+<section class="section section--gradient">
+  <div class="section__head">
+    <div>
+      <div class="section__num">07 · Glass · on gradient</div>
+      <h2 class="section__title">Hero / gradient surfaces</h2>
+      <p class="section__sub">Same glass system; the gradient ground gives the frosted variant more lift.</p>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card-glass card-glass--frosted">
+      <div class="card__label">Frosted · hero</div>
+      <h3 class="card__title">Velocity without awareness creates friction.</h3>
+      <p class="card__body">When marketing, finance and the CEO each solve a different version of the same situation, progress stalls.</p>
+      <button class="btn btn--invert btn--sm">Read the diagnosis <span class="arrow">↗</span></button>
+    </div>
+    <div class="card-glass">
+      <div class="card__label">Standard</div>
+      <h3 class="card__title">Marketing response</h3>
+      <p class="card__body">"Pipeline is thin because sales won't work the leads we give them." — More campaigns. Higher MQL targets.</p>
+    </div>
+    <div class="card-glass card-glass--tinted">
+      <div class="card__label">Tinted</div>
+      <h3 class="card__title">CEO response</h3>
+      <p class="card__body">"We just need everyone moving faster." — Hire a consultant. Run an all-hands. Set a new OKR.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── 08 · GLASS on photo ─────────── -->
+<section class="section section--photo">
+  <div class="section__head">
+    <div>
+      <div class="section__num">08 · Glass · on photo</div>
+      <h2 class="section__title">Imagery surfaces</h2>
+      <p class="section__sub">When a card sits on top of a photo or busy texture, lean on the frosted variant. Below: a placeholder canvas + a real photo-like surface.</p>
+    </div>
+  </div>
+
+  <div class="photo-canvas">
+    <div class="card-grid">
+      <div class="card-glass card-glass--frosted">
+        <div class="card__label">Frosted on photo</div>
+        <h3 class="card__title">Inside the engine, not adjacent to it.</h3>
+        <p class="card__body">Chris stayed, owned the number, and delivered. Fifteen years from $30M to a $9.3B exit.</p>
+        <button class="btn btn--invert btn--sm">Read the track record <span class="arrow">↗</span></button>
+      </div>
+      <div class="card-glass card-glass--strong">
+        <div class="card__label">Strong glass · stat</div>
+        <div style="display:flex;align-items:baseline;gap:18px;">
+          <div class="stat__num">$9.3B</div>
+          <div class="card__body" style="margin:0;">Oracle's NetSuite acquisition. One of the largest enterprise SaaS deals of the decade.</div>
+        </div>
+      </div>
+      <div class="card-glass card-glass--tinted">
+        <div class="card__label">Tinted · pull-quote</div>
+        <p class="card__body" style="font-family:var(--font-serif);font-style:italic;font-size:18px;line-height:1.55;color:rgba(255,255,255,0.92);">"His ability to develop a team while keeping the revenue engine moving is genuinely rare."</p>
+        <div class="small" style="color:rgba(255,255,255,0.55);margin-top:14px;">— Kristen Visser</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── 08b · PARTNER CARDS ─────────── -->
+<style>
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 32px;
+  }
+
+  /* Each partner = a square photo with a small info card floated bottom-right */
+  .partner {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border-radius: 6px;          /* slightly rounded corners */
+    overflow: visible;            /* allow info card to overhang */
+    isolation: isolate;
+  }
+  .partner__photo {
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    background-image: url('assets/chris.jpeg');
+    background-size: cover;
+    background-position: center top;
+    background-color: var(--blue-dark);
+  }
+
+  /* Info card — overlaps bottom-right by default */
+  .partner__info {
+    position: absolute;
+    z-index: 2;
+    right: -14px;
+    bottom: -18px;
+    max-width: 78%;
+    min-width: 220px;
+    padding: 16px 18px 16px 18px;
+    border-radius: var(--r-md);
+    background: var(--white);
+    border: 1px solid var(--border-clean);
+    box-shadow: 0 1px 2px rgba(11,30,59,0.04), 0 8px 24px rgba(11,30,59,0.08);
+  }
+  .partner__name {
+    font-size: 17px; font-weight: 700; letter-spacing: -0.015em;
+    color: var(--text-main);
+    margin: 0 0 4px;
+    line-height: 1.15;
+  }
+  .partner__role {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-light);
+    margin: 0;
+  }
+
+  /* Position variants */
+  .partner--info-bl .partner__info { right: auto; left: -14px; }
+
+  /* Card surface variants — apply to the info chip */
+  .partner--brand .partner__info {
+    background: var(--blue-dark);
+    border-color: rgba(255,255,255,0.08);
+  }
+  .partner--brand .partner__info .partner__name { color: var(--white); }
+  .partner--brand .partner__info .partner__role { color: rgba(255,255,255,0.55); }
+
+  .partner--glass .partner__info {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+  .partner--glass .partner__info .partner__name { color: var(--white); }
+  .partner--glass .partner__info .partner__role { color: rgba(255,255,255,0.6); }
+</style>
+
+<section class="section">
+  <div class="section__head">
+    <div>
+      <div class="section__num">08b · Partner card</div>
+      <h2 class="section__title">Meet your partner</h2>
+      <p class="section__sub">Square portrait with slightly rounded corners. A small info chip — name + role — floats over the bottom corner. Three surfaces for the chip; the photo stays the same.</p>
+    </div>
+  </div>
+
+  <div class="partner-grid">
+    <!-- Light chip, bottom-right -->
+    <div class="partner partner--solid">
+      <div class="partner__photo"></div>
+      <div class="partner__info">
+        <h3 class="partner__name">Chris Schafer</h3>
+        <div class="partner__role">Interim C-Suite Operator</div>
+      </div>
+    </div>
+
+    <!-- Brand-dark chip, bottom-right -->
+    <div class="partner partner--brand">
+      <div class="partner__photo"></div>
+      <div class="partner__info">
+        <h3 class="partner__name">Chris Schafer</h3>
+        <div class="partner__role">Interim C-Suite Operator</div>
+      </div>
+    </div>
+
+    <!-- Glass chip on a photo canvas, bottom-left -->
+    <div class="photo-canvas" style="padding:28px;">
+      <div class="partner partner--glass partner--info-bl">
+        <div class="partner__photo"></div>
+        <div class="partner__info">
+          <h3 class="partner__name">Chris Schafer</h3>
+          <div class="partner__role">Interim C-Suite Operator</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── 09 · EFFECTS ─────────── -->
+<section class="section">
+  <div class="section__head">
+    <div>
+      <div class="section__num">09 · Effects</div>
+      <h2 class="section__title">Radii · shadow · motion</h2>
+      <p class="section__sub">Geometry tokens and the few interaction effects we'll use.</p>
+    </div>
+  </div>
+
+  <div class="effect-grid">
+    <div class="effect">
+      <h4>Radius scale</h4>
+      <div style="display:flex;gap:10px;align-items:flex-end;margin-top:12px;">
+        <div style="width:54px;height:54px;background:var(--blue-normal);border-radius:6px;"></div>
+        <div style="width:54px;height:54px;background:var(--blue-normal);border-radius:12px;"></div>
+        <div style="width:54px;height:54px;background:var(--blue-normal);border-radius:18px;"></div>
+        <div style="width:54px;height:54px;background:var(--blue-normal);border-radius:28px;"></div>
+        <div style="width:54px;height:54px;background:var(--blue-normal);border-radius:100px;"></div>
+      </div>
+      <div style="margin-top:14px;">SM 6 · MD 12 · LG 18 · XL 28 · pill 100</div>
+    </div>
+
+    <div class="effect">
+      <h4>Shadow · resting</h4>
+      <div class="demo" style="background:var(--white);box-shadow:0 1px 2px rgba(11,30,59,0.04), 0 1px 3px rgba(11,30,59,0.06);"></div>
+      <div style="margin-top:10px;">0 1px 2px / 0.04<br/>0 1px 3px / 0.06</div>
+    </div>
+
+    <div class="effect">
+      <h4>Shadow · lift</h4>
+      <div class="demo" style="background:var(--white);box-shadow:0 16px 40px -20px rgba(11,30,59,0.18), 0 2px 6px rgba(11,30,59,0.06);"></div>
+      <div style="margin-top:10px;">0 16px 40px -20px / 0.18<br/>0 2px 6px / 0.06</div>
+    </div>
+
+    <div class="effect">
+      <h4>Glass blur</h4>
+      <div class="demo" style="background:rgba(11,30,59,0.7);position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:8px;border-radius:6px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);backdrop-filter:blur(20px);"></div>
+      </div>
+      <div style="margin-top:10px;">backdrop-filter: blur(22px)<br/>bg rgba(255,255,255,.06–.14)</div>
+    </div>
+
+    <div class="effect">
+      <h4>Focus ring</h4>
+      <div class="demo" style="background:var(--white);box-shadow:0 0 0 3px rgba(29,70,150,0.25);border:1.5px solid var(--blue-normal);"></div>
+      <div style="margin-top:10px;">0 0 0 3px rgba(29,70,150,.15–.25)</div>
+    </div>
+
+    <div class="effect">
+      <h4>Motion</h4>
+      <div class="demo" style="background:var(--blue-normal);position:relative;overflow:hidden;">
+        <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#fff;font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;">160ms · ease</div>
+      </div>
+      <div style="margin-top:10px;">hover 160ms ease<br/>press 120ms ease<br/>page 240ms ease-out</div>
+    </div>
+  </div>
+</section>
+
+<div class="page-foot">
+  <div>ODL · Design system v0.1 · 2025</div>
+  <div>Palette pulled from current site · everything else original</div>
+</div>
+
+</body>
+</html>

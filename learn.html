@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Learn. Phase 03 of the H.E.L.P. Operating System. Chris Schafer.</title>
+<meta name="description" content="The third phase of the H.E.L.P. Operating System. Build fluid learning. Pattern recognition that draws from lived experience and shows up in real time, without waiting for someone else to provide the answer." />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<meta name="theme-color" content="#0B1E3B" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --blue-normal:  #1D4696;
+    --blue-dark:    #0B1E3B;
+    --blue-mid:     #163680;
+    --blue-deepest: #050F22;
+    --blue-accent:  #3D6EC9;
+    --blue-tint-1:  #E8EEF9;
+    --white:        #FFFFFF;
+    --bg-soft:      #F8FAFC;
+    --text-main:    #0B1E3B;
+    --text-muted:   #4B5E77;
+    --text-light:   #8A9BB8;
+    --border-clean: #E2E8F0;
+    --border-mid:   #CBD5E8;
+    --signal-amber: #E0A53A;
+    --signal-green: #2E8B6A;
+
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-serif: 'Fraunces', serif;
+
+    --nav-h: 76px;
+    --max-w: 1240px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { background: var(--white); color: var(--text-main); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; border: none; background: none; font: inherit; }
+  img { max-width: 100%; display: block; }
+  ul { list-style: none; }
+
+  .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+  .section { padding: 128px 0; }
+  .section--white { background: var(--white); }
+  .section--soft { background: var(--bg-soft); }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .07s; }
+  .reveal.d2 { transition-delay: .14s; }
+  .reveal.d3 { transition-delay: .21s; }
+  .reveal.d4 { transition-delay: .28s; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  .eyebrow { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-normal); margin-bottom: 18px; }
+  .eyebrow--light { color: rgba(255,255,255,0.55); }
+
+  .display { font-size: clamp(40px, 5.4vw, 76px); font-weight: 800; line-height: 1.02; letter-spacing: -0.038em; color: var(--text-main); }
+  .display em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--blue-normal); letter-spacing: -0.02em; }
+  .display--light { color: var(--white); }
+  .display--light em { color: rgba(255,255,255,0.7); }
+
+  .h2 { font-size: clamp(32px, 3.4vw, 46px); font-weight: 800; line-height: 1.08; letter-spacing: -0.032em; }
+  .h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--blue-normal); }
+  .h2--light { color: var(--white); }
+  .h2--light em { color: rgba(255,255,255,0.6); }
+
+  .lead { font-size: clamp(16px, 1.4vw, 18px); line-height: 1.78; color: var(--text-muted); }
+  .lead strong { color: var(--text-main); font-weight: 600; }
+  .lead--light { color: rgba(255,255,255,0.72); }
+  .lead--light strong { color: var(--white); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 26px; border-radius: 100px; font-size: 14px; font-weight: 600; letter-spacing: -0.005em; transition: background .16s ease, color .16s ease, border-color .16s ease, transform .12s ease, box-shadow .16s ease; white-space: nowrap; cursor: pointer; text-decoration: none; border: 1.5px solid transparent; }
+  .btn:active { transform: translateY(1px); }
+  .btn .arrow { width: 14px; height: 14px; display: inline-flex; align-items: center; justify-content: center; line-height: 1; font-size: 14px; transition: transform 260ms cubic-bezier(0.34, 1.4, 0.64, 1); will-change: transform; }
+  .btn:hover .arrow { transform: translate(3px, -3px); }
+  .btn--invert { background: var(--white); color: var(--blue-dark); }
+  .btn--invert:hover { background: var(--bg-soft); }
+
+  /* NAV */
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: var(--nav-h); display: flex; align-items: center; transition: background .25s ease, border-color .25s ease; border-bottom: 1px solid transparent; }
+  .nav.solid { background: rgba(11,30,59,0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: rgba(255,255,255,0.07); }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .nav__logo { display: flex; align-items: center; gap: 14px; }
+  .nav__mark-svg { display: block; height: 32px; width: auto; }
+  .nav__name { color: var(--white); font-size: 14px; font-weight: 600; letter-spacing: -0.005em; padding-left: 14px; border-left: 1px solid rgba(255,255,255,0.18); }
+  .nav__name span { color: rgba(255,255,255,0.45); font-weight: 400; }
+  .nav__links { display: flex; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 13px; color: rgba(255,255,255,0.6); transition: color .16s ease; }
+  .nav__links a:hover, .nav__links a.is-current { color: var(--white); }
+  .nav__right { display: flex; align-items: center; gap: 16px; }
+  .nav__burger { display: none; width: 40px; height: 40px; border-radius: 8px; background: rgba(255,255,255,0.08); align-items: center; justify-content: center; flex-direction: column; gap: 4px; cursor: pointer; }
+  .nav__burger span { display: block; width: 18px; height: 1.5px; background: var(--white); }
+  .mobile-drawer { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--blue-deepest); z-index: 199; padding: 24px 22px 32px; flex-direction: column; gap: 18px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .mobile-drawer.open { display: flex; }
+  .mobile-drawer a { font-size: 16px; color: rgba(255,255,255,0.85); }
+
+  /* HERO */
+  .phase-hero { position: relative; padding: calc(var(--nav-h) + 96px) 0 96px; background: radial-gradient(ellipse at 80% 0%, rgba(29,70,150,0.55), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(11,30,59,0.92), transparent 60%), linear-gradient(180deg, var(--blue-deepest) 0%, var(--blue-dark) 100%); color: var(--white); overflow: hidden; isolation: isolate; }
+  .phase-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse at center, black 25%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at center, black 25%, transparent 75%); pointer-events: none; z-index: 0; }
+  .phase-hero .container { position: relative; z-index: 1; }
+  .phase-back { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 56px; transition: color .16s ease; }
+  .phase-back:hover { color: var(--white); }
+  .phase-back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 12px; height: 12px; line-height: 1; transition: transform 220ms cubic-bezier(0.34, 1.4, 0.64, 1); }
+  .phase-back:hover .arrow { transform: translateX(-3px); }
+  .phase-hero__grid { display: grid; grid-template-columns: 1fr 0.55fr; gap: 48px; align-items: center; }
+  .phase-hero__copy .display { color: var(--white); margin-top: 4px; }
+  .phase-hero__copy .display em { color: rgba(255,255,255,0.7); }
+  .phase-hero__lead { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.7; color: rgba(255,255,255,0.72); max-width: 560px; margin-top: 26px; }
+  .phase-hero__lead strong { color: var(--white); font-weight: 600; }
+
+  /* Learn-specific monogram: stacked L echoes (representing patterns) */
+  .phase-hero__monogram { position: relative; aspect-ratio: 1 / 1; width: 100%; max-width: 420px; margin-left: auto; border-radius: 28px; background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.16); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); overflow: hidden; box-shadow: 0 30px 80px -30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.18); }
+  .phase-hero__letter, .phase-hero__letter-echo { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: clamp(220px, 28vw, 360px); font-weight: 800; letter-spacing: -0.06em; line-height: 0.85; }
+  .phase-hero__letter { color: var(--white); z-index: 3; }
+  .phase-hero__letter-echo { color: rgba(255,255,255,0.10); z-index: 1; }
+  .phase-hero__letter-echo.e1 { transform: translate(-22px, 8px); color: rgba(255,255,255,0.08); }
+  .phase-hero__letter-echo.e2 { transform: translate(-44px, 16px); color: rgba(255,255,255,0.04); }
+  .phase-hero__phase-tag { position: absolute; top: 24px; left: 24px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); z-index: 4; }
+  .phase-hero__word-tag { position: absolute; bottom: 24px; right: 24px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.7); z-index: 4; }
+
+  /* PHASE STRIP */
+  .phase-strip { background: var(--blue-deepest); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .phase-strip__row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .phase-strip a { padding: 22px 24px; display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,0.5); border-right: 1px solid rgba(255,255,255,0.06); transition: background .16s ease, color .16s ease; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .phase-strip a:last-child { border-right: none; }
+  .phase-strip a:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+  .phase-strip a.is-current { color: var(--white); background: rgba(29,70,150,0.18); }
+  .phase-strip__num { font-weight: 600; color: rgba(255,255,255,0.4); }
+  .phase-strip a.is-current .phase-strip__num { color: var(--white); }
+
+  /* CONTENT */
+  .phase-row { display: grid; grid-template-columns: 0.85fr 1.4fr; gap: 80px; align-items: start; }
+  .phase-row__head { position: sticky; top: 110px; }
+  .phase-row__head .h2 { margin-bottom: 14px; }
+  .phase-row__head .lead { max-width: 320px; }
+  .phase-row__body { font-size: 17px; line-height: 1.78; color: var(--text-main); }
+  .phase-row__body p { margin-bottom: 18px; }
+  .phase-row__body p:last-child { margin-bottom: 0; }
+  .phase-row__body strong { font-weight: 700; }
+  .phase-row__body .pull { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.35; color: var(--blue-normal); border-left: 3px solid var(--blue-normal); padding: 4px 0 4px 24px; margin: 28px 0; letter-spacing: -0.01em; }
+  .phase-row__body .pull::before { content: '"'; }
+  .phase-row__body .pull::after { content: '"'; }
+
+  /* SIGNATURE: Pattern recognition loop — 4 questions in a numbered diamond */
+  .recognition {
+    margin-top: 72px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    counter-reset: rec;
+  }
+  .rec {
+    position: relative;
+    padding: 36px 32px 32px;
+    border-radius: 22px;
+    background: var(--white);
+    border: 1px solid var(--border-clean);
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    overflow: hidden;
+  }
+  .rec::before {
+    counter-increment: rec;
+    content: counter(rec, decimal-leading-zero);
+    position: absolute;
+    top: 18px; right: 22px;
+    font-family: var(--font-mono);
+    font-size: 56px; font-weight: 700;
+    color: var(--blue-tint-1);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .rec:hover {
+    transform: translateY(-3px);
+    border-color: var(--blue-normal);
+    box-shadow: 0 22px 48px -28px rgba(29,70,150,0.32);
+  }
+  .rec__tag {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--blue-normal);
+    margin-bottom: 16px;
+  }
+  .rec__q {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(22px, 2.4vw, 28px);
+    line-height: 1.22;
+    letter-spacing: -0.012em;
+    color: var(--text-main);
+    margin-bottom: 18px;
+    max-width: 90%;
+  }
+  .rec__why {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+  .rec__shift {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--border-mid);
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--text-light);
+  }
+  .rec__shift strong { color: var(--blue-normal); font-weight: 600; }
+
+  /* Backward-mapping ladder */
+  .ladder {
+    margin-top: 56px;
+    border-radius: 22px;
+    background: var(--blue-deepest);
+    color: var(--white);
+    overflow: hidden;
+    box-shadow: 0 24px 56px -32px rgba(11,30,59,0.5);
+  }
+  .ladder__head {
+    padding: 28px 32px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .ladder__label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--signal-green);
+    margin-bottom: 12px;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .ladder__label::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--signal-green);
+    box-shadow: 0 0 10px rgba(46,139,106,0.6);
+  }
+  .ladder__title {
+    font-size: 26px; font-weight: 700; letter-spacing: -0.022em;
+    color: var(--white);
+    line-height: 1.18;
+  }
+  .ladder__sub {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px;
+    max-width: 640px;
+  }
+  .ladder__rungs { padding: 14px 32px 30px; }
+  .ladder__rung {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 22px;
+    align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .ladder__rung:last-child { border-bottom: none; }
+  .ladder__num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.4);
+  }
+  .ladder__q {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: rgba(255,255,255,0.92);
+  }
+
+  /* Anti-patterns */
+  .section--dark { background: radial-gradient(ellipse at 80% 0%, rgba(29,70,150,0.4), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(11,30,59,0.95), transparent 60%), linear-gradient(180deg, var(--blue-deepest) 0%, var(--blue-dark) 100%); color: var(--white); }
+  .section--dark .h2 { color: var(--white); }
+  .section--dark .h2 em { color: rgba(255,255,255,0.6); }
+  .section--dark .lead { color: rgba(255,255,255,0.7); }
+  .anti-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 64px; }
+  .anti { padding: 36px 30px 34px; border-radius: 20px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+  .anti:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.20); transform: translateY(-3px); }
+  .anti__num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--signal-amber); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 8px; }
+  .anti__num::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--signal-amber); }
+  .anti h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.015em; color: var(--white); margin-bottom: 12px; line-height: 1.25; }
+  .anti p { font-size: 14.5px; line-height: 1.65; color: rgba(255,255,255,0.65); }
+
+  /* Stakes */
+  .stakes-list li { padding: 24px 0; border-bottom: 1px solid var(--border-clean); display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: start; }
+  .stakes-list li:last-child { border-bottom: none; }
+  .stakes-list .num { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--blue-normal); padding-top: 4px; }
+  .stakes-list strong { display: block; font-size: 18px; color: var(--text-main); margin-bottom: 6px; letter-spacing: -0.01em; font-weight: 700; }
+  .stakes-list p { font-size: 15.5px; color: var(--text-muted); line-height: 1.7; }
+
+  /* Phase pager + CTA shared */
+  .phase-pager { background: linear-gradient(180deg, var(--blue-dark) 0%, var(--blue-deepest) 100%); color: var(--white); padding: 110px 0 110px; position: relative; overflow: hidden; }
+  .phase-pager::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%); pointer-events: none; }
+  .phase-pager__head { max-width: 720px; margin-bottom: 56px; position: relative; z-index: 1; }
+  .phase-pager__head .h2 { color: var(--white); margin-bottom: 14px; }
+  .phase-pager__head .h2 em { color: rgba(255,255,255,0.6); }
+  .phase-pager__head .lead { color: rgba(255,255,255,0.7); max-width: 540px; }
+  .pager-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; z-index: 1; }
+  .pager { position: relative; padding: 28px 24px 26px; border-radius: 20px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: background .2s ease, border-color .2s ease, transform .2s ease; overflow: hidden; min-height: 200px; display: flex; flex-direction: column; }
+  .pager:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.22); transform: translateY(-3px); }
+  .pager--current { background: linear-gradient(135deg, rgba(29,70,150,0.55), rgba(11,30,59,0.55)); border-color: rgba(255,255,255,0.22); cursor: default; }
+  .pager--current:hover { transform: none; }
+  .pager__letter { position: absolute; top: -10px; right: 14px; font-size: 130px; font-weight: 800; line-height: 0.85; letter-spacing: -0.06em; color: rgba(255,255,255,0.10); pointer-events: none; }
+  .pager--current .pager__letter { color: rgba(255,255,255,0.16); }
+  .pager__label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 14px; position: relative; z-index: 1; }
+  .pager--current .pager__label { color: var(--signal-green); }
+  .pager__word { font-size: 26px; font-weight: 800; letter-spacing: -0.025em; color: var(--white); margin-top: auto; line-height: 1; position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px; }
+  .pager__word .arrow { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; font-size: 16px; line-height: 1; color: rgba(255,255,255,0.5); transition: transform 220ms cubic-bezier(0.34, 1.4, 0.64, 1), color .2s ease; }
+  .pager:hover .arrow { transform: translateX(4px); color: var(--white); }
+
+  .phase-cta { background: var(--blue-deepest); color: var(--white); padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+  .phase-cta__inner { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+  .phase-cta__head .h2 { color: var(--white); margin-bottom: 10px; font-size: clamp(26px, 2.8vw, 36px); }
+  .phase-cta__head .h2 em { color: rgba(255,255,255,0.6); }
+  .phase-cta__head .lead { color: rgba(255,255,255,0.65); max-width: 560px; }
+
+  @media (max-width: 1024px) {
+    .phase-hero__grid { grid-template-columns: 1fr; gap: 48px; }
+    .phase-hero__monogram { max-width: 360px; margin: 0; }
+    .phase-row { grid-template-columns: 1fr; gap: 32px; }
+    .phase-row__head { position: static; }
+    .phase-row__head .lead { max-width: none; }
+    .recognition { grid-template-columns: 1fr; }
+    .anti-grid { grid-template-columns: 1fr; }
+    .pager-grid { grid-template-columns: 1fr 1fr; }
+    .phase-cta__inner { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 720px) {
+    .section { padding: 80px 0; }
+    .container { padding: 0 22px; }
+    .nav__links { display: none; }
+    .nav__right .btn { display: none; }
+    .nav__burger { display: flex; }
+    .phase-hero { padding: calc(var(--nav-h) + 64px) 0 64px; }
+    .phase-strip__row { grid-template-columns: repeat(2, 1fr); }
+    .phase-strip a:nth-child(2) { border-right: none; }
+    .phase-strip a:nth-child(1), .phase-strip a:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .pager-grid { grid-template-columns: 1fr; }
+    .ladder__rung { grid-template-columns: 50px 1fr; gap: 14px; }
+  }
+</style>
+</head>
+
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="Homepage.html" class="nav__logo" aria-label="OnDemand Leaders">
+          <svg class="nav__mark-svg" viewBox="0 0 360 130" role="img" aria-label="ODL">
+            <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
+              <circle cx="65" cy="65" r="58"></circle>
+              <circle cx="65" cy="65" r="46"></circle>
+              <line x1="65" y1="32" x2="65" y2="100"></line>
+              <path d="M 42 48 L 42 72 Q 42 82 52 82"></path>
+              <path d="M 88 48 L 88 72 Q 88 82 78 82"></path>
+              <line x1="55" y1="100" x2="75" y2="100"></line>
+              <path d="M 150 12 L 150 118 L 198 118 Q 252 118 252 65 Q 252 12 198 12 Z"></path>
+              <path d="M 162 24 L 162 106 L 196 106 Q 240 106 240 65 Q 240 24 196 24 Z"></path>
+              <path d="M 274 12 L 274 118 L 348 118 L 348 106 L 286 106 L 286 12 Z"></path>
+            </g>
+          </svg>
+          <div class="nav__name">OnDemand Leaders <span>· Chris Schafer</span></div>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="Homepage.html#problem">The Problem</a></li>
+          <li><a href="Homepage.html#service">Engagement</a></li>
+          <li><a href="Homepage.html#proof">Track Record</a></li>
+          <li><a href="Homepage.html#help" class="is-current">H.E.L.P.</a></li>
+          <li><a href="Homepage.html#thinking">Thinking</a></li>
+        </ul>
+        <div class="nav__right">
+          <a href="Apply to Work With Chris.html" class="btn btn--invert">Apply to work with Chris <span class="arrow">↗</span></a>
+          <button class="nav__burger" id="navToggle" aria-label="Open navigation"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-drawer" id="mobileNav">
+    <a href="Homepage.html#problem">The Problem</a>
+    <a href="Homepage.html#service">Engagement</a>
+    <a href="Homepage.html#proof">Track Record</a>
+    <a href="Homepage.html#help">H.E.L.P.</a>
+    <a href="Homepage.html#thinking">Thinking</a>
+    <a href="Apply to Work With Chris.html">Apply to work with Chris</a>
+  </div>
+
+  <main>
+
+    <section class="phase-hero">
+      <div class="container">
+        <a href="Homepage.html#help" class="phase-back"><span class="arrow">←</span> The H.E.L.P. operating system</a>
+        <div class="phase-hero__grid">
+          <div class="phase-hero__copy reveal">
+            <span class="eyebrow eyebrow--light">Phase 03 · The L</span>
+            <h1 class="display">Build the muscle of <em>fluid learning.</em></h1>
+            <p class="phase-hero__lead">The phase most leaders skip. <strong>Pattern recognition that draws from lived experience and shows up in real time.</strong></p>
+          </div>
+          <div class="phase-hero__monogram reveal d2" aria-hidden="true">
+            <div class="phase-hero__letter">L</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="phase-strip" aria-label="H.E.L.P. phases">
+      <div class="container">
+        <div class="phase-strip__row">
+          <a href="hear.html"><span class="phase-strip__num">01</span> Hear</a>
+          <a href="evidence.html"><span class="phase-strip__num">02</span> Evidence</a>
+          <a href="learn.html" class="is-current"><span class="phase-strip__num">03</span> Learn</a>
+          <a href="proceed.html"><span class="phase-strip__num">04</span> Proceed</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- DEFINITION -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="phase-row">
+          <div class="phase-row__head reveal">
+            <span class="eyebrow">01 · Definition</span>
+            <h2 class="h2">Fluid learning, <em>named.</em></h2>
+            <p class="lead">The phrase Chris uses with every leader he coaches.</p>
+          </div>
+          <div class="phase-row__body reveal d2">
+            <p><strong>Fluid learning is the ability to draw from lived experience, recognize patterns, and apply them in real time without waiting for someone else to provide the answer.</strong></p>
+            <p>This is the phase most leaders skip. They run Hear well enough. They sometimes run Evidence. Then they jump to Proceed and hand the answer down. The team gets a fix. The team does not get sharper.</p>
+            <p>Learn is what makes the next decision faster. It is what compounds.</p>
+            <p class="pull">Never give the answer. Ask the questions that force pattern recognition.</p>
+            <p>The mechanism is simple. You move the brain from "solve this for me" to "I've likely seen this before." That shift takes seconds. The cognitive payoff lasts for years.</p>
+            <p>Run this phase by asking, not telling. Four questions do most of the work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE: 4 PATTERN RECOGNITION QUESTIONS -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="phase-row">
+          <div class="phase-row__head reveal">
+            <span class="eyebrow">02 · The four questions</span>
+            <h2 class="h2">Recognition over <em>instruction.</em></h2>
+            <p class="lead">These four questions are the entire engine of the Learn phase. Memorize them.</p>
+          </div>
+          <div class="phase-row__body reveal d2">
+            <p>The job is to make the person solve their own problem out loud, using their own past. That is the only way the lesson becomes theirs.</p>
+
+            <div class="recognition">
+              <div class="rec">
+                <div class="rec__tag">Question 01</div>
+                <div class="rec__q">When have we seen something like this before?</div>
+                <p class="rec__why">Opens the search. Most patterns hide in plain sight. The brain finds them faster than you'd think when you ask it directly.</p>
+                <div class="rec__shift">Shifts from <strong>solve</strong> to <strong>recognize</strong></div>
+              </div>
+              <div class="rec">
+                <div class="rec__tag">Question 02</div>
+                <div class="rec__q">Where did we see it?</div>
+                <p class="rec__why">Anchors the memory in context. A pattern without a setting is a slogan. A pattern with a setting is a tool.</p>
+                <div class="rec__shift">Shifts from <strong>abstract</strong> to <strong>specific</strong></div>
+              </div>
+              <div class="rec">
+                <div class="rec__tag">Question 03</div>
+                <div class="rec__q">Who else has seen this pattern?</div>
+                <p class="rec__why">Pulls the network in. Patterns are richer when more than one person has touched them. This is how teams build shared instinct.</p>
+                <div class="rec__shift">Shifts from <strong>solo</strong> to <strong>shared</strong></div>
+              </div>
+              <div class="rec">
+                <div class="rec__tag">Question 04</div>
+                <div class="rec__q">What was similar? What was different?</div>
+                <p class="rec__why">The most important question of the four. Without this, every pattern looks the same and every situation gets the wrong fix.</p>
+                <div class="rec__shift">Shifts from <strong>match</strong> to <strong>refine</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACKWARD MAPPING for coaching -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="phase-row">
+          <div class="phase-row__head reveal">
+            <span class="eyebrow">03 · Coaching mode</span>
+            <h2 class="h2">When you are <em>building it in someone else.</em></h2>
+            <p class="lead">Use these questions when you want a direct report to grow their own pattern library, not yours.</p>
+          </div>
+          <div class="phase-row__body reveal d2">
+            <p>Sometimes the work is not solving the problem. The work is helping the person on the other side of the table become someone who can solve the next one without you. These questions map their past forward into the situation in front of them.</p>
+
+            <div class="ladder">
+              <div class="ladder__head">
+                <span class="ladder__label">Backward-mapping</span>
+                <div class="ladder__title">Six questions that pull the pattern out</div>
+                <p class="ladder__sub">Ask these in order. Take notes. The answers reveal how this person actually learns, what environment they need, and where their instinct already lives.</p>
+              </div>
+              <div class="ladder__rungs">
+                <div class="ladder__rung"><span class="ladder__num">01</span><span class="ladder__q">What have you learned really well?</span></div>
+                <div class="ladder__rung"><span class="ladder__num">02</span><span class="ladder__q">What were you excited about?</span></div>
+                <div class="ladder__rung"><span class="ladder__num">03</span><span class="ladder__q">What environment were you in?</span></div>
+                <div class="ladder__rung"><span class="ladder__num">04</span><span class="ladder__q">Who helped you?</span></div>
+                <div class="ladder__rung"><span class="ladder__num">05</span><span class="ladder__q">What did you enjoy?</span></div>
+                <div class="ladder__rung"><span class="ladder__num">06</span><span class="ladder__q">What frustrated you?</span></div>
+              </div>
+            </div>
+
+            <p style="margin-top: 28px;">Once you have the answers, map them forward. Where in the current situation do they have a similar setup? Where don't they? That gap is the coaching work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANTI-PATTERNS -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="phase-row">
+          <div class="phase-row__head reveal">
+            <span class="eyebrow eyebrow--light">04 · Anti-patterns</span>
+            <h2 class="h2 h2--light">How to know <em>you skipped Learn.</em></h2>
+            <p class="lead lead--light">Three signals. Each one looks like helpfulness from the outside.</p>
+          </div>
+          <div class="phase-row__body reveal d2">
+            <p style="color: rgba(255,255,255,0.72); font-size: 17px;">Skipping Learn does not feel like skipping. It feels like being decisive. That is the trap.</p>
+
+            <div class="anti-grid">
+              <div class="anti">
+                <div class="anti__num">Signal 01</div>
+                <h3>You gave the answer.</h3>
+                <p>The other person walked out with your fix, not their pattern. Next time the same situation shows up, they will come back to you. You built dependence, not capability.</p>
+              </div>
+              <div class="anti">
+                <div class="anti__num">Signal 02</div>
+                <h3>You skipped to Proceed.</h3>
+                <p>The conversation went from facts straight to next steps. Nothing in the middle. The decision may be right. The team did not get sharper.</p>
+              </div>
+              <div class="anti">
+                <div class="anti__num">Signal 03</div>
+                <h3>You answered your own questions.</h3>
+                <p>You asked, "When have you seen this before?" and then filled the silence with your own example. That is not coaching. That is monologue with a question mark.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAKES -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="phase-row">
+          <div class="phase-row__head reveal">
+            <span class="eyebrow">05 · Stakes</span>
+            <h2 class="h2">Skip Learn and the org <em>stops compounding.</em></h2>
+            <p class="lead">The cost is hidden because everything still feels productive.</p>
+          </div>
+          <div class="phase-row__body reveal d2">
+            <ul class="stakes-list">
+              <li>
+                <span class="num">01</span>
+                <div>
+                  <strong>The team stays junior.</strong>
+                  <p>People do not grow through being told. They grow through retrieving and applying. If the leader supplies every answer, the team stays at the level they walked in at.</p>
+                </div>
+              </li>
+              <li>
+                <span class="num">02</span>
+                <div>
+                  <strong>Decision speed degrades.</strong>
+                  <p>Every new situation lands back on the leader's desk because no one else has the pattern. Throughput collapses to one person's calendar.</p>
+                </div>
+              </li>
+              <li>
+                <span class="num">03</span>
+                <div>
+                  <strong>Lessons do not transfer.</strong>
+                  <p>The same mistake plays out across teams because no one connected this situation to the last one. The org runs on local knowledge, not shared instinct.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE PAGER -->
+    <section class="phase-pager">
+      <div class="container">
+        <div class="phase-pager__head reveal">
+          <span class="eyebrow eyebrow--light">The four phases</span>
+          <h2 class="h2 h2--light">Once the pattern is named, <em>the move gets simple.</em></h2>
+          <p class="lead lead--light">Learn surfaces the right options. Proceed turns those options into a decision the team owns.</p>
+        </div>
+        <div class="pager-grid reveal d2">
+          <a href="hear.html" class="pager">
+            <div class="pager__letter">H</div>
+            <div class="pager__label">Phase 01</div>
+            <div class="pager__word">Hear <span class="arrow">→</span></div>
+          </a>
+          <a href="evidence.html" class="pager">
+            <div class="pager__letter">E</div>
+            <div class="pager__label">Phase 02</div>
+            <div class="pager__word">Evidence <span class="arrow">→</span></div>
+          </a>
+          <div class="pager pager--current">
+            <div class="pager__letter">L</div>
+            <div class="pager__label">You are here</div>
+            <div class="pager__word">Learn</div>
+          </div>
+          <a href="proceed.html" class="pager">
+            <div class="pager__letter">P</div>
+            <div class="pager__label">Phase 04 · Next</div>
+            <div class="pager__word">Proceed <span class="arrow">→</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="phase-cta">
+      <div class="container">
+        <div class="phase-cta__inner">
+          <div class="phase-cta__head reveal">
+            <span class="eyebrow eyebrow--light">Bring the system in</span>
+            <h2 class="h2 h2--light">Want H.E.L.P. running in <em>your business?</em></h2>
+            <p class="lead lead--light">Chris steps in as Interim President when the leadership team has stopped agreeing on the problem. The operating system comes with him.</p>
+          </div>
+          <div class="reveal d2">
+            <a href="Apply to Work With Chris.html" class="btn btn--invert">Apply to work with Chris <span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="site-footer.js"></script>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('solid', window.scrollY > 30);
+    }, { passive: true });
+
+    const burger = document.getElementById('navToggle');
+    const drawer = document.getElementById('mobileNav');
+    if (burger) {
+      burger.addEventListener('click', () => drawer.classList.toggle('open'));
+      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
+    }
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Evidence. Phase 02 of the H.E.L.P. Operating System. Chris Schafer.</title>
+<meta name="description" content="The second phase of the H.E.L.P. Operating System. Separate fact from interpretation. Without evidence, learning becomes opinion. With evidence, learning becomes transferable." />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<meta name="theme-color" content="#0B1E3B" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --blue-normal:  #1D4696;
+    --blue-dark:    #0B1E3B;
+    --blue-mid:     #163680;
+    --blue-deepest: #050F22;
+    --blue-accent:  #3D6EC9;
+    --blue-tint-1:  #E8EEF9;
+    --white:        #FFFFFF;
+    --bg-soft:      #F8FAFC;
+    --text-main:    #0B1E3B;
+    --text-muted:   #4B5E77;
+    --text-light:   #8A9BB8;
+    --border-clean: #E2E8F0;
+    --border-mid:   #CBD5E8;
+    --signal-amber: #E0A53A;
+    --signal-green: #2E8B6A;
+    --signal-rose:  #C8546B;
+
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-serif: 'Fraunces', serif;
+
+    --nav-h: 76px;
+    --max-w: 1240px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { background: var(--white); color: var(--text-main); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; border: none; background: none; font: inherit; }
+  img { max-width: 100%; display: block; }
+  ul { list-style: none; }
+
+  .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+  .section { padding: 128px 0; }
+  .section--white { background: var(--white); }
+  .section--soft { background: var(--bg-soft); }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .07s; }
+  .reveal.d2 { transition-delay: .14s; }
+  .reveal.d3 { transition-delay: .21s; }
+  .reveal.d4 { transition-delay: .28s; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  .eyebrow { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-normal); margin-bottom: 18px; }
+  .eyebrow--light { color: rgba(255,255,255,0.55); }
+
+  .display { font-size: clamp(40px, 5.4vw, 76px); font-weight: 800; line-height: 1.02; letter-spacing: -0.038em; color: var(--text-main); }
+  .display em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--blue-normal); letter-spacing: -0.02em; }
+  .display--light { color: var(--white); }
+  .display--light em { color: rgba(255,255,255,0.7); }
+
+  .h2 { font-size: clamp(32px, 3.4vw, 46px); font-weight: 800; line-height: 1.08; letter-spacing: -0.032em; }
+  .h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--blue-normal); }
+  .h2--light { color: var(--white); }
+  .h2--light em { color: rgba(255,255,255,0.6); }
+
+  .lead { font-size: clamp(16px, 1.4vw, 18px); line-height: 1.78; color: var(--text-muted); }
+  .lead strong { color: var(--text-main); font-weight: 600; }
+  .lead--light { color: rgba(255,255,255,0.72); }
+  .lead--light strong { color: var(--white); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 26px; border-radius: 100px; font-size: 14px; font-weight: 600; letter-spacing: -0.005em; transition: background .16s ease, color .16s ease, border-color .16s ease, transform .12s ease, box-shadow .16s ease; white-space: nowrap; cursor: pointer; text-decoration: none; border: 1.5px solid transparent; }
+  .btn:active { transform: translateY(1px); }
+  .btn .arrow { width: 14px; height: 14px; display: inline-flex; align-items: center; justify-content: center; line-height: 1; font-size: 14px; transition: transform 260ms cubic-bezier(0.34, 1.4, 0.64, 1); will-change: transform; }
+  .btn:hover .arrow { transform: translate(3px, -3px); }
+  .btn--invert { background: var(--white); color: var(--blue-dark); }
+  .btn--invert:hover { background: var(--bg-soft); }
+
+  /* NAV */
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: var(--nav-h); display: flex; align-items: center; transition: background .25s ease, border-color .25s ease; border-bottom: 1px solid transparent; }
+  .nav.solid { background: rgba(11,30,59,0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: rgba(255,255,255,0.07); }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .nav__logo { display: flex; align-items: center; gap: 14px; }
+  .nav__mark-svg { display: block; height: 32px; width: auto; }
+  .nav__name { color: var(--white); font-size: 14px; font-weight: 600; letter-spacing: -0.005em; padding-left: 14px; border-left: 1px solid rgba(255,255,255,0.18); }
+  .nav__name span { color: rgba(255,255,255,0.45); font-weight: 400; }
+  .nav__links { display: flex; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 13px; color: rgba(255,255,255,0.6); transition: color .16s ease; }
+  .nav__links a:hover, .nav__links a.is-current { color: var(--white); }
+  .nav__right { display: flex; align-items: center; gap: 16px; }
+  .nav__burger { display: none; width: 40px; height: 40px; border-radius: 8px; background: rgba(255,255,255,0.08); align-items: center; justify-content: center; flex-direction: column; gap: 4px; cursor: pointer; }
+  .nav__burger span { display: block; width: 18px; height: 1.5px; background: var(--white); }
+  .mobile-drawer { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--blue-deepest); z-index: 199; padding: 24px 22px 32px; flex-direction: column; gap: 18px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .mobile-drawer.open { display: flex; }
+  .mobile-drawer a { font-size: 16px; color: rgba(255,255,255,0.85); }
+
+  /* HERO */
+  .phase-hero { position: relative; padding: calc(var(--nav-h) + 96px) 0 96px; background: radial-gradient(ellipse at 80% 0%, rgba(29,70,150,0.55), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(11,30,59,0.92), transparent 60%), linear-gradient(180deg, var(--blue-deepest) 0%, var(--blue-dark) 100%); color: var(--white); overflow: hidden; isolation: isolate; }
+  .phase-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse at center, black 25%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at center, black 25%, transparent 75%); pointer-events: none; z-index: 0; }
+  .phase-hero .container { position: relative; z-index: 1; }
+  .phase-back { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 56px; transition: color .16s ease; }
+  .phase-back:hover { color: var(--white); }
+  .phase-back .arrow { display: inline-flex; align-items: center; justify-content: center; width: 12px; height: 12px; line-height: 1; transition: transform 220ms cubic-bezier(0.34, 1.4, 0.64, 1); }
+  .phase-back:hover .arrow { transform: translateX(-3px); }
+  .phase-hero__grid { display: grid; grid-template-columns: 1fr 0.55fr; gap: 48px; align-items: center; }
+  .phase-hero__copy .display { color: var(--white); margin-top: 4px; }
+  .phase-hero__copy .display em { color: rgba(255,255,255,0.7); }
+  .phase-hero__lead { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.7; color: rgba(255,255,255,0.72); max-width: 560px; margin-top: 26px; }
+  .phase-hero__lead strong { color: var(--white); font-weight: 600; }
+
+  /* Phase-specific monogram for Evidence: split E */
+  .phase-hero__monogram { position: relative; aspect-ratio: 1 / 1; width: 100%; max-width: 420px; margin-left: auto; border-radius: 28px; background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.16); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); overflow: hidden; box-shadow: 0 30px 80px -30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.18); }
+.phase-hero__letter { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: clamp(220px, 28vw, 360px); font-weight: 800; letter-spacing: -0.06em; color: var(--white); line-height: 0.85; }
+  .phase-hero__phase-tag { position: absolute; top: 24px; left: 24px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); z-index: 2; }
+  .phase-hero__word-tag { position: absolute; bottom: 24px; right: 24px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.7); z-index: 2; }
+  .phase-hero__split-tag-l { position: absolute; top: 24px; left: 24px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--signal-green); z-index: 2; }
+  .phase-hero__split-tag-r { position: absolute; top: 24px; right: 24px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--signal-amber); z-index: 2; }
+
+  /* PHASE STRIP */
+  .phase-strip { background: var(--blue-deepest); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .phase-strip__row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .phase-strip a { padding: 22px 24px; display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,0.5); border-right: 1px solid rgba(255,255,255,0.06); transition: background .16s ease, color .16s ease; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .phase-strip a:last-child { border-right: none; }
+  .phase-strip a:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+  .phase-strip a.is-current { color: var(--white); background: rgba(29,70,150,0.18); }
+  .phase-strip__num { font-weight: 600; color: rgba(255,255,255,0.4); }
+  .phase-strip a.is-current .phase-strip__num { color: var(--white); }
+
+  /* CONTENT ROWS */
+  .phase-row { display: grid; grid-template-columns: 0.85fr 1.4fr; gap: 80px; align-items: start; }
+  .phase-row__head { position: sticky; top: 110px; }
+  .phase-row__head .h2 { margin-bottom: 14px; }
+  .phase-row__head .lead { max-width: 320px; }
+  .phase-row__body { font-size: 17px; line-height: 1.78; color: var(--text-main); }
+  .phase-row__body p { margin-bottom: 18px; }
+  .phase-row__body p:last-child { margin-bottom: 0; }
+  .phase-row__body strong { font-weight: 700; }
+  .phase-row__body .pull { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.35; color: var(--blue-normal); border-left: 3px solid var(--blue-normal); padding: 4px 0 4px 24px; margin: 28px 0; letter-spacing: -0.01em; }
+  .phase-row__body .pull::before { content: '"'; }
+  .phase-row__body .pull::after { content: '"'; }
+
+  /* SIGNATURE COMPONENT: Facts vs Interpretations Ledger */
+  .ledger {
+    margin: 80px 0 0;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border-clean);
+    box-shadow: 0 30px 80px -40px rgba(11,30,59,0.18);
+  }
+  .ledger__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--blue-deepest);
+    color: var(--white);
+  }
+  .ledger__col-head {
+    padding: 24px 28px;
+    display: flex; flex-direction: column; gap: 6px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .ledger__col-head:last-child { border-right: none; }
+  .ledger__col-tag {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .ledger__col-tag.fact { color: var(--signal-green); }
+  .ledger__col-tag.interp { color: var(--signal-amber); }
+  .ledger__col-tag::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 12px currentColor;
+  }
+  .ledger__col-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--white);
+  }
+  .ledger__col-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+  .ledger__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--border-clean);
+  }
+  .ledger__cell {
+    padding: 26px 28px;
+    border-right: 1px solid var(--border-clean);
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--text-main);
+  }
+  .ledger__cell:last-child { border-right: none; }
+  .ledger__cell.is-fact { background: rgba(46,139,106,0.04); }
+  .ledger__cell.is-interp { background: rgba(224,165,58,0.04); color: var(--text-muted); }
+  .ledger__cell-label {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .ledger__caption {
+    padding: 22px 28px;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border-clean);
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.06em;
+    color: var(--text-muted);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .ledger__caption strong { color: var(--text-main); font-weight: 600; }
+
+  /* Question grid for Practice */
+  .question-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 56px; }
+  .question {
+    padding: 36px 32px;
+    border-radius: 20px;
+    background: var(--white);
+    border: 1px solid var(--border-clean);
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .question:hover { transform: translateY(-2px); border-color: var(--border-mid); box-shadow: 0 18px 40px -24px rgba(11,30,59,0.18); }
+  .question__num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--blue-normal); margin-bottom: 18px; display: block; }
+  .question__q { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 22px; line-height: 1.3; color: var(--text-main); letter-spacing: -0.01em; margin-bottom: 14px; }
+  .question__why { font-size: 14.5px; line-height: 1.65; color: var(--text-muted); }
+
+  /* Anti-pattern dark section */
+  .section--dark { background: radial-gradient(ellipse at 80% 0%, rgba(29,70,150,0.4), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(11,30,59,0.95), transparent 60%), linear-gradient(180deg, var(--blue-deepest) 0%, var(--blue-dark) 100%); color: var(--white); }
+  .section--dark .h2 { color: var(--white); }
+  .section--dark .h2 em { color: rgba(255,255,255,0.6); }
+  .section--dark .lead { color: rgba(255,255,255,0.7); }
+  .anti-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 64px; }
+  .anti { padding: 36px 30px 34px; border-radius: 20px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+  .anti:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.20); transform: translateY(-3px); }
+  .anti__num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--signal-amber); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 8px; }
+  .anti__num::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--signal-amber); }
+  .anti h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.015em; color: var(--white); margin-bottom: 12px; line-height: 1.25; }
+  .anti p { font-size: 14.5px; line-height: 1.65; color: rgba(255,255,255,0.65); }
+
+  /* Stakes */
+  .stakes-list li { padding: 24px 0; border-bottom: 1px solid var(--border-clean); display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: start; }
+  .stakes-list li:last-child { border-bottom: none; }
+  .stakes-list .num { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--blue-normal); padding-top: 4px; }
+  .stakes-list strong { display: block; font-size: 18px; color: var(--text-main); margin-bottom: 6px; letter-spacing: -0.01em; font-weight: 700; }
+  .stakes-list p { font-size: 15.5px; color: var(--text-muted); line-height: 1.7; }
+
+  /* Phase pager */
+  .phase-pager { background: linear-gradient(180deg, var(--blue-dark) 0%, var(--blue-deepest) 100%); color: var(--white); padding: 110px 0 110px; position: relative; overflow: hidden; }
+  .phase-pager::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%); pointer-events: none; }
+  .phase-pager__head { max-width: 720px; margin-bottom: 56px; position: relative; z-index: 1; }
+  .phase-pager__head .h2 { color: var(--white); margin-bottom: 14px; }
+  .phase-pager__head .h2 em { color: rgba(255,255,255,0.6); }
+  .phase-pager__head .lead { color: rgba(255,255,255,0.7); max-width: 540px; }
+  .pager-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; z-index: 1; }
+  .pager { position: relative; padding: 28px 24px 26px; border-radius: 20px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: background .2s ease, border-color .2s ease, transform .2s ease; overflow: hidden; min-height: 200px; display: flex; flex-direction: column; }
+  .pager:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.22); transform: translateY(-3px); }
+  .pager--current { background: linear-gradient(135deg, rgba(29,70,150,0.55), rgba(11,30,59,0.55)); border-color: rgba(255,255,255,0.22); cursor: default; }
+  .pager--current:hover { transform: none; }
+  .pager__letter { position: absolute; top: -10px; right: 14px; font-size: 130px; font-weight: 800; line-height: 0.85; letter-spacing: -0.06em; color: rgba(255,255,255,0.10); pointer-events: none; }
+  .pager--current .pager__letter { color: rgba(255,255,255,0.16); }
+  .pager__label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 14px; position: relative; z-index: 1; }
+  .pager--current .pager__label { color: var(--signal-green); }
+  .pager__word { font-size: 26px; font-weight: 800; letter-spacing: -0.025em; color: var(--white); margin-top: auto; line-height: 1; position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px; }
+  .pager__word .arrow { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; font-size: 16px; line-height: 1; color: rgba(255,255,255,0.5); transition: transform 220ms cubic-bezier(0.34, 1.4, 0.64, 1), color .2s ease; }
+  .pager:hover .arrow { transform: translateX(4px); color: var(--white); }
+
+  /* CTA */
+  .phase-cta { background: var(--blue-deepest); color: var(--white); padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+  .phase-cta__inner { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+  .phase-cta__head .h2 { color: var(--white); margin-bottom: 10px; font-size: clamp(26px, 2.8vw, 36px); }
+  .phase-cta__head .h2 em { color: rgba(255,255,255,0.6); }
+  .phase-cta__head .lead { color: rgba(255,255,255,0.65); max-width: 560px; }
+
+  @media (max-width: 1024px) {
+    .phase-hero__grid { grid-template-columns: 1fr; gap: 48px; }
+    .phase-hero__monogram { max-width: 360px; margin: 0; }
+    .phase-row { grid-template-columns: 1fr; gap: 32px; }
+    .phase-row__head { position: static; }
+    .phase-row__head .lead { max-width: none; }
+    .question-grid { grid-template-columns: 1fr; }
+    .anti-grid { grid-template-columns: 1fr; }
+    .pager-grid { grid-template-columns: 1fr 1fr; }
+    .phase-cta__inner { grid-template-columns: 1fr; gap: 24px; }
+    .ledger__head, .ledger__row { grid-template-columns: 1fr; }
+    .ledger__col-head, .ledger__cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .ledger__row .ledger__cell:last-child { border-bottom: none; }
+    .ledger .ledger__cell { border-bottom: 1px solid var(--border-clean); }
+  }
+  @media (max-width: 720px) {
+    .section { padding: 80px 0; }
+    .container { padding: 0 22px; }
+    .nav__links { display: none; }
+    .nav__right .btn { display: none; }
+    .nav__burger { display: flex; }
+    .phase-hero { padding: calc(var(--nav-h) + 64px) 0 64px; }
+    .phase-strip__row { grid-template-columns: repeat(2, 1fr); }
+    .phase-strip a:nth-child(2) { border-right: none; }
+    .phase-strip a:nth-child(1), .phase-strip a:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .pager-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="Homepage.html" class="nav__logo" aria-label="OnDemand Leaders">
+          <svg class="nav__mark-svg" viewBox="0 0 360 130" role="img" aria-label="ODL">
+            <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
+              <circle cx="65" cy="65" r="58"></circle>
+              <circle cx="65" cy="65" r="46"></circle>
+              <line x1="65" y1="32" x2="65" y2="100"></line>
+              <path d="M 42 48 L 42 72 Q 42 82 52 82"></path>
+              <path d="M 88 48 L 88 72 Q 88 82 78 82"></path>
+              <line x1="55" y1="100" x2="75" y2="100"></line>
+              <path d="M 150 12 L 150 118 L 198 118 Q 252 118 252 65 Q 252 12 198 12 Z"></path>
+              <path d="M 162 24 L 162 106 L 196 106 Q 240 106 240 65 Q 240 24 196 24 Z"></path>
+              <path d="M 274 12 L 274 118 L 348 118 L 348 106 L 286 106 L 286 12 Z"></path>
+            </g>
+          </svg>
+          <div class="nav__name">OnDemand Leaders <span>· Chris Schafer</span></div>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="Homepage.html#problem">The Problem</a></li>
+          <li><a href="Homepage.html#service">Engagement</a></li>
+          <li><a href="Homepage.html#proof">Track Record</a></li>
+          <li><a href="Homepage.html#help" class="is-current">H.E.L.P.</a></li>
+          <li><a href="Homepage.html#thinking">Thinking</a></li>
+        </ul>
+        <div class="nav__right">
+          <a href="Apply to Work With Chris.html" class="btn btn--invert">Apply to work with Chris <span class="arrow">↗</span></a>
+          <button class="nav__burger" id="navToggle" aria-label="Open navigation"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-drawer" id="mobileNav">
+    <a href="Homepage.html#problem">The Problem</a>
+    <a href="Homepage.html#service">Engagement</a>
+    <a href="Homepage.html#proof">Track Record</a>
+    <a href="Homepage.html#help">H.E.L.P.</a>
+    <a href="Homepage.html#thinking">Thinking</a>
+    <a href="Apply to Work With Chris.html">Apply to work with Chris</a>
+  </div>
+
+  <main>
+
+    <section class="phase-hero">
+      <div class="container">
+        <a href="Homepage.html#help" class="phase-back"><span class="arrow">←</span> The H.E.L.P. operating system</a>
+        <div class="phase-hero__grid">
+          <div class="phase-hero__copy reveal">
+            <span class="eyebrow eyebrow--light">Phase 02 · The E</span>
+            <h1 class="display">Separate fact from <em>interpretation.</em></h1>
+            <p class="phase-hero__lead">Without evidence, learning becomes opinion. <strong>With evidence, learning becomes transferable.</strong></p>
+          </div>
+          <div class="phase-hero__monogram reveal d2" aria-hidden="true">
+            <div class="phase-hero__letter">E</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="phase-strip" aria-label="H.E.L.P. phases">
+      <div class="container">
+        <div class="phase-strip__row">
+          <a href="hear.html"><span class="phase-strip__num">01</span> Hear</a>
+          <a href="evidence.html" class="is-current"><span class="phase-strip__num">02</span> Evidence</a>
+          <a href="learn.html"><span class="phase-strip__num">03</span> Learn</a>
+          <a href="proceed.html"><span class="phase-strip__num">04</span> Proceed</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- DEFINITION + LEDGER -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="phase-row">
+          <div class="phase-row__head reveal">
+            <span class="eyebrow">01 · Definition</span>
+            <h2 class="h2">Two columns. <em>One discipline.</em></h2>
+            <p class="lead">A working definition you can run on any meeting, any deal, any decision.</p>
+          </div>
+          <div class="phase-row__body reveal d2">
+            <p>Take whatever situation is in front of you and split it into two columns. Facts on the left. Interpretations on the right. Be ruthless about which is which.</p>
+            <p><strong>Facts are observable, verifiable, and time-stamped.</strong> The rep missed quota three quarters in a row. The customer sent that exact email on Tuesday. Pipeline coverage is 2.1x against a 3x target.</p>
+            <p><strong>Interpretations are everything else.</strong> The rep has lost motivation. The customer is ghosting us. Marketing isn't producing enough leads.</p>
+            <p class="pull">The forecast is fact. The story about why is interpretation.</p>
+            <p>The whole situation usually unlocks at the spot where you were treating an interpretation as a fact. That is the crack in the diagnosis. Find it and the next move gets obvious.</p>
+
+            <!-- LEDGER -->
+            <div class="ledger">
+              <div class="ledger__head">
+                <div class="ledger__col-head">
+                  <span class="ledger__col-tag fact">Fact</span>
+                  <span class="ledger__col-title">What we can verify</span>
+                  <span class="ledger__col-sub">Observable. Time-stamped. Sourceable.</span>
+                </div>
+                <div class="ledger__col-head">
+                  <span class="ledger__col-tag interp">Interpretation</span>
+                  <span class="ledger__col-title">What we are telling ourselves</span>
+                  <span class="ledger__col-sub">Stories about why. Often treated as fact.</span>
+                </div>
+              </div>
+
+              <div class="ledger__row">
+                <div class="ledger__cell is-fact">
+                  <span class="ledger__cell-label">Example 01 / Pipeline</span>
+                  Coverage is 2.1x against a 3x target. Down from 2.8x in Q3.
+                </div>
+                <div class="ledger__cell is-interp">
+                  <span class="ledger__cell-label">The story</span>
+                  Marketing isn't producing enough leads.
+                </div>
+              </div>
+              <div class="ledger__row">
+                <div class="ledger__cell is-fact">
+                  <span class="ledger__cell-label">Example 02 / Deal</span>
+                  Champion has not responded for 17 days. Last touch was a pricing question.
+                </div>
+                <div class="ledger__cell is-interp">
+                  <span class="ledger__cell-label">The story</span>
+                  Champion went dark. The deal is dead.
+                </div>
+              </div>
+              <div class="ledger__row">
+                <div class="ledger__cell is-fact">
+                  <span class="ledger__cell-label">Example 03 / Performance</span>
+                  Rep missed quota three quarters in a row. Activity metrics are up 18% over the same period.
+                </div>
+                <div class="ledger__cell is-interp">
+                  <span class="ledger__cell-label">The story</span>
+                  The rep has lost motivation.
+                </div>
+              </div>
+              <div class="ledger__row">
+                <div class="ledger__cell is-fact">
+                  <span class="ledger__cell-label">Example 04 / Team</span>
+                  Marketing and sales gave different ICPs in the last all-hands. Both decks are in the shared drive.
+                </div>
+                <div class="ledger__cell is-interp">
+                  <span class="ledger__cell-label">The story</span>
+                  The team isn't aligned.
+                </div>
+              </div>
+
+              <div class="ledger__caption">
+                <strong>Read across each row.</strong> The right column is what most leaders run with. The left column is where the work actually starts.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="phase-row">
+          <div class="phase-row__head reveal">
+            <span class="eyebrow">02 · Practice</span>
+            <h2 class="h2">Four questions that <em>force evidence to surface.</em></h2>
+            <p class="lead">Use these in your next pipeline review. They will change what gets said in the room.</p>
+          </div>
+          <div class="phase-row__body reveal d2">
+            <p>Evidence is not a research project. It is four questions you ask out loud, in the moment, when someone hands you a story dressed up as a fact.</p>
+
+            <div class="question-grid">
+              <div class="question">
+                <span class="question__num">Question 01</span>
+                <div class="question__q">What actually happened, in order?</div>
+                <p class="question__why">Forces a sequence. Stories collapse time. Facts have an order.</p>
+              </div>
+              <div class="question">
+                <span class="question__num">Question 02</span>
+                <div class="question__q">What was said, by whom, in what forum?</div>
+                <p class="question__why">Pulls the source. If no one can name a source, the claim is interpretation.</p>
+              </div>
+              <div class="question">
+                <span class="question__num">Question 03</span>
+                <div class="question__q">What data do we have? What data are we missing?</div>
+                <p class="question__why">Names the gap. Most diagnoses run on the data that was easy to grab, not the data that mattered.</p>
+              </div>
+              <div class="question">
+                <span class="question__num">Question 04</span>
+                <div class="question__q">What is one story we are telling ourselves here?</div>
+                <p class="question__why">The most useful question of the four. Surfaces the interpretation hiding inside the fact column.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANTI-PATTERNS -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="phase-row">
+          <div class="phase-row__head reveal">
+            <span class="eyebrow eyebrow--light">03 · Anti-patterns</span>
+            <h2 class="h2 h2--light">How to know <em>you ran a story.</em></h2>
+            <p class="lead lead--light">Three signals that you skipped the evidence pass.</p>
+          </div>
+          <div class="phase-row__body reveal d2">
+            <p style="color: rgba(255,255,255,0.72); font-size: 17px;">If any of these is true about your last big call, the call was made on interpretation. The cost shows up later, dressed as something else.</p>
+            <div class="anti-grid">
+              <div class="anti">
+                <div class="anti__num">Signal 01</div>
+                <h3>The decision rests on a label.</h3>
+                <p>"Underperformer." "Difficult customer." "Disengaged team." Labels are compressed interpretations. They feel like data because they are short.</p>
+              </div>
+              <div class="anti">
+                <div class="anti__num">Signal 02</div>
+                <h3>The forecast is built on belief, not coverage.</h3>
+                <p>If you cannot point to the deal-by-deal evidence, the number is a story. Stories miss the quarter. Coverage with evidence does not.</p>
+              </div>
+              <div class="anti">
+                <div class="anti__num">Signal 03</div>
+                <h3>You can't name what would change your mind.</h3>
+                <p>If there is no piece of evidence that would flip your read, you are not in evidence. You are in conviction. The two are different.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAKES -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="phase-row">
+          <div class="phase-row__head reveal">
+            <span class="eyebrow">04 · Stakes</span>
+            <h2 class="h2">Skip Evidence and three things break.</h2>
+            <p class="lead">All three are hard to spot in the moment. They compound across quarters.</p>
+          </div>
+          <div class="phase-row__body reveal d2">
+            <ul class="stakes-list">
+              <li>
+                <span class="num">01</span>
+                <div>
+                  <strong>You solve the wrong problem.</strong>
+                  <p>The fix lands on the interpretation. The actual fact stays untouched. The issue comes back, usually at the worst possible moment, with more damage than it had the first time.</p>
+                </div>
+              </li>
+              <li>
+                <span class="num">02</span>
+                <div>
+                  <strong>Learning becomes opinion.</strong>
+                  <p>Lessons that should be transferable across the team get trapped inside one person's head. The next leader has to relearn them. The org repeats the same diagnostic mistakes.</p>
+                </div>
+              </li>
+              <li>
+                <span class="num">03</span>
+                <div>
+                  <strong>Trust degrades.</strong>
+                  <p>When decisions land on stories, the people closest to the data feel unheard. They stop bringing the inconvenient facts. The forecast looks cleaner. The truth gets thinner.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE PAGER -->
+    <section class="phase-pager">
+      <div class="container">
+        <div class="phase-pager__head reveal">
+          <span class="eyebrow eyebrow--light">The four phases</span>
+          <h2 class="h2 h2--light">With evidence in hand, <em>you can finally learn.</em></h2>
+          <p class="lead lead--light">Evidence is the bridge from listening to pattern recognition. Without it, the next phase becomes a guess.</p>
+        </div>
+        <div class="pager-grid reveal d2">
+          <a href="hear.html" class="pager">
+            <div class="pager__letter">H</div>
+            <div class="pager__label">Phase 01</div>
+            <div class="pager__word">Hear <span class="arrow">→</span></div>
+          </a>
+          <div class="pager pager--current">
+            <div class="pager__letter">E</div>
+            <div class="pager__label">You are here</div>
+            <div class="pager__word">Evidence</div>
+          </div>
+          <a href="learn.html" class="pager">
+            <div class="pager__letter">L</div>
+            <div class="pager__label">Phase 03 · Next</div>
+            <div class="pager__word">Learn <span class="arrow">→</span></div>
+          </a>
+          <a href="proceed.html" class="pager">
+            <div class="pager__letter">P</div>
+            <div class="pager__label">Phase 04</div>
+            <div class="pager__word">Proceed <span class="arrow">→</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="phase-cta">
+      <div class="container">
+        <div class="phase-cta__inner">
+          <div class="phase-cta__head reveal">
+            <span class="eyebrow eyebrow--light">Bring the system in</span>
+            <h2 class="h2 h2--light">Want H.E.L.P. running in <em>your business?</em></h2>
+            <p class="lead lead--light">Chris steps in as Interim President when the leadership team has stopped agreeing on the problem. The operating system comes with him.</p>
+          </div>
+          <div class="reveal d2">
+            <a href="Apply to Work With Chris.html" class="btn btn--invert">Apply to work with Chris <span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="site-footer.js"></script>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('solid', window.scrollY > 30);
+    }, { passive: true });
+
+    const burger = document.getElementById('navToggle');
+    const drawer = document.getElementById('mobileNav');
+    if (burger) {
+      burger.addEventListener('click', () => drawer.classList.toggle('open'));
+      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
+    }
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>

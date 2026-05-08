@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OnDemand Leaders — Interim C-Suite Operator</title>
+  <meta name="description" content="Chris Schafer. Interim CRO, President, and CEO-level advisor to tech companies rebuilding revenue engines. 25 years. NetSuite $30M to $1B+.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    /* ─── TOKENS ──────────────────────────────────────────────── */
+    :root {
+      --blue-normal:  #1D4696;
+      --blue-dark:    #0B1E3B;
+      --blue-mid:     #163680;
+      --white:        #FFFFFF;
+      --bg-soft:      #F8FAFC;
+      --text-main:    #0B1E3B;
+      --text-muted:   #4B5E77;
+      --text-light:   #8A9BB8;
+      --border-clean: #E2E8F0;
+      --border-mid:   #CBD5E8;
+      --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --nav-h: 72px;
+      --max-w: 1160px;
+      --r-sm: 4px;
+      --r-md: 8px;
+      --r-lg: 14px;
+    }
+
+    /* ─── RESET ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--white);
+      color: var(--text-main);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+
+    /* ─── LAYOUT ──────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .section         { padding: 120px 0; }
+    .section--white  { background: var(--white); }
+    .section--soft   { background: var(--bg-soft); }
+    .section--dark   { background: var(--blue-dark); }
+
+    /* ─── ANIMATIONS ──────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.38s ease, transform 0.38s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.06s; }
+    .reveal.d2 { transition-delay: 0.12s; }
+    .reveal.d3 { transition-delay: 0.18s; }
+    .reveal.d4 { transition-delay: 0.24s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ─── SHARED ──────────────────────────────────────────────── */
+    .section-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-normal);
+      margin-bottom: 16px;
+    }
+    .section-label--light { color: rgba(255,255,255,0.45); }
+
+    .display {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.028em;
+      color: var(--text-main);
+    }
+    .display span { color: var(--blue-normal); }
+    .display--light         { color: var(--white); }
+    .display--light span    { color: rgba(255,255,255,0.5); }
+
+    .lead { font-size: clamp(16px, 1.8vw, 18px); font-weight: 400; line-height: 1.78; color: var(--text-muted); }
+    .lead--light { color: rgba(255,255,255,0.6); }
+    .lead strong { color: var(--text-main); font-weight: 600; }
+    .lead--light strong { color: var(--white); }
+
+    /* ─── BUTTONS ─────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      padding: 0 28px;
+      border-radius: var(--r-sm);
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+      touch-action: manipulation;
+      white-space: nowrap;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--blue-normal);
+      color: var(--white);
+      border: 2px solid var(--blue-normal);
+    }
+    .btn-primary:hover { background: var(--blue-mid); border-color: var(--blue-mid); }
+
+    .btn-ghost-light {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+    .btn-ghost-light:hover { border-color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.07); }
+
+    .btn-ghost-dark {
+      background: transparent;
+      color: var(--blue-normal);
+      border: 2px solid var(--blue-normal);
+    }
+    .btn-ghost-dark:hover { background: var(--blue-normal); color: var(--white); }
+
+    /* ─── NAVIGATION ──────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid transparent;
+      transition: background 0.28s ease, border-color 0.28s ease;
+    }
+    .nav.solid {
+      background: rgba(11,30,59,0.95);
+      border-color: rgba(255,255,255,0.07);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav__logo { display: flex; align-items: center; gap: 10px; }
+    .nav__logo-mark {
+      width: 34px; height: 34px;
+      border-radius: var(--r-sm);
+      background: var(--blue-normal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; color: var(--white); letter-spacing: -0.02em;
+    }
+    .nav__logo-text { font-size: 15px; font-weight: 700; color: var(--white); letter-spacing: -0.01em; }
+    .nav__links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav__links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55); transition: color 0.18s; }
+    .nav__links a:hover { color: var(--white); }
+    .nav__right { display: flex; align-items: center; gap: 16px; }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
+    .nav__burger span { display: block; width: 22px; height: 1.5px; background: var(--white); border-radius: 2px; }
+
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: rgba(11,30,59,0.98);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 20px 40px;
+      z-index: 199;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mobile-drawer.open { display: flex; }
+    .mobile-drawer a {
+      padding: 14px 0; font-size: 15px; font-weight: 500;
+      color: rgba(255,255,255,0.65); border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .mobile-drawer a:last-child { border: none; }
+
+    /* ─── HERO ────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: stretch;
+      padding-top: var(--nav-h);
+      background: var(--blue-dark);
+      overflow: hidden;
+    }
+    /* Text side — left, constrained width, no container needed */
+    .hero__text-side {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero__text-inner {
+      width: 100%;
+      max-width: 680px;
+      padding: 48px 32px 48px clamp(48px, 8vw, 112px);
+    }
+    /* Photo side — right, full bleed to viewport right edge, no container */
+    .hero__photo-col {
+      width: 46%;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__photo-col img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    /* Left fade — blends photo into hero background */
+    .hero__photo-col::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--blue-dark) 0%, transparent 42%);
+      pointer-events: none;
+    }
+    /* Alias: hero__content = hero__text-inner for reveal classes */
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 26px;
+      padding: 0 12px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 20px;
+      align-self: flex-start;
+    }
+    .hero__badge-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.75); flex-shrink: 0; }
+    .hero__headline {
+      font-size: clamp(38px, 3.8vw, 54px);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.032em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .hero__headline em {
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+    }
+    .hero__sub {
+      font-size: clamp(14px, 1.3vw, 16px);
+      font-weight: 400;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+    .hero__sub strong { color: var(--white); font-weight: 600; }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+    /* ─── STATS STRIP ─────────────────────────────────────────── */
+    .stats-strip {
+      background: var(--blue-normal);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .stats-strip__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-cell {
+      padding: 36px 32px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell__num {
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .stat-cell__text { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.42); line-height: 1.4; }
+
+    /* ─── THE PROBLEM ─────────────────────────────────────────── */
+    .misalign__layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .misalign__left h2 { margin-bottom: 24px; }
+    .misalign__left .lead { margin-bottom: 16px; }
+    .misalign__pullquote {
+      margin-top: 40px;
+      padding: 28px 32px;
+      border-left: 3px solid var(--blue-normal);
+      background: var(--bg-soft);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+    }
+    .misalign__pullquote p {
+      font-size: clamp(16px, 1.6vw, 20px);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+    .tension-stack { display: flex; flex-direction: column; gap: 10px; }
+    .tcard {
+      padding: 22px 24px;
+      background: var(--white);
+      border: 1px solid var(--border-clean);
+      border-left: 3px solid var(--blue-normal);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+    }
+    .tcard__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .tcard__role { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-normal); }
+    .tcard__chip { font-size: 10px; font-weight: 600; color: var(--text-muted); background: var(--bg-soft); border: 1px solid var(--border-clean); padding: 2px 8px; border-radius: 100px; flex-shrink: 0; }
+    .tcard__line { font-size: 14px; font-weight: 500; color: var(--text-main); line-height: 1.55; font-style: italic; margin-bottom: 8px; }
+    .tcard__sub { font-size: 12px; color: var(--text-muted); }
+    .tcard--result { background: var(--blue-dark); border-left-color: var(--blue-normal); margin-top: 8px; }
+    .tcard--result .tcard__role { color: rgba(255,255,255,0.35); }
+    .tcard--result .tcard__line { color: rgba(255,255,255,0.85); font-style: normal; font-weight: 400; font-size: 13.5px; margin-bottom: 0; }
+
+    /* ─── TRACK RECORD ────────────────────────────────────────── */
+    .proof__layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
+    .proof__left h2 { margin-bottom: 24px; }
+    .proof__left .lead { margin-bottom: 16px; }
+    .proof__highlight { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; }
+    .phigh { padding: 20px; background: var(--white); border: 1px solid var(--border-clean); border-radius: var(--r-md); }
+    .phigh__num { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; color: var(--blue-normal); line-height: 1; margin-bottom: 6px; }
+    .phigh__label { font-size: 12px; color: var(--text-muted); }
+
+    .timeline { display: flex; flex-direction: column; position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 74px; top: 12px; bottom: 12px;
+      width: 1px;
+      background: var(--border-clean);
+    }
+    .tl-item { display: grid; grid-template-columns: 74px 1fr; gap: 24px; padding-bottom: 36px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-year { font-size: 12px; font-weight: 500; color: var(--text-light); padding-top: 2px; text-align: right; padding-right: 20px; }
+    .tl-body { position: relative; }
+    .tl-body::before {
+      content: '';
+      position: absolute;
+      left: -16px; top: 7px;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--blue-normal);
+    }
+    .tl-title { font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; }
+    .tl-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+    .tl-chip {
+      display: inline-block; margin-top: 8px;
+      font-size: 11px; font-weight: 600; color: var(--blue-normal);
+      background: rgba(29,70,150,0.08); border: 1px solid rgba(29,70,150,0.15);
+      padding: 3px 10px; border-radius: 100px;
+    }
+
+    /* ─── H.E.L.P. FRAMEWORK ─────────────────────────────────── */
+    .framework__header { max-width: 580px; margin-bottom: 64px; }
+    .framework__header h2 { margin-bottom: 16px; }
+    .help-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .help-card {
+      background: var(--white);
+      border: 1px solid var(--border-clean);
+      border-top: 3px solid var(--blue-normal);
+      border-radius: 0 0 var(--r-lg) var(--r-lg);
+      padding: 32px 28px;
+    }
+    .help-card__top { display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
+    .help-card__letter { font-size: 42px; font-weight: 800; color: var(--blue-normal); line-height: 1; letter-spacing: -0.04em; }
+    .help-card__word { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); }
+    .help-card__title { font-size: 17px; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.25; }
+    .help-card__body { font-size: 14px; font-weight: 400; color: var(--text-muted); line-height: 1.72; }
+
+    .framework__outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+    .outcome-card {
+      padding: 24px 28px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border-clean);
+      border-left: 3px solid var(--blue-normal);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+    }
+    .outcome-card__label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+    .outcome-card__text { font-size: 15px; font-weight: 400; font-style: italic; color: var(--text-main); line-height: 1.55; }
+
+    /* ─── SERVICES ────────────────────────────────────────────── */
+    .services__header { max-width: 520px; margin-bottom: 56px; }
+    .services__header h2 { margin-bottom: 16px; }
+    .services__primary-row { margin-bottom: 20px; }
+    .services__secondary-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    .svc-primary {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--blue-normal);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .svc-primary__grid { display: grid; grid-template-columns: 300px 1fr; }
+    .svc-head { padding: 40px 36px; border-right: 1px solid rgba(255,255,255,0.07); }
+    .svc-head__meta { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 24px; }
+    .svc-head__type { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.38); }
+    .svc-duration {
+      font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.75);
+      background: rgba(29,70,150,0.5); border: 1px solid var(--blue-normal);
+      padding: 3px 10px; border-radius: 100px;
+    }
+    .svc-head__title { font-size: clamp(22px, 2.2vw, 32px); font-weight: 800; letter-spacing: -0.03em; color: var(--white); line-height: 1.1; margin-bottom: 10px; }
+    .svc-head__sub { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+    .svc-right { display: flex; flex-direction: column; }
+    .svc-body { padding: 40px 36px 24px; flex: 1; }
+    .svc-body__desc { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.6); line-height: 1.72; margin-bottom: 24px; }
+    .svc-body__desc strong { color: var(--white); font-weight: 600; }
+    .svc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .svc-list li { display: flex; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+    .svc-list li::before {
+      content: '';
+      display: block; flex-shrink: 0;
+      width: 14px; height: 1px;
+      background: var(--blue-normal);
+      margin-top: 11px;
+    }
+    .svc-foot { padding: 24px 36px 36px; }
+    .svc-card-sm {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--blue-normal);
+      border-radius: var(--r-md);
+      padding: 28px 32px;
+    }
+    .svc-card-sm__label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 12px; }
+    .svc-card-sm__title { font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: -0.02em; margin-bottom: 12px; }
+    .svc-card-sm__body { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* ─── TESTIMONIALS ───────────────────────────────────────── */
+    .testimonials__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
+    .tquote {
+      background: var(--white);
+      border: 1px solid var(--border-clean);
+      border-left: 3px solid var(--blue-normal);
+      border-radius: 0 var(--r-lg) var(--r-lg) 0;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+    }
+    .tquote__text {
+      font-size: 16px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-main);
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 28px;
+    }
+    .tquote__byline { border-top: 1px solid var(--border-clean); padding-top: 20px; }
+    .tquote__name { font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 3px; }
+    .tquote__role { font-size: 12px; color: var(--text-muted); }
+
+    /* ─── THREE Cs ────────────────────────────────────────────── */
+    .three-cs__header { max-width: 520px; margin: 0 auto 56px; text-align: center; }
+    .three-cs__header h2 { margin-bottom: 16px; }
+    .three-cs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .c-panel {
+      padding: 40px 32px;
+      background: var(--white);
+      border: 1px solid var(--border-clean);
+      border-top: 3px solid var(--blue-normal);
+      border-radius: 0 0 var(--r-lg) var(--r-lg);
+    }
+    .c-panel__title { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-normal); margin-bottom: 12px; }
+    .c-panel__name { font-size: 22px; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em; margin-bottom: 16px; }
+    .c-panel__body { font-size: 14px; font-weight: 400; color: var(--text-muted); line-height: 1.72; }
+
+    /* ─── FINAL CTA ───────────────────────────────────────────── */
+    .final-cta { text-align: center; background: var(--blue-dark); }
+    .final-cta__inner { max-width: 620px; margin: 0 auto; }
+    .final-cta h2 { font-size: clamp(36px, 5.5vw, 68px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; color: var(--white); margin-bottom: 24px; }
+    .final-cta h2 span { color: rgba(255,255,255,0.42); }
+    .final-cta p { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.55); line-height: 1.72; margin-bottom: 40px; }
+    .final-cta__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .final-cta__note { font-size: 13px; color: rgba(255,255,255,0.25); }
+
+    /* ─── FOOTER ──────────────────────────────────────────────── */
+    .footer { background: var(--blue-dark); border-top: 1px solid rgba(255,255,255,0.07); padding: 36px 0; }
+    .footer__inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .footer__brand { display: flex; align-items: center; gap: 10px; }
+    .footer__brand-mark { width: 28px; height: 28px; border-radius: var(--r-sm); background: var(--blue-normal); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--white); }
+    .footer__brand-name { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.35); }
+    .footer__links { display: flex; gap: 28px; list-style: none; }
+    .footer__links a { font-size: 13px; color: rgba(255,255,255,0.3); transition: color 0.18s; }
+    .footer__links a:hover { color: rgba(255,255,255,0.6); }
+    .footer__copy { font-size: 12px; color: rgba(255,255,255,0.18); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .misalign__layout,
+      .proof__layout        { grid-template-columns: 1fr; gap: 56px; }
+      .svc-primary__grid    { grid-template-columns: 1fr; }
+      .svc-head             { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .help-grid            { grid-template-columns: 1fr 1fr; }
+      .framework__outcomes  { grid-template-columns: 1fr; }
+      .hero                 { flex-direction: column; min-height: unset; }
+      .hero__photo-col      { display: block; width: 100%; height: 380px; flex-shrink: 0; }
+      .hero__photo-col img  { object-position: center 12%; }
+      .hero__photo-col::after { background: linear-gradient(to bottom, transparent 50%, var(--blue-dark) 100%); }
+      .hero__text-inner     { max-width: 100%; margin: 0; padding: 8px 40px 80px; }
+    }
+
+    @media (max-width: 768px) {
+      .section              { padding: 80px 0; }
+      .container            { padding: 0 24px; }
+      .nav__links, .nav__right .btn { display: none; }
+      .nav__burger          { display: flex; }
+      .stats-strip__grid    { grid-template-columns: 1fr 1fr; }
+      .stat-cell:nth-child(1),
+      .stat-cell:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .stat-cell:nth-child(4) { border-right: none; }
+      .three-cs__grid       { grid-template-columns: 1fr; }
+      .services__secondary-row { grid-template-columns: 1fr; }
+      .testimonials__grid   { grid-template-columns: 1fr; }
+      .proof__highlight     { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .help-grid            { grid-template-columns: 1fr; }
+      .hero__actions        { flex-direction: column; align-items: flex-start; }
+      .hero__actions .btn   { width: 100%; height: 52px; }
+      .final-cta__actions   { flex-direction: column; align-items: center; }
+      .final-cta__actions .btn { width: 100%; max-width: 320px; height: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo" aria-label="OnDemand Leaders">
+          <div class="nav__logo-mark" aria-hidden="true">ODL</div>
+          <span class="nav__logo-text">OnDemand Leaders</span>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="#problem">The Problem</a></li>
+          <li><a href="#proof">Track Record</a></li>
+          <li><a href="#framework">H.E.L.P.</a></li>
+          <li><a href="#services">Services</a></li>
+        </ul>
+        <div class="nav__right">
+          <a href="#contact" class="btn btn-primary">Book a Call</a>
+          <button class="nav__burger" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobileNav" role="dialog" aria-modal="true">
+    <a href="#problem">The Problem</a>
+    <a href="#proof">Track Record</a>
+    <a href="#framework">H.E.L.P. Framework</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Book a Consultation</a>
+  </div>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="home" aria-labelledby="hero-h1">
+
+      <div class="hero__text-side">
+        <div class="hero__text-inner">
+          <div class="hero__badge reveal">
+            <span class="hero__badge-dot" aria-hidden="true"></span>
+            Interim C-Suite Operator
+          </div>
+          <h1 class="hero__headline reveal d1" id="hero-h1">
+            I'm brought in when the revenue engine no longer matches the <em>ambition.</em>
+          </h1>
+          <p class="hero__sub reveal d2">
+            25 years. Three continents. NetSuite scaled from $30M to
+            over $1B through IPO into a $9.3B Oracle acquisition. I build
+            the clarity, operating cadence, and GTM systems that turn
+            strategy into measurable outcomes.
+          </p>
+          <div class="hero__actions reveal d3">
+            <a href="#contact" class="btn btn-primary">Book a Strategy Call</a>
+            <a href="#framework" class="btn btn-ghost-light">The H.E.L.P. System</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__photo-col" aria-hidden="true">
+        <img src="../1777303879111.jpeg" alt="Chris Schafer — Interim C-Suite Operator" loading="eager">
+      </div>
+
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-strip" aria-label="Key credentials">
+      <div class="container">
+        <div class="stats-strip__grid">
+          <div class="stat-cell reveal">
+            <div class="stat-cell__num" data-count="25" data-suffix="+">25+</div>
+            <div class="stat-cell__text">Years in B2B SaaS<br>go-to-market leadership</div>
+          </div>
+          <div class="stat-cell reveal d1">
+            <div class="stat-cell__num" data-count="1" data-prefix="$" data-suffix="B">$1B</div>
+            <div class="stat-cell__text">NetSuite revenue milestone<br>from a $30M starting point</div>
+          </div>
+          <div class="stat-cell reveal d2">
+            <div class="stat-cell__num" data-count="3">3</div>
+            <div class="stat-cell__text">Continents. NA, Australia,<br>Singapore, Manila.</div>
+          </div>
+          <div class="stat-cell reveal d3">
+            <div class="stat-cell__num" data-count="9.3" data-prefix="$" data-suffix="B">$9.3B</div>
+            <div class="stat-cell__text">Oracle acquisition of NetSuite.<br>Chris was inside the engine.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE PROBLEM -->
+    <section class="section section--white" id="problem" aria-labelledby="problem-h2">
+      <div class="container">
+        <div class="misalign__layout">
+
+          <div class="misalign__left">
+            <span class="section-label reveal">The Real Problem</span>
+            <h2 class="display reveal d1" id="problem-h2">
+              Urgency became your<br><span>operating system.</span>
+            </h2>
+            <p class="lead reveal d2">
+              Marketing says pipeline is thin. Finance says the forecast is fiction.
+              The CEO is calling more meetings to solve both at once.
+            </p>
+            <p class="lead reveal d2">
+              Nobody is wrong. Nothing is moving.
+            </p>
+            <p class="lead reveal d2">
+              This is not a people problem. It is an alignment problem.
+              When three parts of the business are each solving a different version
+              of the same situation, the noise gets louder and the progress stalls.
+              More sprints, more standups, more pressure. None of it changes the
+              mechanics underneath.
+            </p>
+            <div class="misalign__pullquote reveal d3">
+              <p>"Velocity without awareness creates friction."</p>
+            </div>
+          </div>
+
+          <div class="tension-stack reveal d2">
+            <div class="tcard">
+              <div class="tcard__header">
+                <div class="tcard__role">Marketing</div>
+                <div class="tcard__chip">Response</div>
+              </div>
+              <div class="tcard__line">"Pipeline is thin because sales won't work the leads we give them."</div>
+              <div class="tcard__sub">More campaigns. Higher MQL targets.</div>
+            </div>
+            <div class="tcard">
+              <div class="tcard__header">
+                <div class="tcard__role">Finance</div>
+                <div class="tcard__chip">Response</div>
+              </div>
+              <div class="tcard__line">"The forecast has missed three quarters in a row. We need tighter controls."</div>
+              <div class="tcard__sub">Restrict spend. Require approvals on everything.</div>
+            </div>
+            <div class="tcard">
+              <div class="tcard__header">
+                <div class="tcard__role">CEO</div>
+                <div class="tcard__chip">Response</div>
+              </div>
+              <div class="tcard__line">"We just need everyone moving faster and pulling in the same direction."</div>
+              <div class="tcard__sub">Hire a consultant. Run an all-hands. Set a new OKR.</div>
+            </div>
+            <div class="tcard tcard--result">
+              <div class="tcard__header">
+                <div class="tcard__role">What Actually Happens</div>
+              </div>
+              <div class="tcard__line">Three teams. Three diagnoses. Zero shared definition of what fixed looks like. The revenue plan becomes harder to believe with every quarter that passes.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACK RECORD -->
+    <section class="section section--soft" id="proof" aria-labelledby="proof-h2">
+      <div class="container">
+        <div class="proof__layout">
+
+          <div class="proof__left">
+            <span class="section-label reveal">Track Record</span>
+            <h2 class="display reveal d1" id="proof-h2">
+              This is not<br><span>theory.</span>
+            </h2>
+            <p class="lead reveal d2">
+              Chris has been inside the rooms where the revenue plan broke down and got rebuilt.
+              Not as an advisor who delivers a deck and leaves. As the operator who stayed,
+              owned the number, and delivered.
+            </p>
+            <p class="lead reveal d2">
+              <strong>NetSuite.</strong> Joined when the company was doing approximately $30M in revenue.
+              Fifteen years later: past $1B, through the IPO, into the $9.3B Oracle acquisition.
+            </p>
+            <p class="lead reveal d2">
+              <strong>ImportGenius.</strong> Took the President role during an 18-month B2C-to-B2B
+              transformation. Delivered the largest revenue quarter in the company's history.
+            </p>
+            <div class="proof__highlight reveal d3">
+              <div class="phigh">
+                <div class="phigh__num">$30M</div>
+                <div class="phigh__label">NetSuite starting point</div>
+              </div>
+              <div class="phigh">
+                <div class="phigh__num">$1B+</div>
+                <div class="phigh__label">Revenue at exit</div>
+              </div>
+              <div class="phigh">
+                <div class="phigh__num">15yr</div>
+                <div class="phigh__label">Inside the engine</div>
+              </div>
+              <div class="phigh">
+                <div class="phigh__num">$9.3B</div>
+                <div class="phigh__label">Oracle acquisition</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline reveal d2">
+            <div class="tl-item">
+              <div class="tl-year">Early 2000s</div>
+              <div class="tl-body">
+                <div class="tl-title">NetSuite — Enterprise GTM Build</div>
+                <div class="tl-desc">Joined as the company was scaling its enterprise motion. Built and led sales teams across North America focused on mid-market and enterprise acquisition.</div>
+                <span class="tl-chip">Company at ~$30M ARR</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2007</div>
+              <div class="tl-body">
+                <div class="tl-title">NetSuite IPO</div>
+                <div class="tl-desc">Present through the public offering on the NYSE. Continued expanding GTM operations across North America into APAC: Australia, Singapore, Manila.</div>
+                <span class="tl-chip">NYSE: N</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2010s</div>
+              <div class="tl-body">
+                <div class="tl-title">NetSuite — Global Expansion</div>
+                <div class="tl-desc">Led global sales leadership with teams across three continents. Built the APAC revenue engine from the ground up.</div>
+                <span class="tl-chip">Company passes $1B ARR</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2016</div>
+              <div class="tl-body">
+                <div class="tl-title">Oracle Acquires NetSuite</div>
+                <div class="tl-desc">The $9.3B acquisition completed. One of the largest enterprise SaaS deals of the decade. Chris was inside the full arc from $30M to exit.</div>
+                <span class="tl-chip">$9.3B acquisition</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">Recent</div>
+              <div class="tl-body">
+                <div class="tl-title">ImportGenius — President</div>
+                <div class="tl-desc">Led an 18-month B2C-to-B2B transformation. Rebuilt the GTM motion and delivered the company's largest revenue quarter in its history.</div>
+                <span class="tl-chip">Largest revenue quarter ever</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- H.E.L.P. -->
+    <section class="section section--white" id="framework" aria-labelledby="framework-h2">
+      <div class="container">
+        <div class="framework__header reveal">
+          <span class="section-label">The H.E.L.P. Operating System</span>
+          <h2 class="display" id="framework-h2">
+            Four disciplines.<br><span>Decisions that stick.</span>
+          </h2>
+          <p class="lead" style="margin-top:16px;">
+            Co-developed with Alicia Schafer over ten years. Rooted in behavioral science
+            and motivational interviewing. It converts urgency into discipline.
+            Noise drops. Progress accelerates.
+          </p>
+        </div>
+
+        <div class="help-grid reveal d1" role="list">
+          <div class="help-card" role="listitem">
+            <div class="help-card__top">
+              <span class="help-card__letter">H</span>
+              <span class="help-card__word">Hear</span>
+            </div>
+            <h3 class="help-card__title">Before you solve, listen.</h3>
+            <p class="help-card__body">
+              Most leadership breakdowns are diagnosed before the full picture is understood.
+              Hear creates the conditions for people to say what is actually true.
+              You cannot fix what you have not actually seen.
+            </p>
+          </div>
+          <div class="help-card" role="listitem">
+            <div class="help-card__top">
+              <span class="help-card__letter">E</span>
+              <span class="help-card__word">Evidence</span>
+            </div>
+            <h3 class="help-card__title">Separate fact from interpretation.</h3>
+            <p class="help-card__body">
+              The forecast is a fact. The story about why it missed is an interpretation.
+              Evidence discipline keeps the room anchored to what is real and measurable.
+              It kills the blame cycle before it starts.
+            </p>
+          </div>
+          <div class="help-card" role="listitem">
+            <div class="help-card__top">
+              <span class="help-card__letter">L</span>
+              <span class="help-card__word">Learn</span>
+            </div>
+            <h3 class="help-card__title">Fluid learning, not fixed playbooks.</h3>
+            <p class="help-card__body">
+              Markets shift faster than most GTM playbooks are updated.
+              Learn builds the habit of continuously updating what you know
+              rather than defending what you already decided.
+              Curiosity replaces certainty.
+            </p>
+          </div>
+          <div class="help-card" role="listitem">
+            <div class="help-card__top">
+              <span class="help-card__letter">P</span>
+              <span class="help-card__word">Proceed</span>
+            </div>
+            <h3 class="help-card__title">Move with ownership, not permission.</h3>
+            <p class="help-card__body">
+              Decisions made with full context and clear ownership compress time.
+              Proceed turns the first three phases into committed action.
+              The team moves because they understand, not because they were told to.
+            </p>
+          </div>
+        </div>
+
+        <div class="framework__outcomes">
+          <div class="outcome-card reveal d2">
+            <div class="outcome-card__label">What H.E.L.P. is not</div>
+            <p class="outcome-card__text">"Not a workshop. Not a retreat. It is the way decisions get made every week until the team internalizes it."</p>
+          </div>
+          <div class="outcome-card reveal d3">
+            <div class="outcome-card__label">The outcome</div>
+            <p class="outcome-card__text">"Urgency drops. Ownership rises. The revenue plan becomes believable again because the team believes it themselves."</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section--dark" id="services" aria-labelledby="services-h2">
+      <div class="container">
+        <div class="services__header reveal">
+          <span class="section-label section-label--light">Services</span>
+          <h2 class="display display--light" id="services-h2">
+            A short-term contract<br><span>for long-term growth.</span>
+          </h2>
+          <p class="lead lead--light" style="margin-top:16px;">
+            Chris deploys inside your company. Not adjacent to it.
+            He carries the number, leads the team, and leaves the system running without him.
+          </p>
+        </div>
+
+        <div class="services__primary-row">
+          <div class="svc-primary reveal">
+            <div class="svc-primary__grid">
+              <div class="svc-head">
+                <div class="svc-head__meta">
+                  <span class="svc-head__type">Primary Engagement</span>
+                  <span class="svc-duration">3 to 12 months</span>
+                </div>
+                <h3 class="svc-head__title">Interim C-Suite<br>Transformation</h3>
+                <div class="svc-head__sub">CRO / President / CEO-Level Operator</div>
+              </div>
+              <div class="svc-right">
+                <div class="svc-body">
+                  <p class="svc-body__desc">
+                    Chris embeds as your operating executive. He owns the GTM motion,
+                    leads the leadership team through misalignment, and builds the
+                    systems that survive after he leaves.
+                    <br><br>
+                    <strong>Right for you if</strong> the revenue plan is not believable,
+                    the leadership team is solving different versions of the same problem,
+                    or you are preparing for a capital event and need the narrative
+                    to match the mechanics.
+                  </p>
+                  <ul class="svc-list" aria-label="Engagement deliverables">
+                    <li>Repair broken revenue plans and pipeline structures</li>
+                    <li>Shift from founder-led selling into real GTM systems</li>
+                    <li>Move from SMB motion into mid-market or enterprise</li>
+                    <li>Rebuild trust and ownership across the leadership team</li>
+                    <li>Prepare the company for a capital event or acquisition</li>
+                  </ul>
+                </div>
+                <div class="svc-foot">
+                  <a href="#contact" class="btn btn-primary" style="width:100%;height:52px;font-size:13px;">
+                    Book an Interim Consultation
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="services__secondary-row">
+          <div class="svc-card-sm reveal d1">
+            <div class="svc-card-sm__label">Speaking</div>
+            <div class="svc-card-sm__title">Keynote &amp; Executive Workshops</div>
+            <p class="svc-card-sm__body">
+              Chris speaks on GTM alignment, the H.E.L.P. Operating System,
+              and the future of B2B buying behavior. Available for leadership
+              offsites, revenue summits, and board sessions.
+            </p>
+          </div>
+          <div class="svc-card-sm reveal d2">
+            <div class="svc-card-sm__label">Advisory</div>
+            <div class="svc-card-sm__title">Three-Hour Strategic Session</div>
+            <p class="svc-card-sm__body">
+              A focused working session for founders and leadership teams
+              who need a clear diagnosis, not a long engagement.
+              Walk out with a specific action plan and accountability to it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section section--soft" id="testimonials" aria-labelledby="testimonials-h2">
+      <div class="container">
+        <span class="section-label reveal">What People Say</span>
+        <div class="testimonials__grid">
+          <div class="tquote reveal d1">
+            <p class="tquote__text">"Each of us has had one person who saw our potential and gave us what we needed to go from good to great. For me, that was Chris. His ability to develop a team while keeping the revenue engine moving is genuinely rare."</p>
+            <div class="tquote__byline">
+              <div class="tquote__name">Kristen Visser</div>
+              <div class="tquote__role">Verify title from original</div>
+            </div>
+          </div>
+          <div class="tquote reveal d2">
+            <p class="tquote__text">"I reported directly to Chris when he led our sales organization. He has the experience to build real growth strategies — and the discipline to make them stick. He is simply the real deal."</p>
+            <div class="tquote__byline">
+              <div class="tquote__name">Nicole James</div>
+              <div class="tquote__role">Verify title from original</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THREE Cs -->
+    <section class="section section--white" id="three-cs" aria-labelledby="cs-h2">
+      <div class="container">
+        <div class="three-cs__header reveal">
+          <span class="section-label">The Three Cs</span>
+          <h2 class="display" id="cs-h2">
+            Future-proofing<br><span>the GTM machine.</span>
+          </h2>
+          <p class="lead" style="margin-top:16px;">
+            The H.E.L.P. OS gets the company aligned. The Three Cs keep it sharp as markets shift.
+            This is the frame Chris leaves behind with every team he works with.
+          </p>
+        </div>
+        <div class="three-cs__grid">
+          <div class="c-panel reveal">
+            <div class="c-panel__title">Creativity</div>
+            <div class="c-panel__name">Think differently.</div>
+            <p class="c-panel__body">
+              The best GTM responses do not come from the playbook. They come from teams
+              who are safe to think differently and fast enough to act on what they find.
+              Creativity is a discipline, not a personality trait.
+            </p>
+          </div>
+          <div class="c-panel reveal d1">
+            <div class="c-panel__title">Confirmation</div>
+            <div class="c-panel__name">Close the handoff gap.</div>
+            <p class="c-panel__body">
+              Decisions fail at the handoff. Confirmation is the practice of owning
+              every decision before the meeting ends. Not in a follow-up.
+              In the room, before people leave.
+            </p>
+          </div>
+          <div class="c-panel reveal d2">
+            <div class="c-panel__title">Communication</div>
+            <div class="c-panel__name">One version of the truth.</div>
+            <p class="c-panel__body">
+              The revenue plan fails when the story about it is inconsistent.
+              Finance hears one version. Sales hears another. The board hears a third.
+              Communication discipline means one version, told the same way, at every level.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section final-cta" id="contact" aria-labelledby="cta-h2">
+      <div class="container">
+        <div class="final-cta__inner">
+          <span class="section-label section-label--light reveal">Work With Chris</span>
+          <h2 class="reveal d1" id="cta-h2">
+            Making the revenue plan<br><span>believable again.</span>
+          </h2>
+          <p class="reveal d2">
+            If your leadership team is solving different versions of the same problem
+            and the number keeps slipping, this is a 30-minute conversation.
+            No sales deck. No pitch. Just the situation and whether Chris is the right
+            person for it.
+          </p>
+          <div class="final-cta__actions reveal d3">
+            <a href="mailto:chris@ondemandleaders.com" class="btn btn-primary">Book an Interim Consultation</a>
+            <a href="mailto:chris@ondemandleaders.com" class="btn btn-ghost-light">Send a Direct Message</a>
+          </div>
+          <p class="final-cta__note reveal d4">
+            Based in the Greater Toronto Area. Serving companies across North America and APAC.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__brand-mark" aria-hidden="true">OD</div>
+          <span class="footer__brand-name">OnDemand Leaders</span>
+        </div>
+        <ul class="footer__links" role="list">
+          <li><a href="#problem">The Problem</a></li>
+          <li><a href="#proof">Track Record</a></li>
+          <li><a href="#framework">H.E.L.P.</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <p class="footer__copy">&copy; 2025 OnDemand Leaders</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('solid', window.scrollY > 30);
+    }, { passive: true });
+
+    const btn = document.getElementById('navToggle');
+    const drawer = document.getElementById('mobileNav');
+    btn.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    drawer.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      })
+    );
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    const counterEls = document.querySelectorAll('.stat-cell__num[data-count]');
+    if (counterEls.length) {
+      const counterObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          const target = parseFloat(el.dataset.count);
+          const prefix = el.dataset.prefix || '';
+          const suffix = el.dataset.suffix || '';
+          const isDecimal = !Number.isInteger(target);
+          let t0 = null;
+          const duration = 1400;
+          const tick = ts => {
+            if (!t0) t0 = ts;
+            const p = Math.min((ts - t0) / duration, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = prefix + (isDecimal ? (ease * target).toFixed(1) : Math.round(ease * target)) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          counterObs.unobserve(el);
+        });
+      }, { threshold: 0.6 });
+      counterEls.forEach(el => counterObs.observe(el));
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = id ? document.getElementById(id) : null;
+        if (!el) return;
+        e.preventDefault();
+        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - nav.offsetHeight - 20, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
