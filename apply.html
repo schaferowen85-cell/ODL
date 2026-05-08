@@ -89,7 +89,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
-    background: var(--white);
+    background: var(--bg-cream);
     color: var(--text-main);
     font-family: var(--font-sans);
     font-size: 16px;
@@ -131,23 +131,45 @@
   }
   .nav__back:hover { color: var(--text-main); }
 
+  /* ─── HERO BAND ─── */
+  .hero {
+    background: var(--blue-dark);
+    color: #fff;
+    padding: 88px 0 144px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 420px at 82% 0%, rgba(61,110,201,0.22), transparent 62%),
+      radial-gradient(680px 320px at -5% 100%, rgba(29,70,150,0.28), transparent 60%);
+    pointer-events: none;
+  }
+  .hero__inner {
+    position: relative;
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 40px;
+  }
+
   /* ─── PAGE LAYOUT ─── */
   .page {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 40px 96px;
+    margin: -104px auto 0;
+    padding: 0 40px 96px;
+    position: relative;
   }
 
   /* ─── HEADING ─── */
   .head {
     max-width: 760px;
-    margin-bottom: 64px;
   }
   .head__kicker {
     display: inline-block;
     font-size: 13px;
     font-weight: 500;
-    color: var(--blue-normal);
+    color: rgba(255,255,255,0.55);
     margin-bottom: 24px;
     letter-spacing: -0.005em;
   }
@@ -156,30 +178,39 @@
     font-weight: 800;
     line-height: 1.04;
     letter-spacing: -0.038em;
-    color: var(--text-main);
+    color: #fff;
     margin-bottom: 24px;
   }
   .head__title em {
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
-    color: var(--blue-normal);
+    color: rgba(255,255,255,0.6);
     letter-spacing: -0.025em;
   }
   .head__sub {
     font-size: clamp(17px, 1.3vw, 19px);
     line-height: 1.7;
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.72);
     max-width: 660px;
   }
-  .head__sub strong { color: var(--text-main); font-weight: 600; }
+  .head__sub strong { color: #fff; font-weight: 600; }
 
   /* ─── MAIN GRID ─── */
   .grid {
     display: grid;
     grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
-    gap: 56px;
+    gap: 40px;
     align-items: start;
+  }
+
+  /* ─── FORM CARD ─── */
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--border-clean);
+    border-radius: 16px;
+    padding: 44px 44px 40px;
+    box-shadow: 0 1px 0 rgba(11,30,59,0.04), 0 28px 72px -32px rgba(11,30,59,0.22);
   }
 
   /* ─── FORM ─── */
@@ -378,6 +409,7 @@
     gap: 24px;
     position: sticky;
     top: calc(var(--nav-h) + 32px);
+    padding: 8px 8px 0 12px;
   }
   .side-block {
     padding: 28px 0;
@@ -465,7 +497,7 @@
     margin-bottom: 32px;
   }
   .form.hide { display: none; }
-  .head.hide { display: none; }
+  .head.hide, .hero.hide { display: none; }
   .side.hide { display: none; }
 
   /* ─── RESPONSIVE ─── */
@@ -474,7 +506,11 @@
     .side { position: static; }
   }
   @media (max-width: 640px) {
-    .page { padding: 48px 22px 64px; }
+    .hero { padding: 56px 0 110px; }
+    .hero__inner { padding: 0 22px; }
+    .page { padding: 0 22px 64px; margin-top: -90px; }
+    .form-card { padding: 28px 22px 32px; border-radius: 14px; }
+    .side { padding: 0; }
     .nav__inner { padding: 0 22px; }
     .row, .row--3 { grid-template-columns: 1fr; }
     .nav__name { display: none; }
@@ -509,23 +545,27 @@
     </div>
   </nav>
 
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="pageHead">
+    <div class="hero__inner">
+      <div class="head">
+        <span class="head__kicker">Interim engagement · Currently booking Q3 2026</span>
+        <h1 class="head__title">
+          Apply to work <em>with Chris.</em>
+        </h1>
+        <p class="head__sub">
+          Tell us the situation in plain language. The revenue plan, the team, the timing pressure, who's pushing for the change. <strong>If it's a fit, you'll hear back personally within 48 hours.</strong> If it isn't, you'll get a referral to someone who is.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── PAGE ─── -->
   <main class="page">
-
-    <div class="head" id="pageHead">
-      <span class="head__kicker">Interim engagement · Currently booking Q3 2026</span>
-      <h1 class="head__title">
-        Apply to work <em>with Chris.</em>
-      </h1>
-      <p class="head__sub">
-        Tell us the situation in plain language. The revenue plan, the team, the timing pressure, who's pushing for the change. <strong>If it's a fit, you'll hear back personally within 48 hours.</strong> If it isn't, you'll get a referral to someone who is.
-      </p>
-    </div>
-
     <div class="grid" id="formGrid">
 
       <!-- Form -->
-      <div>
+      <div class="form-card">
         <form class="form" id="applyForm" novalidate>
 
           <div class="form-intro">
