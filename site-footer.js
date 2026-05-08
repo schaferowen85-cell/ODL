@@ -26,17 +26,17 @@
         <div class="sf-col">
           <div class="sf-col-label">Site</div>
           <ul>
-            <li><a href="Homepage.html#problem">The Problem</a></li>
-            <li><a href="Homepage.html#service">Engagement</a></li>
-            <li><a href="Homepage.html#proof">Track Record</a></li>
-            <li><a href="Homepage.html#help">H.E.L.P.</a></li>
+            <li><a href="/#problem">The Problem</a></li>
+            <li><a href="/#service">Engagement</a></li>
+            <li><a href="/#proof">Track Record</a></li>
+            <li><a href="/#help">H.E.L.P.</a></li>
           </ul>
         </div>
         <div class="sf-col">
           <div class="sf-col-label">Contact</div>
           <ul>
             <li><a href="mailto:chris@ondemandleaders.com">chris@ondemandleaders.com</a></li>
-            <li><a href="Apply to Work With Chris.html">Apply to work with Chris</a></li>
+            <li><a href="apply.html">Apply to work with Chris</a></li>
             <li><a href="#">LinkedIn</a></li>
           </ul>
         </div>
