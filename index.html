@@ -801,6 +801,16 @@
     flex: 1;
     position: relative; z-index: 1;
   }
+  .help-glass__cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #ffffff; font-size: 13px; font-weight: 600;
+    margin-top: 18px; padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    align-self: flex-start;
+    position: relative; z-index: 1;
+    transition: gap .2s ease;
+  }
+  .help-glass:hover .help-glass__cta { gap: 12px; }
   /* Outcomes — on navy */
   .help__outcomes {
     display: grid;
@@ -1560,21 +1570,25 @@
             <div class="help-glass__label">01</div>
             <h3 class="help-glass__word">Hear</h3>
             <p class="help-glass__body">Full attention, not partial input. Skip it and you train the team to escalate just to be heard.</p>
+            <span class="help-glass__cta">Read the full Hear phase →</span>
           </a>
           <a href="evidence.html" class="help-glass">
             <div class="help-glass__label">02</div>
             <h3 class="help-glass__word">Evidence</h3>
             <p class="help-glass__body">Separate what you know from what you assume. The diagnosis cracks at the spot you treated a story as a fact.</p>
+            <span class="help-glass__cta">Read the full Evidence phase →</span>
           </a>
           <a href="learn.html" class="help-glass">
             <div class="help-glass__label">03</div>
             <h3 class="help-glass__word">Learn</h3>
             <p class="help-glass__body">Recognition over instruction. The team gets sharper when they pull the pattern from their own past, not yours.</p>
+            <span class="help-glass__cta">Read the full Learn phase →</span>
           </a>
           <a href="proceed.html" class="help-glass">
             <div class="help-glass__label">04</div>
             <h3 class="help-glass__word">Proceed</h3>
             <p class="help-glass__body">Surface the options. Don't name the winner. The team gets a decision either way. Only one version gets conviction.</p>
+            <span class="help-glass__cta">Read the full Proceed phase →</span>
           </a>
         </div>
 
