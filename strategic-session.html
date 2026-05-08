@@ -105,10 +105,10 @@
     position: sticky; top: 0; z-index: 50;
     height: var(--nav-h);
     display: flex; align-items: center;
-    background: rgba(255,255,255,0.9);
+    background: rgba(11,30,59,0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-clean);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
   }
   .nav__inner {
     width: 100%; max-width: 1200px; margin: 0 auto;
@@ -118,18 +118,18 @@
   .nav__logo { display: flex; align-items: center; gap: 14px; }
   .nav__mark-svg { display: block; height: 30px; width: auto; }
   .nav__name {
-    color: var(--text-main); font-size: 14px; font-weight: 600;
-    padding-left: 14px; border-left: 1px solid var(--border-mid);
+    color: #fff; font-size: 14px; font-weight: 600;
+    padding-left: 14px; border-left: 1px solid rgba(255,255,255,0.18);
     letter-spacing: -0.005em;
   }
-  .nav__name span { color: var(--text-light); font-weight: 400; }
+  .nav__name span { color: rgba(255,255,255,0.45); font-weight: 400; }
   .nav__back {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 13px; font-weight: 500;
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.6);
     transition: color .16s ease;
   }
-  .nav__back:hover { color: var(--text-main); }
+  .nav__back:hover { color: #fff; }
 
   /* ─── HERO BAND ─── */
   .hero {
@@ -156,7 +156,7 @@
   /* ─── PAGE LAYOUT ─── */
   .page {
     max-width: 1200px;
-    margin: -104px auto 0;
+    margin: 0 auto;
     padding: 0 40px 96px;
     position: relative;
   }
@@ -211,6 +211,7 @@
     border-radius: 16px;
     padding: 44px 44px 40px;
     box-shadow: 0 1px 0 rgba(11,30,59,0.04), 0 28px 72px -32px rgba(11,30,59,0.22);
+    margin-top: -104px;
   }
 
   /* ─── FORM ─── */
@@ -525,9 +526,9 @@
   @media (max-width: 640px) {
     .hero { padding: 56px 0 110px; }
     .hero__inner { padding: 0 22px; }
-    .page { padding: 0 22px 64px; margin-top: -90px; }
-    .form-card { padding: 28px 22px 32px; border-radius: 14px; }
-    .side { padding: 0; }
+    .page { padding: 0 22px 64px; }
+    .form-card { padding: 28px 22px 32px; border-radius: 14px; margin-top: -90px; }
+    .side { padding: 0; margin-top: 24px; }
     .nav__inner { padding: 0 22px; }
     .row, .row--3 { grid-template-columns: 1fr; }
     .nav__name { display: none; }
@@ -544,7 +545,7 @@
     <div class="nav__inner">
       <a href="/" class="nav__logo" aria-label="OnDemand Leaders home">
         <svg class="nav__mark-svg" viewBox="0 0 360 130" role="img" aria-label="ODL">
-          <g fill="none" stroke="#0B1E3B" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
+          <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
             <circle cx="65" cy="65" r="58"></circle>
             <circle cx="65" cy="65" r="46"></circle>
             <line x1="65" y1="32" x2="65" y2="100"></line>
