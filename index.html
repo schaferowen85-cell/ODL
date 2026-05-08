@@ -688,12 +688,55 @@
   .phigh__lbl { font-size: 12.5px; color: var(--text-muted); line-height: 1.4; }
 
   .timeline { display: flex; flex-direction: column; position: relative; }
-  .timeline::before { content: ''; position: absolute; left: 84px; top: 14px; bottom: 14px; width: 1px; background: var(--border-mid); }
-  .tl-item { display: grid; grid-template-columns: 84px 1fr; gap: 32px; padding-bottom: 36px; }
+  .timeline__track {
+    position: absolute;
+    left: 84px; top: 14px; bottom: 14px;
+    width: 2px;
+    background: var(--border-mid);
+    border-radius: 2px;
+    transform: translateX(-1px);
+    overflow: hidden;
+    z-index: 0;
+  }
+  .timeline__fill {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(180deg, var(--blue-accent) 0%, var(--blue-normal) 100%);
+    box-shadow: 0 0 14px rgba(29,70,150,0.45);
+    border-radius: 2px;
+    transition: height .12s linear;
+    will-change: height;
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 32px;
+    padding-bottom: 36px;
+    position: relative;
+  }
   .tl-item:last-child { padding-bottom: 0; }
-  .tl-year { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-light); padding-top: 4px; text-align: right; padding-right: 22px; text-transform: uppercase; }
+  .tl-year { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-light); padding-top: 4px; text-align: right; padding-right: 22px; text-transform: uppercase; transition: color .25s ease; }
+  .tl-item.is-active .tl-year { color: var(--blue-normal); }
   .tl-body { position: relative; }
-  .tl-body::before { content: ''; position: absolute; left: -16px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--blue-normal); border: 2px solid var(--bg-soft); }
+  .tl-dot {
+    position: absolute;
+    left: 84px; top: 12px;
+    transform: translateX(-50%);
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--bg-soft);
+    border: 2px solid var(--border-mid);
+    z-index: 2;
+    transition: background .28s ease, border-color .28s ease, box-shadow .28s ease, transform .28s ease;
+  }
+  .tl-item.is-active .tl-dot {
+    background: var(--blue-normal);
+    border-color: var(--blue-normal);
+    box-shadow: 0 0 0 5px rgba(29,70,150,0.14), 0 0 18px rgba(29,70,150,0.55);
+    transform: translateX(-50%) scale(1.05);
+  }
   .tl-title { font-size: 15px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; letter-spacing: -0.01em; }
   .tl-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
   .tl-chip { display: inline-block; margin-top: 10px; padding: 3px 10px; border-radius: 100px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(29,70,150,0.08); color: var(--blue-normal); border: 1px solid rgba(29,70,150,0.15); }
@@ -1253,7 +1296,8 @@
     .stat:first-child { border-top: none; padding-top: 0; }
     .tcard { grid-template-columns: 1fr; gap: 8px; padding: 20px 22px; }
     .tcard__role { padding-top: 0; }
-    .timeline::before { left: 60px; }
+    .timeline__track { left: 60px; }
+    .tl-dot { left: 60px; }
     .tl-item { grid-template-columns: 60px 1fr; gap: 22px; }
     .hero__partner-info { right: 8px; bottom: -14px; min-width: 0; max-width: calc(100% - 16px); padding: 14px 16px; }
     .hero__actions .btn { width: 100%; justify-content: center; }
@@ -1499,18 +1543,15 @@
             <p class="lead reveal d2" style="margin-top:24px;">Chris has been inside the rooms where the revenue plan broke down and got rebuilt. Not as an advisor who delivers a deck and leaves. As the operator who stayed, owned the number, and delivered.</p>
             <p class="lead reveal d2"><strong>ImportGenius.</strong> Stepped in as President. Eighteen-month B2C-to-B2B transformation. Rebuilt the GTM motion. Realigned the leadership team around one revenue plan. Delivered the largest revenue quarter in the company's history. <em>This is the scale and the kind of work most engagements look like today.</em></p>
             <p class="lead reveal d2"><strong>NetSuite.</strong> Joined at ~$30M ARR. Fifteen years later: past $1B, through IPO, into the $9.3B Oracle acquisition. The full arc from mid-market to global enterprise.</p>
-
-            <div class="proof__hi reveal d3">
-              <div class="phigh"><div class="phigh__num">25 yrs</div><div class="phigh__lbl">Inside SaaS GTM</div></div>
-              <div class="phigh"><div class="phigh__num">$30M → $1B+</div><div class="phigh__lbl">NetSuite arc</div></div>
-              <div class="phigh"><div class="phigh__num">$9.3B</div><div class="phigh__lbl">Oracle acquisition</div></div>
-              <div class="phigh"><div class="phigh__num">Largest Q ever</div><div class="phigh__lbl">ImportGenius, as President</div></div>
-            </div>
           </div>
 
-          <div class="timeline reveal d2">
+          <div class="timeline reveal d2" id="timeline">
+            <div class="timeline__track" aria-hidden="true">
+              <div class="timeline__fill" id="tlFill"></div>
+            </div>
             <div class="tl-item">
               <div class="tl-year">Early 2000s</div>
+              <span class="tl-dot" aria-hidden="true"></span>
               <div class="tl-body">
                 <div class="tl-title">NetSuite. Enterprise GTM build.</div>
                 <div class="tl-desc">Joined as the company was scaling its enterprise motion. Built and led sales teams across North America targeting mid-market and enterprise.</div>
@@ -1519,6 +1560,7 @@
             </div>
             <div class="tl-item">
               <div class="tl-year">2007</div>
+              <span class="tl-dot" aria-hidden="true"></span>
               <div class="tl-body">
                 <div class="tl-title">NetSuite IPO</div>
                 <div class="tl-desc">Present through the public offering on the NYSE. Continued expanding GTM operations across NA into APAC. Australia, Singapore, Manila.</div>
@@ -1527,6 +1569,7 @@
             </div>
             <div class="tl-item">
               <div class="tl-year">2010s</div>
+              <span class="tl-dot" aria-hidden="true"></span>
               <div class="tl-body">
                 <div class="tl-title">NetSuite. Global expansion.</div>
                 <div class="tl-desc">Led global sales leadership with teams across three continents. Built the APAC revenue engine from the ground up.</div>
@@ -1535,6 +1578,7 @@
             </div>
             <div class="tl-item">
               <div class="tl-year">2016</div>
+              <span class="tl-dot" aria-hidden="true"></span>
               <div class="tl-body">
                 <div class="tl-title">Oracle acquires NetSuite</div>
                 <div class="tl-desc">The $9.3B acquisition completed. One of the largest enterprise SaaS deals of the decade. Chris was inside the full arc from $30M to exit.</div>
@@ -1543,6 +1587,7 @@
             </div>
             <div class="tl-item">
               <div class="tl-year">Recent</div>
+              <span class="tl-dot" aria-hidden="true"></span>
               <div class="tl-body">
                 <div class="tl-title">ImportGenius. President.</div>
                 <div class="tl-desc">Led an 18-month B2C-to-B2B transformation at mid-market scale. Rebuilt the GTM motion. Realigned the leadership team. Delivered the company's largest revenue quarter.</div>
@@ -1610,7 +1655,7 @@
             </div>
             <h3 class="scard__title">Three-hour strategic session</h3>
             <p class="scard__body">A focused working session for founders and leadership teams who need a clear diagnosis. Not a long engagement. Walk out with a specific action plan and accountability to it. Not a deck.</p>
-            <a href="apply.html" class="scard__link">Apply to work with Chris →</a>
+            <a href="strategic-session.html" class="scard__link">Book a session →</a>
           </div>
           <div class="scard reveal d2">
             <div class="scard__top">
@@ -1750,6 +1795,42 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Timeline scroll progress
+    (function() {
+      const timeline = document.getElementById('timeline');
+      const fill = document.getElementById('tlFill');
+      if (!timeline || !fill) return;
+      const items = Array.from(timeline.querySelectorAll('.tl-item'));
+      const dots = items.map(i => i.querySelector('.tl-dot'));
+      let ticking = false;
+
+      function update() {
+        ticking = false;
+        const tlRect = timeline.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        const trigger = vh * 0.55;
+        const total = tlRect.height;
+        if (total <= 0) return;
+        const progress = Math.max(0, Math.min(1, (trigger - tlRect.top) / total));
+        fill.style.height = (progress * 100) + '%';
+
+        items.forEach((item, idx) => {
+          const dot = dots[idx];
+          if (!dot) return;
+          const dRect = dot.getBoundingClientRect();
+          const center = dRect.top + dRect.height / 2;
+          if (center <= trigger) item.classList.add('is-active');
+          else item.classList.remove('is-active');
+        });
+      }
+      function onScroll() {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      update();
+    })();
   </script>
 
 </body>
