@@ -584,7 +584,13 @@
 
       <!-- Form -->
       <div class="form-card">
-        <form class="form" id="sessionForm" novalidate>
+        <form class="form" id="sessionForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+
+          <input type="hidden" name="access_key" value="556e4668-78fc-48e9-a79c-f63abc416516" />
+          <input type="hidden" name="subject" value="New Strategic Session Request — OnDemand Leaders" />
+          <input type="hidden" name="from_name" value="OnDemand Leaders · Strategic Session" />
+          <input type="hidden" name="redirect" value="https://ondemandleaders.com/thank-you.html?source=strategic-session" />
+          <input type="checkbox" name="botcheck" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
           <div class="form-intro">
             <div class="form-intro__l">A short request. Three minutes.</div>
@@ -825,7 +831,6 @@
     const side = document.getElementById('formSide');
 
     form.addEventListener('submit', (e) => {
-      e.preventDefault();
       let valid = true;
       form.querySelectorAll('[required]').forEach(el => {
         if (el.type === 'radio') {
@@ -837,15 +842,10 @@
         }
       });
       if (!valid) {
+        e.preventDefault();
         const firstInvalid = form.querySelector('[style*="signal-amber"], [style*="B47A1F"]');
         if (firstInvalid) firstInvalid.scrollIntoView({ block: 'center', behavior: 'smooth' });
-        return;
       }
-      form.classList.add('hide');
-      head.classList.add('hide');
-      side.classList.add('hide');
-      success.classList.add('show');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     form.querySelectorAll('.input, .textarea').forEach(el => {
