@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resources · Downloads | OnDemand Leaders</title>
+<meta name="description" content="Frameworks, one-pagers, and tools you can use the same week you download them. The HELP Operating System one-pager, Think Tank papers, and forthcoming diagnostics." />
+<link rel="canonical" href="https://ondemandleaders.com/resources" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+<meta name="author" content="Chris Schafer" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<meta name="theme-color" content="#0B1E3B" />
+<meta property="og:site_name" content="OnDemand Leaders" />
+<meta property="og:title" content="Resources · Downloads | OnDemand Leaders" />
+<meta property="og:description" content="Frameworks, one-pagers, and tools you can use the same week you download them. The HELP Operating System one-pager, Think Tank papers, and forthcoming diagnostics." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ondemandleaders.com/resources" />
+<meta property="og:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site-core.css" />
+
+<style>
+.featured-download {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: center;
+  background:
+    linear-gradient(135deg, var(--blue-normal) 0%, var(--blue-dark) 100%);
+  color: var(--white);
+  border-radius: var(--r-lg);
+  padding: 56px 56px;
+  margin-bottom: 64px;
+  overflow: hidden;
+  position: relative;
+}
+.featured-download::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 70% 50%, black 0%, transparent 60%);
+  pointer-events: none;
+}
+.featured-download > * { position: relative; z-index: 1; }
+.featured-download__tag {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 14px;
+}
+.featured-download__title {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.026em;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.featured-download__title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: rgba(255,255,255,0.55); }
+.featured-download__desc { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.78); margin-bottom: 22px; max-width: 480px; }
+.gate-form {
+  display: flex; gap: 8px; align-items: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 100px;
+  padding: 4px 4px 4px 18px;
+  max-width: 460px;
+}
+.gate-form input {
+  flex: 1; min-width: 0;
+  background: transparent; border: none; outline: none;
+  color: var(--white);
+  font: inherit; font-size: 14px;
+  padding: 10px 0;
+}
+.gate-form input::placeholder { color: rgba(255,255,255,0.5); }
+.gate-form button {
+  background: var(--white); color: var(--blue-dark);
+  border: none; border-radius: 100px;
+  padding: 10px 18px;
+  font: inherit; font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.gate-form button:hover { background: var(--bg-soft); }
+.gate-form + .gate-note {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.45);
+}
+
+.featured-download__visual {
+  aspect-ratio: 3 / 4;
+  max-width: 280px;
+  margin-left: auto;
+  background: var(--white);
+  border-radius: var(--r-md);
+  padding: 28px 24px;
+  color: var(--blue-dark);
+  display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 30px 50px -20px rgba(0,0,0,0.4);
+}
+.featured-download__visual-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--blue-normal);
+}
+.featured-download__visual-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 32px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.featured-download__visual-steps {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+.featured-download__visual-steps div { padding: 6px 8px; background: var(--bg-soft); border-radius: 4px; text-align: center; }
+
+.resource-card {
+  border: 1px solid var(--border-clean);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  background: var(--white);
+  transition: border-color .2s ease, transform .2s ease;
+}
+.resource-card:hover { border-color: var(--blue-normal); transform: translateY(-3px); }
+.resource-card__tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--blue-normal);
+  margin-bottom: 14px;
+}
+.resource-card__title {
+  font-size: 19px; font-weight: 700;
+  letter-spacing: -0.018em;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+.resource-card__desc { font-size: 14.5px; line-height: 1.6; color: var(--text-muted); margin-bottom: 16px; }
+.resource-card__link {
+  font-size: 13px; font-weight: 600;
+  color: var(--blue-normal);
+  display: inline-flex; gap: 6px;
+}
+.resource-card--soon { opacity: 0.55; }
+.resource-card--soon .resource-card__link { color: var(--text-light); }
+
+@media (max-width: 900px) {
+  .featured-download { grid-template-columns: 1fr; gap: 36px; padding: 40px 32px; }
+  .featured-download__visual { margin: 0 auto; }
+}
+</style>
+
+</head>
+<body>
+  <div id="site-nav"></div>
+  <script src="/site-nav.js" defer></script>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__inner">
+          <span class="eyebrow eyebrow--light reveal">Resources</span>
+          <h1 class="page-hero__h1 reveal d1">Frameworks and tools you can use <em>the same week.</em></h1>
+          <p class="page-hero__sub reveal d2">One-pagers, diagnostics, white papers, and operating templates. Built for use, not for shelfware.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white">
+      <div class="container">
+
+        <div class="featured-download reveal">
+          <div>
+            <div class="featured-download__tag">Featured · One-pager</div>
+            <h2 class="featured-download__title">The HELP Operating System <em>one-pager.</em></h2>
+            <p class="featured-download__desc">Hear. Evidence. Learn. Proceed. The four-step operating system Chris uses for every meeting, coaching session, and turnaround call. Print it. Put it on the wall. Try it on Monday.</p>
+            <form class="gate-form" action="#" method="post" novalidate>
+              <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required aria-label="Email address" />
+              <button type="submit">Send it to me ↗</button>
+            </form>
+            <div class="gate-note">PDF · Add me to weekly Insights · Unsubscribe anytime</div>
+            <div class="tbd-banner" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); margin-top: 20px;"><strong>Pending:</strong> final PDF from Chris.</div>
+          </div>
+          <div class="featured-download__visual">
+            <div>
+              <div class="featured-download__visual-eyebrow">The HELP Operating System</div>
+              <div class="featured-download__visual-title">Hear. Evidence.<br/>Learn. Proceed.</div>
+            </div>
+            <div class="featured-download__visual-steps">
+              <div>01 · Hear</div><div>02 · Evidence</div>
+              <div>03 · Learn</div><div>04 · Proceed</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-head section-head--left">
+          <span class="eyebrow reveal">Research papers</span>
+          <h2 class="h2 reveal d1">From the <em>Think Tank.</em></h2>
+        </div>
+
+        <div class="card-grid card-grid--2" style="margin-bottom: 56px;">
+          <div class="card reveal">
+            <span class="card__tag">White paper · 24 min</span>
+            <h3 class="card__title">The Education Three Cs</h3>
+            <p class="card__body">Curiosity, Communication, Confirmation. Why the skills schools were never built to teach are now the only ones that matter.</p>
+            <a href="/think-tank/education-three-cs" class="card__link">Read the paper ↗</a>
+          </div>
+          <div class="card reveal d2">
+            <span class="card__tag">White paper · 28 min</span>
+            <h3 class="card__title">Canada&rsquo;s Value Capture Gap</h3>
+            <p class="card__body">Why Canada ships its resources out and buys them back at ten times the price, and what to do about it.</p>
+            <a href="/think-tank/canada-value-capture" class="card__link">Read the paper ↗</a>
+          </div>
+        </div>
+
+        <div class="section-head section-head--left">
+          <span class="eyebrow reveal">Forthcoming</span>
+          <h2 class="h2 reveal d1">Coming next.</h2>
+        </div>
+
+        <div class="card-grid">
+          <div class="resource-card resource-card--soon reveal">
+            <div class="resource-card__tag">Diagnostic · PDF</div>
+            <div class="resource-card__title">GTM diagnostic checklist</div>
+            <div class="resource-card__desc">The 12-question checklist I run on the first call. Use it to diagnose your own revenue org before the call.</div>
+            <div class="resource-card__link">Coming soon</div>
+          </div>
+          <div class="resource-card resource-card--soon reveal d2">
+            <div class="resource-card__tag">Template · PDF</div>
+            <div class="resource-card__title">Forecast cadence template</div>
+            <div class="resource-card__desc">The weekly cadence that produces a forecast the team builds, defends, and believes.</div>
+            <div class="resource-card__link">Coming soon</div>
+          </div>
+          <div class="resource-card resource-card--soon reveal d3">
+            <div class="resource-card__tag">Coaching · PDF</div>
+            <div class="resource-card__title">Exec team coaching prompts</div>
+            <div class="resource-card__desc">25 questions to run a HELP-based exec team session without a coach in the room.</div>
+            <div class="resource-card__link">Coming soon</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__inner">
+          <h2 class="cta-band__title reveal d1">Want the one-pager and weekly insights?</h2>
+          <p class="cta-band__body reveal d2">One email. No filler.</p>
+          <div class="cta-band__actions reveal d3">
+            <a href="/insights#subscribe" class="btn btn--invert">Subscribe to Insights <span class="arrow">↗</span></a>
+            <a href="/apply.html" class="btn btn--ghost-light">Book a strategy call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="/site-footer.js" defer></script>
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.querySelectorAll('form.gate-form, form.subscribe-form').forEach(f => {
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = f.querySelector('button');
+        btn.textContent = 'Thanks ✓';
+        btn.disabled = true;
+      });
+    });
+  </script>
+</body>
+</html>

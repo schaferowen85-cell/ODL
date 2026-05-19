@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The HELP Operating System | Chris Schafer · OnDemand Leaders</title>
+<meta name="description" content="HELP. Hear, Evidence, Learn, Proceed. The operating system Chris uses for every meeting, coaching session, and turnaround call. Calm. Logical. Effective. Scales from a two-minute exchange to a six-month engagement." />
+<link rel="canonical" href="https://ondemandleaders.com/help" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+<meta name="author" content="Chris Schafer" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<meta name="theme-color" content="#0B1E3B" />
+<meta property="og:site_name" content="OnDemand Leaders" />
+<meta property="og:title" content="The HELP Operating System | Chris Schafer · OnDemand Leaders" />
+<meta property="og:description" content="HELP. Hear, Evidence, Learn, Proceed. The operating system Chris uses for every meeting, coaching session, and turnaround call. Calm. Logical. Effective. Scales from a two-minute exchange to a six-month engagement." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ondemandleaders.com/help" />
+<meta property="og:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site-core.css" />
+
+<style>
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin: 48px 0 0;
+}
+@media (max-width: 1080px) { .stage-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .stage-grid { grid-template-columns: 1fr; } }
+.stage-card {
+  display: flex; flex-direction: column;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--r-lg);
+  padding: 36px 32px;
+  color: var(--white);
+  text-decoration: none;
+  transition: border-color .2s ease, transform .2s ease, background .2s ease;
+}
+.stage-card:hover { border-color: rgba(255,255,255,0.32); background: rgba(255,255,255,0.07); transform: translateY(-3px); }
+.stage-card__num {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 18px;
+}
+.stage-card__word {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.stage-card__body {
+  font-size: 14.5px; line-height: 1.65;
+  color: rgba(255,255,255,0.7);
+  flex: 1;
+}
+.stage-card__cta {
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+
+.scale-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+@media (max-width: 900px) { .scale-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .scale-grid { grid-template-columns: 1fr; } }
+.scale-cell {
+  padding: 24px 26px;
+  background: var(--white);
+  border: 1px solid var(--border-clean);
+  border-radius: var(--r-md);
+}
+.scale-cell__when {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--blue-normal);
+  margin-bottom: 10px;
+}
+.scale-cell__what { font-size: 16px; line-height: 1.5; color: var(--text-main); font-weight: 600; letter-spacing: -0.012em; }
+.scale-cell__detail { margin-top: 8px; font-size: 13.5px; line-height: 1.55; color: var(--text-muted); }
+
+.use-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+@media (max-width: 900px) { .use-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .use-grid { grid-template-columns: 1fr; } }
+.use-cell {
+  padding: 28px 28px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--r-md);
+}
+.use-cell__role {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 10px;
+}
+.use-cell__text { font-size: 15.5px; line-height: 1.55; color: rgba(255,255,255,0.85); }
+
+.help-cta-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: center;
+  background: var(--blue-deepest);
+  color: var(--white);
+  border-radius: var(--r-lg);
+  padding: 36px 40px;
+  margin-top: 48px;
+}
+.help-cta-card__title {
+  font-size: 22px; font-weight: 700;
+  letter-spacing: -0.018em;
+  color: var(--white);
+}
+.help-cta-card__sub { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+@media (max-width: 700px) { .help-cta-card { grid-template-columns: 1fr; gap: 18px; } }
+</style>
+
+</head>
+<body>
+  <div id="site-nav"></div>
+  <script src="/site-nav.js" defer></script>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__inner">
+          <span class="eyebrow eyebrow--light reveal">The Operating System</span>
+          <h1 class="page-hero__h1 reveal d1">HELP. The method <em>behind every engagement.</em></h1>
+          <p class="page-hero__sub reveal d2">Hear. Evidence. Learn. Proceed. The operating system I use for the conversations that drive every decision in a turnaround. <strong>Calm. Logical. Effective.</strong></p>
+          <div class="page-hero__actions reveal d3">
+            <a href="/resources#help-one-pager" class="btn btn--invert">Download the one-pager <span class="arrow">↗</span></a>
+            <a href="/training" class="btn btn--ghost-light">HELP bootcamps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--gradient">
+      <div class="container">
+        <div class="section-head" style="margin: 0 auto;">
+          <span class="eyebrow eyebrow--light reveal">The four stages</span>
+          <h2 class="h2 h2--light reveal d1">Four steps. <em>One operating system.</em></h2>
+          <p class="lead lead--light reveal d2" style="margin-top:18px;">Click into any stage to see how it runs in two minutes versus a real engagement, with examples by function.</p>
+        </div>
+
+        <div class="stage-grid reveal d1">
+          <a class="stage-card" href="/hear">
+            <div class="stage-card__num">Stage 01</div>
+            <div class="stage-card__word">Hear</div>
+            <p class="stage-card__body">Full attention, not partial input. Skip it and you train the team to escalate just to be heard.</p>
+            <div class="stage-card__cta">Open stage ↗</div>
+          </a>
+          <a class="stage-card" href="/evidence">
+            <div class="stage-card__num">Stage 02</div>
+            <div class="stage-card__word">Evidence</div>
+            <p class="stage-card__body">Separate what you know from what you assume. The diagnosis cracks at the spot you treated a story as a fact.</p>
+            <div class="stage-card__cta">Open stage ↗</div>
+          </a>
+          <a class="stage-card" href="/learn">
+            <div class="stage-card__num">Stage 03</div>
+            <div class="stage-card__word">Learn</div>
+            <p class="stage-card__body">Recognition over instruction. The team gets sharper when they pull the pattern from their own past, not yours.</p>
+            <div class="stage-card__cta">Open stage ↗</div>
+          </a>
+          <a class="stage-card" href="/proceed">
+            <div class="stage-card__num">Stage 04</div>
+            <div class="stage-card__word">Proceed</div>
+            <p class="stage-card__body">Surface the options. Don&rsquo;t name the winner. The team gets a decision either way. Only one version gets conviction.</p>
+            <div class="stage-card__cta">Open stage ↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white">
+      <div class="container">
+        <div class="section-head section-head--left">
+          <span class="eyebrow reveal">It scales</span>
+          <h2 class="h2 reveal d1">Two minutes. Or six months. <em>Same four steps.</em></h2>
+          <p class="lead reveal d2" style="margin-top:18px;">HELP holds whether the conversation is two minutes in the hallway or six months across a turnaround. The four steps don&rsquo;t change. The depth does.</p>
+        </div>
+
+        <div class="scale-grid">
+          <div class="scale-cell reveal">
+            <div class="scale-cell__when">2-minute exchange</div>
+            <div class="scale-cell__what">Hallway question · 1:1 escalation</div>
+            <div class="scale-cell__detail">Hear them out. Surface what&rsquo;s evidence vs assumption. Ask one Learn question. Agree on one next move.</div>
+          </div>
+          <div class="scale-cell reveal d2">
+            <div class="scale-cell__when">60-minute meeting</div>
+            <div class="scale-cell__what">Weekly forecast call · 1:1 with a rep</div>
+            <div class="scale-cell__detail">Open with Hear. Spend half the time on Evidence. Use Learn to draw the pattern from the team, not the manager. Proceed with one decision per topic.</div>
+          </div>
+          <div class="scale-cell reveal d3">
+            <div class="scale-cell__when">Day-long offsite</div>
+            <div class="scale-cell__what">Exec team session · Board reset</div>
+            <div class="scale-cell__detail">Hear the full room. Pressure-test every claim through Evidence. Run Learn on what the team has already tried. Land Proceed on three decisions, not thirty.</div>
+          </div>
+          <div class="scale-cell reveal d4">
+            <div class="scale-cell__when">Six-month engagement</div>
+            <div class="scale-cell__what">Embedded turnaround · Coaching arc</div>
+            <div class="scale-cell__detail">Same four steps, applied weekly until the team runs the cadence themselves. By month six, HELP is the operating system. I leave. It runs.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--deepest">
+      <div class="container">
+        <div class="section-head section-head--left">
+          <span class="eyebrow eyebrow--light reveal">Who uses HELP</span>
+          <h2 class="h2 h2--light reveal d1">Different roles. <em>Same operating system.</em></h2>
+        </div>
+
+        <div class="use-grid">
+          <div class="use-cell reveal">
+            <div class="use-cell__role">Sales managers</div>
+            <p class="use-cell__text">Run forecasts that hold. Coach reps through the conversation, not at them.</p>
+          </div>
+          <div class="use-cell reveal d2">
+            <div class="use-cell__role">AEs</div>
+            <p class="use-cell__text">Handle objections without losing the deal. Move from selling to advising.</p>
+          </div>
+          <div class="use-cell reveal d3">
+            <div class="use-cell__role">CS leaders</div>
+            <p class="use-cell__text">Keep accounts when the relationship is wobbling. Diagnose churn before it lands.</p>
+          </div>
+          <div class="use-cell reveal d4">
+            <div class="use-cell__role">Execs</div>
+            <p class="use-cell__text">Make the call when the data is incomplete and the room is tense.</p>
+          </div>
+        </div>
+
+        <div class="help-cta-card reveal">
+          <div>
+            <div class="help-cta-card__title">The HELP Operating System one-pager.</div>
+            <div class="help-cta-card__sub">PDF · Print it · Put it on the wall · Try it Monday</div>
+          </div>
+          <a href="/resources#help-one-pager" class="btn btn--invert">Download <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__inner">
+          <h2 class="cta-band__title reveal d1">Want HELP installed in your team?</h2>
+          <p class="cta-band__body reveal d2">Bootcamps for boards, exec teams, and sales teams. One to three days, on-site or remote.</p>
+          <div class="cta-band__actions reveal d3">
+            <a href="/training" class="btn btn--invert">See the bootcamps <span class="arrow">↗</span></a>
+            <a href="/apply.html" class="btn btn--ghost-light">Book a fit call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="/site-footer.js" defer></script>
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.querySelectorAll('form.gate-form, form.subscribe-form').forEach(f => {
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = f.querySelector('button');
+        btn.textContent = 'Thanks ✓';
+        btn.disabled = true;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -362,47 +362,9 @@
 
 <body>
 
-  <nav class="nav" id="nav">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="/" class="nav__logo" aria-label="OnDemand Leaders">
-          <svg class="nav__mark-svg" viewBox="0 0 360 130" role="img" aria-label="ODL">
-            <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
-              <circle cx="65" cy="65" r="58"></circle>
-              <circle cx="65" cy="65" r="46"></circle>
-              <line x1="65" y1="32" x2="65" y2="100"></line>
-              <path d="M 42 48 L 42 72 Q 42 82 52 82"></path>
-              <path d="M 88 48 L 88 72 Q 88 82 78 82"></path>
-              <line x1="55" y1="100" x2="75" y2="100"></line>
-              <path d="M 150 12 L 150 118 L 198 118 Q 252 118 252 65 Q 252 12 198 12 Z"></path>
-              <path d="M 162 24 L 162 106 L 196 106 Q 240 106 240 65 Q 240 24 196 24 Z"></path>
-              <path d="M 274 12 L 274 118 L 348 118 L 348 106 L 286 106 L 286 12 Z"></path>
-            </g>
-          </svg>
-          <div class="nav__name">OnDemand Leaders</div>
-        </a>
-        <ul class="nav__links" role="list">
-          <li><a href="/#problem">The Problem</a></li>
-          <li><a href="/#service">Engagement</a></li>
-          <li><a href="/#proof">Track Record</a></li>
-          <li><a href="/#help" class="is-current">H.E.L.P.</a></li>
-          <li><a href="/#thinking">Thinking</a></li>
-        </ul>
-        <div class="nav__right">
-          <a href="apply.html" class="btn btn--invert">Apply to work with Chris <span class="arrow">↗</span></a>
-          <button class="nav__burger" id="navToggle" aria-label="Open navigation"><span></span><span></span><span></span></button>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <div class="mobile-drawer" id="mobileNav">
-    <a href="/#problem">The Problem</a>
-    <a href="/#service">Engagement</a>
-    <a href="/#proof">Track Record</a>
-    <a href="/#help">H.E.L.P.</a>
-    <a href="/#thinking">Thinking</a>
-    <a href="apply.html">Apply to work with Chris</a>
-  </div>
+  <!-- Sitewide nav (see /site-nav.js) -->
+  <div id="site-nav"></div>
+  <script src="/site-nav.js" defer></script>
 
   <main>
 
@@ -425,10 +387,10 @@
     <nav class="phase-strip" aria-label="H.E.L.P. phases">
       <div class="container">
         <div class="phase-strip__row">
-          <a href="hear.html"><span class="phase-strip__num">01</span> Hear</a>
-          <a href="evidence.html" class="is-current"><span class="phase-strip__num">02</span> Evidence</a>
-          <a href="learn.html"><span class="phase-strip__num">03</span> Learn</a>
-          <a href="proceed.html"><span class="phase-strip__num">04</span> Proceed</a>
+          <a href="/hear"><span class="phase-strip__num">01</span> Hear</a>
+          <a href="/evidence" class="is-current"><span class="phase-strip__num">02</span> Evidence</a>
+          <a href="/learn"><span class="phase-strip__num">03</span> Learn</a>
+          <a href="/proceed"><span class="phase-strip__num">04</span> Proceed</a>
         </div>
       </div>
     </nav>
@@ -633,7 +595,7 @@
           <p class="lead lead--light">Evidence is the bridge from listening to pattern recognition. Without it, the next phase becomes a guess.</p>
         </div>
         <div class="pager-grid reveal d2">
-          <a href="hear.html" class="pager">
+          <a href="/hear" class="pager">
             <div class="pager__letter">H</div>
             <div class="pager__label">Phase 01</div>
             <div class="pager__word">Hear <span class="arrow">→</span></div>
@@ -643,12 +605,12 @@
             <div class="pager__label">You are here</div>
             <div class="pager__word">Evidence</div>
           </div>
-          <a href="learn.html" class="pager">
+          <a href="/learn" class="pager">
             <div class="pager__letter">L</div>
             <div class="pager__label">Phase 03 · Next</div>
             <div class="pager__word">Learn <span class="arrow">→</span></div>
           </a>
-          <a href="proceed.html" class="pager">
+          <a href="/proceed" class="pager">
             <div class="pager__letter">P</div>
             <div class="pager__label">Phase 04</div>
             <div class="pager__word">Proceed <span class="arrow">→</span></div>
@@ -675,7 +637,7 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="site-footer.js"></script>
+  <script src="/site-footer.js" defer></script>
 
   <script>
     const nav = document.getElementById('nav');
@@ -683,8 +645,6 @@
       nav.classList.toggle('solid', window.scrollY > 30);
     }, { passive: true });
 
-    const burger = document.getElementById('navToggle');
-    const drawer = document.getElementById('mobileNav');
     if (burger) {
       burger.addEventListener('click', () => drawer.classList.toggle('open'));
       drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));

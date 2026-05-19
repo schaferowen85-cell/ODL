@@ -1,6 +1,11 @@
 User-agent: *
 Allow: /
 Disallow: /design-system.html
+Disallow: /design-system
 Disallow: /logo-variations.html
+Disallow: /logo-variations
+Disallow: /thank-you.html
+Disallow: /thank-you
+Disallow: /uploads/
 
 Sitemap: https://ondemandleaders.com/sitemap.xml

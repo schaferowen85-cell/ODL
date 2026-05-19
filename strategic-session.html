@@ -540,28 +540,9 @@
 
 <body>
 
-  <!-- ─── NAV ─── -->
-  <nav class="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo" aria-label="OnDemand Leaders home">
-        <svg class="nav__mark-svg" viewBox="0 0 360 130" role="img" aria-label="ODL">
-          <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
-            <circle cx="65" cy="65" r="58"></circle>
-            <circle cx="65" cy="65" r="46"></circle>
-            <line x1="65" y1="32" x2="65" y2="100"></line>
-            <path d="M 42 48 L 42 72 Q 42 82 52 82"></path>
-            <path d="M 88 48 L 88 72 Q 88 82 78 82"></path>
-            <line x1="55" y1="100" x2="75" y2="100"></line>
-            <path d="M 150 12 L 150 118 L 198 118 Q 252 118 252 65 Q 252 12 198 12 Z"></path>
-            <path d="M 162 24 L 162 106 L 196 106 Q 240 106 240 65 Q 240 24 196 24 Z"></path>
-            <path d="M 274 12 L 274 118 L 348 118 L 348 106 L 286 106 L 286 12 Z"></path>
-          </g>
-        </svg>
-        <div class="nav__name">OnDemand Leaders</div>
-      </a>
-      <a href="/" class="nav__back">← Back to home</a>
-    </div>
-  </nav>
+  <!-- Sitewide nav (see /site-nav.js) -->
+  <div id="site-nav"></div>
+  <script src="/site-nav.js" defer></script>
 
   <!-- ─── HERO ─── -->
   <section class="hero" id="pageHead">
@@ -822,7 +803,7 @@
 
   <!-- ─── FOOTER (sitewide) ─── -->
   <div id="site-footer"></div>
-  <script src="site-footer.js"></script>
+  <script src="/site-footer.js" defer></script>
 
   <script>
     const form = document.getElementById('sessionForm');

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/lba-masterclass-book-now",        "destination": "/training", "permanent": true },
+    { "source": "/lba-master-class",                "destination": "/training", "permanent": true },
+    { "source": "/bio-elisha-schafer-1",            "destination": "/elisha",   "permanent": true },
+    { "source": "/our-methodology",                 "destination": "/help",     "permanent": true },
+    { "source": "/our-framework-for-clarity",       "destination": "/help",     "permanent": true },
+    { "source": "/upcoming-webinars",               "destination": "/training", "permanent": true },
+    { "source": "/free-help-webinar-registration",  "destination": "/training", "permanent": true },
+    { "source": "/free-help-webinar-registration-1","destination": "/training", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(jpg|jpeg|png|webp|avif|svg|woff2|ico)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(site-nav|site-footer)\\.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=300, must-revalidate" }
+      ]
+    }
+  ]
+}

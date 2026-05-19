@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Insights · Weekly Notes | Chris Schafer · OnDemand Leaders</title>
+<meta name="description" content="Weekly notes on revenue turnarounds, the HELP Operating System, and what I am seeing inside the rooms where the work actually happens." />
+<link rel="canonical" href="https://ondemandleaders.com/insights" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+<meta name="author" content="Chris Schafer" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<meta name="theme-color" content="#0B1E3B" />
+<meta property="og:site_name" content="OnDemand Leaders" />
+<meta property="og:title" content="Insights · Weekly Notes | Chris Schafer · OnDemand Leaders" />
+<meta property="og:description" content="Weekly notes on revenue turnarounds, the HELP Operating System, and what I am seeing inside the rooms where the work actually happens." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ondemandleaders.com/insights" />
+<meta property="og:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site-core.css" />
+
+<style>
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border-clean);
+  margin-bottom: 56px;
+}
+.filter-chip {
+  display: inline-flex; align-items: center;
+  padding: 8px 16px;
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+  background: var(--white);
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.filter-chip.is-active {
+  border-color: var(--blue-normal);
+  background: var(--blue-normal); color: var(--white);
+}
+.filter-chip:hover { border-color: var(--blue-normal); color: var(--blue-normal); }
+.filter-chip.is-active:hover { color: var(--white); }
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+@media (max-width: 1080px) { .post-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 700px) { .post-grid { grid-template-columns: 1fr; } }
+
+.post-cell {
+  display: flex; flex-direction: column;
+  padding: 32px 30px;
+  background: var(--white);
+  border: 1px solid var(--border-clean);
+  border-radius: var(--r-lg);
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.post-cell:hover { border-color: var(--blue-normal); transform: translateY(-3px); box-shadow: 0 18px 40px -22px rgba(11,30,59,0.18); }
+.post-cell__meta {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--blue-normal);
+  margin-bottom: 14px;
+}
+.post-cell__title {
+  font-size: 20px; font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1.22;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+.post-cell__excerpt {
+  font-size: 14.5px; line-height: 1.65;
+  color: var(--text-muted);
+  flex: 1;
+}
+.post-cell__read {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.featured-post {
+  background: var(--blue-deepest);
+  color: var(--white);
+  border-radius: var(--r-lg);
+  padding: 56px 52px;
+  margin-bottom: 64px;
+  position: relative;
+  overflow: hidden;
+}
+.featured-post::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgba(29,70,150,0.45), transparent 55%);
+}
+.featured-post > * { position: relative; }
+.featured-post__tag {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 16px;
+}
+.featured-post__title {
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.026em;
+  margin-bottom: 14px;
+  max-width: 760px;
+}
+.featured-post__title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: rgba(255,255,255,0.55); }
+.featured-post__excerpt { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.78); max-width: 720px; margin-bottom: 24px; }
+
+.subscribe-band {
+  background: var(--blue-tint-1);
+  padding: 80px 0;
+}
+.subscribe-band__inner { max-width: 680px; margin: 0 auto; text-align: center; }
+.subscribe-band__title {
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.026em;
+  line-height: 1.1;
+  color: var(--text-main);
+  margin-bottom: 14px;
+}
+.subscribe-band__title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--blue-normal); }
+.subscribe-band__body { color: var(--text-muted); margin-bottom: 24px; }
+.subscribe-form {
+  display: flex; gap: 8px; align-items: center;
+  background: var(--white);
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+  padding: 4px 4px 4px 20px;
+  max-width: 480px; margin: 0 auto;
+}
+.subscribe-form input {
+  flex: 1; min-width: 0;
+  background: transparent; border: none; outline: none;
+  color: var(--text-main);
+  font: inherit; font-size: 14px;
+  padding: 12px 0;
+}
+.subscribe-form input::placeholder { color: var(--text-light); }
+.subscribe-form button {
+  background: var(--blue-normal); color: var(--white);
+  border: none; border-radius: 100px;
+  padding: 12px 20px;
+  font: inherit; font-size: 13.5px; font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.subscribe-form button:hover { background: var(--blue-mid); }
+</style>
+
+</head>
+<body>
+  <div id="site-nav"></div>
+  <script src="/site-nav.js" defer></script>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__inner">
+          <span class="eyebrow eyebrow--light reveal">Insights</span>
+          <h1 class="page-hero__h1 reveal d1">Weekly notes on revenue turnarounds, HELP, and <em>the rooms where the work happens.</em></h1>
+          <p class="page-hero__sub reveal d2">Short and medium-form. HELP in operating moves, observations from current engagements, GTM commentary.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white">
+      <div class="container">
+
+        <a href="/blog/chris-schafer.html" class="featured-post reveal" style="text-decoration:none; color:inherit; display:block;">
+          <div class="featured-post__tag">Featured · Chris Schafer</div>
+          <h2 class="featured-post__title">Interim President. <em>Fractional CRO. GTM turnaround operator.</em></h2>
+          <p class="featured-post__excerpt">The full bio. Twenty-five years inside B2B SaaS go-to-market, from NetSuite through the Oracle acquisition to ImportGenius. The work, the operating principles, and how HELP became the method behind every engagement.</p>
+          <span class="btn btn--invert">Read the bio <span class="arrow">↗</span></span>
+        </a>
+
+        <div class="filter-bar reveal d1" role="tablist" aria-label="Filter by category">
+          <button class="filter-chip is-active" data-cat="all" type="button">All posts</button>
+          <button class="filter-chip" data-cat="help" type="button">HELP in Practice</button>
+          <button class="filter-chip" data-cat="turnaround" type="button">GTM Turnarounds</button>
+          <button class="filter-chip" data-cat="sales" type="button">Sales &amp; Revenue Ops</button>
+          <button class="filter-chip" data-cat="leadership" type="button">Leadership</button>
+          <button class="filter-chip" data-cat="industry" type="button">Industry Observations</button>
+        </div>
+
+        <div class="post-grid">
+
+          <a class="post-cell reveal" href="/blog/why-saas-revenue-plans-miss.html" data-cat="turnaround sales">
+            <div class="post-cell__meta">GTM Turnarounds · 7 min</div>
+            <div class="post-cell__title">Why SaaS revenue plans miss</div>
+            <p class="post-cell__excerpt">Most plans fail not because the number is wrong but because the team doesn&rsquo;t believe it. Diagnosing the gap between a forecast and conviction.</p>
+            <div class="post-cell__read">Read post →</div>
+          </a>
+
+          <a class="post-cell reveal d2" href="/blog/founder-led-selling-stops-scaling.html" data-cat="sales leadership">
+            <div class="post-cell__meta">Sales &amp; Revenue Ops · 6 min</div>
+            <div class="post-cell__title">When founder-led selling stops scaling</div>
+            <p class="post-cell__excerpt">The pattern every founder-led company hits. The handoff that has to happen before revenue compounds. Specific operating moves that make the transition.</p>
+            <div class="post-cell__read">Read post →</div>
+          </a>
+
+          <a class="post-cell reveal d3" href="/blog/fractional-cro-vs-interim-cro.html" data-cat="turnaround leadership">
+            <div class="post-cell__meta">Leadership · 5 min</div>
+            <div class="post-cell__title">Fractional CRO vs interim CRO</div>
+            <p class="post-cell__excerpt">When you need part-time pattern recognition and when you need a full-time operator in the seat. The trade-offs and how to choose.</p>
+            <div class="post-cell__read">Read post →</div>
+          </a>
+
+          <a class="post-cell reveal" href="/blog/interim-president-toronto.html" data-cat="leadership turnaround">
+            <div class="post-cell__meta">Leadership · 5 min</div>
+            <div class="post-cell__title">Interim President &middot; Toronto</div>
+            <p class="post-cell__excerpt">The scope, the model, and what the engagement looks like when revenue is breaking and the team needs continuity, not a search firm.</p>
+            <div class="post-cell__read">Read post →</div>
+          </a>
+
+          <a class="post-cell reveal d2" href="/blog/saas-acquisition-readiness.html" data-cat="turnaround industry">
+            <div class="post-cell__meta">GTM Turnarounds · 8 min</div>
+            <div class="post-cell__title">SaaS acquisition readiness</div>
+            <p class="post-cell__excerpt">What the buy-side actually looks at. Why the narrative the board sees has to match the mechanics the team is running. Preparing well in advance.</p>
+            <div class="post-cell__read">Read post →</div>
+          </a>
+
+          <a class="post-cell reveal d3" href="/blog/chris-schafer.html" data-cat="leadership">
+            <div class="post-cell__meta">Leadership · 6 min</div>
+            <div class="post-cell__title">About Chris Schafer</div>
+            <p class="post-cell__excerpt">Twenty-five years inside SaaS GTM, from NetSuite through the Oracle acquisition to ImportGenius. The work and the operating principles.</p>
+            <div class="post-cell__read">Read post →</div>
+          </a>
+
+        </div>
+
+        <div class="tbd-banner" style="margin-top: 56px;"><strong>Coming:</strong> Real category filtering and search will be wired once the blog moves to a static-site generator (11ty/Astro). Current filters are visual placeholders; all 6 posts show. New weekly posts land here.</div>
+
+      </div>
+    </section>
+
+    <section class="subscribe-band" id="subscribe">
+      <div class="container">
+        <div class="subscribe-band__inner">
+          <h2 class="subscribe-band__title">Weekly Insights, <em>direct.</em></h2>
+          <p class="subscribe-band__body">GTM turnarounds. HELP in operating moves. What I&rsquo;m seeing in the rooms where the work actually happens. No spam.</p>
+          <form class="subscribe-form" action="#" method="post" novalidate>
+            <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required aria-label="Email address" />
+            <button type="submit">Subscribe ↗</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Light client-side filter (data-cat). All posts show on "all".
+      document.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('is-active'));
+          chip.classList.add('is-active');
+          const cat = chip.dataset.cat;
+          document.querySelectorAll('.post-cell').forEach(cell => {
+            const cats = (cell.dataset.cat || '').split(/\s+/);
+            cell.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
+          });
+        });
+      });
+    </script>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="/site-footer.js" defer></script>
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.querySelectorAll('form.gate-form, form.subscribe-form').forEach(f => {
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = f.querySelector('button');
+        btn.textContent = 'Thanks ✓';
+        btn.disabled = true;
+      });
+    });
+  </script>
+</body>
+</html>

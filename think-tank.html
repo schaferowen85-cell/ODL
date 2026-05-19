@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Think Tank · Long-form Research | OnDemand Leaders</title>
+<meta name="description" content="Long-form research papers on revenue systems, leadership, education, and economic value. Some commissioned by clients and released with permission. All published for public reading." />
+<link rel="canonical" href="https://ondemandleaders.com/think-tank" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+<meta name="author" content="Chris Schafer" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<meta name="theme-color" content="#0B1E3B" />
+
+<meta property="og:site_name" content="OnDemand Leaders" />
+<meta property="og:title" content="Think Tank · Long-form Research | OnDemand Leaders" />
+<meta property="og:description" content="Long-form research papers on revenue, leadership, education, and economic value." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ondemandleaders.com/think-tank" />
+<meta property="og:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site-core.css" />
+
+<style>
+.paper-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 36px;
+  align-items: start;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border-clean);
+}
+.paper-card:last-child { border-bottom: none; }
+.paper-card__cover {
+  aspect-ratio: 3 / 4;
+  background:
+    linear-gradient(135deg, var(--blue-normal) 0%, var(--blue-dark) 100%);
+  border-radius: var(--r-md);
+  display: flex; align-items: flex-end; justify-content: flex-start;
+  padding: 26px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 32px -18px rgba(11,30,59,0.35);
+}
+.paper-card__cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(180deg, transparent 0%, black 60%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 60%);
+  opacity: 0.6;
+}
+.paper-card__cover-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 8px;
+  position: relative;
+}
+.paper-card__cover-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.15;
+  position: relative;
+}
+.paper-card__meta {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+.paper-card__title {
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+.paper-card__subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+.paper-card__desc { font-size: 15.5px; line-height: 1.7; color: var(--text-muted); margin-bottom: 22px; }
+.paper-card__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.paper-card__tags {
+  margin-top: 16px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.paper-card__tags span {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--blue-normal);
+  padding: 5px 10px;
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+}
+
+@media (max-width: 900px) {
+  .paper-card { grid-template-columns: 1fr; gap: 24px; }
+  .paper-card__cover { max-width: 220px; }
+}
+</style>
+</head>
+<body>
+  <div id="site-nav"></div>
+  <script src="/site-nav.js" defer></script>
+
+  <main>
+
+    <!-- ─── HERO ─── -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__inner">
+          <span class="eyebrow eyebrow--light reveal">Think Tank</span>
+          <h1 class="page-hero__h1 reveal d1">Long-form research on <em>the systems that move revenue, leadership, and value.</em></h1>
+          <p class="page-hero__sub reveal d2">Long-form research papers on the systems behind revenue, leadership, education, and economic value. <strong>Some commissioned by clients and released with permission. All published for public reading.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PAPERS ─── -->
+    <section class="section section--white">
+      <div class="container" style="max-width: 980px;">
+
+        <article class="paper-card reveal">
+          <a class="paper-card__cover" href="/think-tank/education-three-cs">
+            <div>
+              <div class="paper-card__cover-eyebrow">Think Tank · April 2026</div>
+              <div class="paper-card__cover-title">The Education<br/>Three Cs</div>
+            </div>
+          </a>
+          <div>
+            <div class="paper-card__meta">By Christopher Schafer · April 2026 · ~24 min read</div>
+            <h2 class="paper-card__title">The Education Three Cs</h2>
+            <p class="paper-card__subtitle">Curiosity. Communication. Confirmation. Why the skills schools were never built to teach are now the only ones that matter.</p>
+            <p class="paper-card__desc">The education system rewards what AI now does for free and under-rewards what AI cannot do at all. This paper argues for reorganizing primary, secondary, and post-secondary education around three teachable inputs: Curiosity, Communication, Confirmation. The HELP Operating System provides the operating plan that makes them teachable, observable, and assessable inside a classroom.</p>
+            <div class="paper-card__actions">
+              <a href="/think-tank/education-three-cs" class="btn btn--primary">Read paper <span class="arrow">↗</span></a>
+              <a href="/think-tank/education-three-cs#download" class="btn btn--ghost-dark">Download PDF</a>
+            </div>
+            <div class="paper-card__tags">
+              <span>Education</span><span>AI</span><span>HELP</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="paper-card reveal d2">
+          <a class="paper-card__cover" href="/think-tank/canada-value-capture">
+            <div>
+              <div class="paper-card__cover-eyebrow">Think Tank · April 2026</div>
+              <div class="paper-card__cover-title">Canada&rsquo;s<br/>Value Capture<br/>Gap</div>
+            </div>
+          </a>
+          <div>
+            <div class="paper-card__meta">By Christopher Schafer · April 2026 · ~28 min read</div>
+            <h2 class="paper-card__title">Canada&rsquo;s Value Capture Gap</h2>
+            <p class="paper-card__subtitle">Why we ship our resources out and buy them back at ten times the price, and what to do about it.</p>
+            <p class="paper-card__desc">Canada exports raw materials and imports the finished goods made from them. Automation has collapsed the labour-cost case for offshore manufacturing, but policy hasn&rsquo;t caught up. This paper makes two arguments: first, that Canadians can&rsquo;t have an honest conversation about industrial policy until they can see what is actually happening with our resources, and second, that Canada needs a value capture strategy comparable to what Indonesia, Sweden, South Korea, and Norway have used.</p>
+            <div class="paper-card__actions">
+              <a href="/think-tank/canada-value-capture" class="btn btn--primary">Read paper <span class="arrow">↗</span></a>
+              <a href="/think-tank/canada-value-capture#download" class="btn btn--ghost-dark">Download PDF</a>
+            </div>
+            <div class="paper-card__tags">
+              <span>Industrial Strategy</span><span>Economics</span><span>Canada</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ─── CTA ─── -->
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__inner">
+          <span class="eyebrow eyebrow--light reveal">Subscribe</span>
+          <h2 class="cta-band__title reveal d1">Get new papers when <em>they drop.</em></h2>
+          <p class="cta-band__body reveal d2">One email when a new paper publishes. Plus weekly Insights between papers.</p>
+          <div class="cta-band__actions reveal d3">
+            <a href="/insights#subscribe" class="btn btn--invert">Subscribe to Insights <span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/site-footer.js" defer></script>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

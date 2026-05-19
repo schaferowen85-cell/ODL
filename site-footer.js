@@ -1,9 +1,13 @@
-// Sitewide footer — injects into any element with id="site-footer"
+// Sitewide footer — injects into any element with id="site-footer".
+// 4-column layout per change-request spec §2.8.
 (function() {
+  const YEAR = new Date().getFullYear();
+
   const FOOTER_HTML = `
   <footer class="sf-footer">
     <div class="sf-container">
       <div class="sf-grid">
+
         <div class="sf-brand">
           <div class="sf-brand-row">
             <svg viewBox="0 0 360 130" role="img" aria-label="ODL" style="display:block;height:28px;width:auto;">
@@ -21,30 +25,57 @@
             </svg>
             <div class="sf-brand-name">OnDemand Leaders</div>
           </div>
-          <p class="sf-tag">Interim President for mid-market companies whose leadership team has stopped agreeing on the problem.</p>
+          <p class="sf-tag">Fractional CRO. GTM turnaround operator.</p>
+          <address class="sf-addr">
+            283 Plains Road West<br/>
+            L7T 1G1, Burlington, Ontario
+          </address>
         </div>
+
         <div class="sf-col">
           <div class="sf-col-label">Site</div>
           <ul>
-            <li><a href="/#problem">The Problem</a></li>
-            <li><a href="/#service">Engagement</a></li>
-            <li><a href="/#proof">Track Record</a></li>
-            <li><a href="/#help">H.E.L.P.</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/how-i-work">How I Work</a></li>
+            <li><a href="/help">HELP</a></li>
+            <li><a href="/training">Training</a></li>
+            <li><a href="/speaking">Speaking, Podcasts &amp; Videos</a></li>
+            <li><a href="/insights">Insights</a></li>
+            <li><a href="/think-tank">Think Tank</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/elisha">Meet Elisha</a></li>
+            <li><a href="/apply.html">Book a Call</a></li>
           </ul>
         </div>
+
+        <div class="sf-col sf-col--news">
+          <div class="sf-col-label">Newsletter</div>
+          <p class="sf-news-copy">Weekly insights on GTM turnarounds and HELP.</p>
+          <form class="sf-news-form" action="#" method="post" novalidate>
+            <label class="sf-sr-only" for="sf-news-email">Email address</label>
+            <input id="sf-news-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+            <button type="submit" aria-label="Subscribe">
+              Subscribe <span class="sf-arrow" aria-hidden="true">↗</span>
+            </button>
+          </form>
+          <p class="sf-news-note">No spam. Unsubscribe anytime.</p>
+        </div>
+
         <div class="sf-col">
-          <div class="sf-col-label">Contact</div>
-          <ul>
+          <div class="sf-col-label">Follow</div>
+          <ul class="sf-social">
+            <li><a href="https://www.linkedin.com/in/chrisschafer/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
             <li><a href="mailto:chris@ondemandleaders.com">chris@ondemandleaders.com</a></li>
-            <li><a href="apply.html">Apply to work with Chris</a></li>
-            <li><a href="#">LinkedIn</a></li>
           </ul>
         </div>
+
       </div>
 
       <div class="sf-bottom">
-        <div>© 2026 OnDemand Leaders · Chris Schafer</div>
-        <div>GTA · NA · APAC</div>
+        <div>© ${YEAR} OnDemand Leaders Inc.</div>
+        <div>Fractional CRO · GTM Turnaround Operator</div>
       </div>
     </div>
   </footer>
@@ -60,90 +91,104 @@
   }
   .sf-container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 40px; }
 
-  .sf-cta {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 40px;
-    align-items: center;
-    padding: 56px 0 56px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .sf-cta__eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 14px;
-  }
-  .sf-cta__title {
-    font-size: clamp(28px, 3.4vw, 44px);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.032em;
-    color: #fff;
-    margin: 0 0 10px;
-  }
-  .sf-cta__title em {
-    font-family: 'Fraunces', serif;
-    font-style: italic; font-weight: 400;
-    color: rgba(255,255,255,0.55);
-  }
-  .sf-cta__sub {
-    font-size: 15px; line-height: 1.6;
-    color: rgba(255,255,255,0.6);
-    margin: 0;
-    max-width: 520px;
-  }
-  .sf-cta__btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 26px;
-    border-radius: 100px;
-    background: #fff;
-    color: #0B1E3B;
-    font-size: 14px; font-weight: 600; letter-spacing: -0.005em;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background .16s ease, transform .12s ease;
-  }
-  .sf-cta__btn:hover { background: #F8FAFC; }
-  .sf-cta__btn .sf-arrow { transition: transform .16s ease; }
-  .sf-cta__btn:hover .sf-arrow { transform: translate(2px, -2px); }
-
   .sf-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
-    gap: 48px;
-    padding: 48px 0 36px;
+    grid-template-columns: 1.4fr 1fr 1.3fr 0.8fr;
+    gap: 56px;
+    padding: 64px 0 40px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
-  .sf-brand { display: flex; flex-direction: column; gap: 14px; }
+
+  .sf-brand { display: flex; flex-direction: column; gap: 16px; }
   .sf-brand-row { display: flex; align-items: center; gap: 12px; }
   .sf-brand-name { color: #fff; font-size: 14px; font-weight: 600; }
-  .sf-tag { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.65; max-width: 320px; margin: 0; }
+  .sf-tag { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55; max-width: 320px; margin: 0; font-weight: 500; }
+  .sf-addr {
+    font-style: normal;
+    font-size: 13px; color: rgba(255,255,255,0.45);
+    line-height: 1.65;
+  }
+
   .sf-col-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.4);
     margin-bottom: 16px;
   }
   .sf-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; padding: 0; margin: 0; }
-  .sf-col a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color .16s ease; }
+  .sf-col a {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color .16s ease;
+  }
   .sf-col a:hover { color: #fff; }
+
+  .sf-news-copy {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+    line-height: 1.6; margin: 0 0 14px;
+  }
+  .sf-news-form {
+    display: flex; gap: 8px; align-items: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px;
+    padding: 4px 4px 4px 16px;
+    transition: border-color .16s ease;
+  }
+  .sf-news-form:focus-within { border-color: rgba(255,255,255,0.28); }
+  .sf-news-form input {
+    flex: 1; min-width: 0;
+    background: transparent;
+    border: none; outline: none;
+    color: #fff;
+    font-family: inherit; font-size: 13px;
+    padding: 8px 0;
+  }
+  .sf-news-form input::placeholder { color: rgba(255,255,255,0.35); }
+  .sf-news-form button {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #fff; color: #0B1E3B;
+    border: none; border-radius: 100px;
+    padding: 9px 16px;
+    font: inherit; font-size: 12.5px; font-weight: 600;
+    cursor: pointer;
+    transition: background .16s ease;
+    white-space: nowrap;
+  }
+  .sf-news-form button:hover { background: #F8FAFC; }
+  .sf-news-form .sf-arrow { transition: transform .16s ease; }
+  .sf-news-form button:hover .sf-arrow { transform: translate(2px, -2px); }
+  .sf-news-note {
+    font-size: 11px; color: rgba(255,255,255,0.32);
+    margin: 12px 0 0;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+
+  .sf-social a { font-size: 13.5px; }
 
   .sf-bottom {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 24px 0 36px; flex-wrap: wrap; gap: 12px;
+    padding: 26px 0 40px; flex-wrap: wrap; gap: 12px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
     color: rgba(255,255,255,0.3);
   }
 
-  @media (max-width: 900px) {
-    .sf-cta { grid-template-columns: 1fr; gap: 24px; }
-    .sf-grid { grid-template-columns: 1fr 1fr; }
+  .sf-sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
   }
-  @media (max-width: 600px) {
+
+  @media (max-width: 1080px) {
+    .sf-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 640px) {
     .sf-container { padding: 0 24px; }
-    .sf-grid { grid-template-columns: 1fr; gap: 32px; }
+    .sf-grid { grid-template-columns: 1fr; gap: 36px; padding: 48px 0 32px; }
+    .sf-bottom { padding: 20px 0 28px; }
   }
   `;
 
@@ -157,6 +202,17 @@
       document.head.appendChild(style);
     }
     slot.outerHTML = FOOTER_HTML;
+
+    const form = document.querySelector('.sf-news-form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        btn.textContent = 'Thanks ✓';
+        btn.disabled = true;
+        // TODO: wire to ESP (ConvertKit / Mailchimp / Beehiiv) once selected.
+      });
+    }
   }
 
   if (document.readyState === 'loading') {

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Canada's Value Capture Gap · Think Tank | Christopher Schafer</title>
+<meta name="description" content="Why Canada ships its resources out and buys them back at ten times the price, and what to do about it. A Think Tank paper by Christopher Schafer." />
+<link rel="canonical" href="https://ondemandleaders.com/think-tank/canada-value-capture" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+<meta name="author" content="Chris Schafer" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<meta name="theme-color" content="#0B1E3B" />
+
+<meta property="og:site_name" content="OnDemand Leaders" />
+<meta property="og:title" content="Canada's Value Capture Gap" />
+<meta property="og:description" content="Why Canada ships its resources out and buys them back at ten times the price, and what to do about it. A Think Tank paper by Christopher Schafer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ondemandleaders.com/think-tank/canada-value-capture" />
+<meta property="article:author" content="Christopher Schafer" />
+<meta property="article:published_time" content="2026-04-01" />
+<meta property="og:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site-core.css" />
+
+<style>
+.paper-hero {
+  padding: calc(var(--nav-h) + 64px) 0 56px;
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(29,70,150,0.5), transparent 55%),
+    linear-gradient(180deg, var(--blue-deepest) 0%, var(--blue-dark) 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.paper-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  pointer-events: none;
+}
+.paper-hero > .container { position: relative; z-index: 2; }
+.paper-hero__crumb {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  margin-bottom: 22px;
+}
+.paper-hero__crumb:hover { color: var(--white); }
+.paper-hero__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.paper-hero__tags span {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  padding: 5px 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 100px;
+}
+.paper-hero__h1 {
+  font-size: clamp(36px, 4.4vw, 60px);
+  font-weight: 800; line-height: 1.04;
+  letter-spacing: -0.034em;
+  color: var(--white);
+  margin: 24px 0 16px;
+  max-width: 880px;
+}
+.paper-hero__subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.4;
+  color: rgba(255,255,255,0.72);
+  max-width: 760px;
+}
+.paper-hero__meta {
+  margin-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.paper-body {
+  padding: 80px 0;
+  background: var(--white);
+}
+.paper-body__inner { max-width: 760px; margin: 0 auto; }
+.paper-body h2 {
+  font-size: clamp(24px, 2.2vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.022em;
+  color: var(--text-main);
+  margin: 48px 0 16px;
+}
+.paper-body h3 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--blue-dark);
+  margin: 36px 0 12px;
+}
+.paper-body p {
+  font-size: 17px;
+  line-height: 1.78;
+  color: var(--text-main);
+  margin-bottom: 22px;
+}
+.paper-body p strong { font-weight: 600; }
+.paper-body .lede {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  border-left: 2px solid var(--blue-normal);
+  padding-left: 22px;
+  margin: 0 0 36px;
+}
+.paper-body ul { margin: 18px 0 24px 0; padding-left: 24px; }
+.paper-body ul li { font-size: 16.5px; line-height: 1.7; color: var(--text-main); margin-bottom: 10px; }
+
+.paper-gate {
+  margin: 48px 0;
+  padding: 36px 32px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-clean);
+  border-radius: var(--r-lg);
+}
+.paper-gate__title {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--blue-normal);
+  margin-bottom: 8px;
+}
+.paper-gate h3 {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.018em;
+  color: var(--text-main);
+  margin: 0 0 8px;
+}
+.paper-gate p { font-size: 15px; color: var(--text-muted); margin: 0 0 18px; line-height: 1.6; }
+.paper-gate__form {
+  display: flex; gap: 8px; align-items: center;
+  background: var(--white);
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+  padding: 4px 4px 4px 18px;
+}
+.paper-gate__form input {
+  flex: 1; min-width: 0;
+  background: transparent;
+  border: none; outline: none;
+  font: inherit; font-size: 14px;
+  color: var(--text-main);
+  padding: 10px 0;
+}
+.paper-gate__form input::placeholder { color: var(--text-light); }
+.paper-gate__form button {
+  background: var(--blue-normal); color: var(--white);
+  border: none; border-radius: 100px;
+  padding: 10px 18px;
+  font: inherit; font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  white-space: nowrap;
+}
+.paper-gate__form button:hover { background: var(--blue-mid); }
+.paper-gate__note {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.14em;
+  color: var(--text-light);
+}
+
+.citation {
+  margin: 40px 0;
+  padding: 24px 26px;
+  background: var(--blue-deepest);
+  color: rgba(255,255,255,0.85);
+  border-radius: var(--r-md);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.citation__label {
+  display: block;
+  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 10px;
+}
+</style>
+
+</head>
+<body>
+  <div id="site-nav"></div>
+  <script src="/site-nav.js" defer></script>
+
+  <main>
+
+    <section class="paper-hero">
+      <div class="container">
+        <a href="/think-tank" class="paper-hero__crumb reveal">← Think Tank</a>
+        <div class="reveal d1" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Research paper · April 2026</div>
+        <h1 class="paper-hero__h1 reveal d1">Canada&rsquo;s Value Capture Gap</h1>
+        <p class="paper-hero__subtitle reveal d2">Why we ship our resources out and buy them back at ten times the price, and what to do about it.</p>
+        <div class="paper-hero__tags reveal d3">
+          <span>Industrial Strategy</span><span>Economics</span><span>Canada</span>
+        </div>
+        <div class="paper-hero__meta reveal d3">By Christopher Schafer · April 2026 · ~28 min read</div>
+      </div>
+    </section>
+
+    <section class="paper-body">
+      <div class="container">
+        <div class="paper-body__inner">
+
+          <p class="lede">Canada exports raw materials and imports the finished goods made from them. Automation has collapsed the labour-cost case for offshore manufacturing. Policy hasn&rsquo;t caught up.</p>
+
+          <h2>Abstract</h2>
+          <p>This paper makes two arguments. <strong>First, that Canadians can&rsquo;t have an honest conversation about industrial policy until they can see what is actually happening with our resources.</strong> Second, that Canada needs a value capture strategy comparable to what Indonesia, Sweden, South Korea, and Norway have used to convert raw natural endowments into durable national wealth.</p>
+
+          <h2>The asymmetry</h2>
+          <p>The pattern repeats across sector after sector. We mine the nickel, refine little of it, and import the EV batteries made from it. We harvest the timber, process little of it, and import the finished engineered wood. We pump the oil and gas, refine some of it, and import the petrochemicals. The economic geometry is consistent: the upstream margin is small, the downstream margin is large, and we keep choosing the small one.</p>
+          <p>The historical case for this was labour costs. Manufacturing happens where labour is cheap. That case is now substantially weaker. <strong>Modern manufacturing is increasingly automated, and the cost of automating a Canadian plant looks much like the cost of automating any other plant.</strong> The variable that mattered most for fifty years matters less today than it has in decades.</p>
+
+          <div id="download" class="paper-gate">
+            <div class="paper-gate__title">Read the full paper</div>
+            <h3>Download the PDF</h3>
+            <p>Email-gated. We&rsquo;ll send the paper as a PDF and add you to the weekly Insights newsletter. Unsubscribe anytime.</p>
+            <form class="paper-gate__form" action="#" method="post" novalidate>
+              <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required aria-label="Email address" />
+              <button type="submit">Send me the PDF <span>↗</span></button>
+            </form>
+            <div class="paper-gate__note">No spam · Unsubscribe anytime</div>
+          </div>
+
+          <h2>Four countries that did it differently</h2>
+
+          <h3>Indonesia and nickel</h3>
+          <p>Indonesia banned the export of unprocessed nickel ore in 2020. The move was contentious. Five years later, Indonesia is the second largest stainless steel producer in the world and has captured a significant share of EV battery upstream value. The thesis was simple: <strong>if you have the resource, refuse to export the work.</strong></p>
+
+          <h3>Sweden and timber</h3>
+          <p>Sweden built a deep wood-products industry that processes domestic timber into engineered wood, furniture, and paper at scale. The IKEA model is downstream of decades of patient industrial policy that kept the processing chain inside the country.</p>
+
+          <h3>South Korea and steel</h3>
+          <p>South Korea, a country with almost no iron ore deposits, became one of the world&rsquo;s largest steel exporters. The opposite of Canada&rsquo;s pattern: a country without the raw resource that captured the downstream margin anyway through industrial capacity, not natural endowment.</p>
+
+          <h3>Norway and oil</h3>
+          <p>Norway took the oil revenue, refused to spend it, and parked it in a sovereign wealth fund that now owns approximately 1.5% of every public company on earth. The lesson is not that Canada should mimic the fund mechanically. It is that <strong>the country chose to capture the wealth from the resource as wealth, rather than dissipate it as consumption.</strong></p>
+
+          <h2>What Canada would need to do</h2>
+          <p>A serious value capture strategy isn&rsquo;t a single policy. It&rsquo;s a coordinated stack: tariff design, processing incentives, sovereign capital deployment, energy pricing, regulatory speed, and a public conversation honest enough to make trade-offs visible.</p>
+
+          <p style="margin-top: 36px; color: var(--text-light); font-size: 14.5px;">&hellip; the full paper continues with sector-by-sector analysis, the policy stack, and the case for transparency as a precondition for policy. Download the PDF to keep reading.</p>
+
+          <div class="citation">
+            <span class="citation__label">Suggested citation</span>
+            Schafer, C. (2026). <em>Canada&rsquo;s Value Capture Gap</em>. OnDemand Leaders Think Tank. Retrieved from https://ondemandleaders.com/think-tank/canada-value-capture
+          </div>
+
+          <div class="tbd-banner">
+            <strong>Pre-publish hold:</strong> Final cleaned PDF pending from Chris. NetSuite credential language fix applied in the author bio when the final version drops.
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__inner">
+          <h2 class="cta-band__title reveal d1">More from the Think Tank.</h2>
+          <p class="cta-band__body reveal d2">Read the other paper, or subscribe for new releases.</p>
+          <div class="cta-band__actions reveal d3">
+            <a href="/think-tank/education-three-cs" class="btn btn--invert">The Education Three Cs <span class="arrow">↗</span></a>
+            <a href="/insights#subscribe" class="btn btn--ghost-light">Subscribe to Insights</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/site-footer.js" defer></script>
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    const forms = document.querySelectorAll('.paper-gate__form');
+    forms.forEach(f => f.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = f.querySelector('button');
+      btn.textContent = 'Thanks · check your email ✓';
+      btn.disabled = true;
+      // TODO: wire to ESP. On success, deliver PDF and add subscriber.
+    }));
+  </script>
+</body>
+</html>
