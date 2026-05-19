@@ -846,13 +846,14 @@
   }
   .help-glass__cta {
     display: inline-flex; align-items: center; gap: 8px;
-    color: var(--blue-normal); font-size: 13px; font-weight: 600;
+    color: #93B4E8; font-size: 13px; font-weight: 600;
     margin-top: 18px; padding-top: 14px;
     border-top: 1px solid rgba(255,255,255,0.18);
     align-self: flex-start;
     position: relative; z-index: 1;
-    transition: gap .2s ease;
+    transition: gap .2s ease, color .2s ease;
   }
+  .help-glass:hover .help-glass__cta { color: var(--white); }
   .help-glass:hover .help-glass__cta { gap: 12px; }
   /* Outcomes — on navy */
   .help__outcomes {
@@ -1757,7 +1758,7 @@
     <section class="section cta" id="contact" data-screen-label="09 CTA">
       <div class="container">
         <div class="cta__inner">
-          <span class="eyebrow eyebrow--light reveal">07 · Work with Chris</span>
+          <span class="eyebrow eyebrow--light reveal">08 · Work with Chris</span>
           <h2 class="cta__title reveal d1" style="margin-top:18px;">Make the revenue plan <em>believable again.</em></h2>
           <p class="cta__body reveal d2">If your leadership team is solving different versions of the same problem and the number keeps slipping, this is a 30-minute conversation. No sales deck. No pitch. Just the situation, and whether Chris is the right operator for it.</p>
           <div class="cta__actions reveal d3">
