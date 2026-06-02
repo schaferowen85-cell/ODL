@@ -238,32 +238,6 @@
           </div>
         </div>
 
-        <div class="section-head section-head--left">
-          <span class="eyebrow reveal">Forthcoming</span>
-          <h2 class="h2 reveal d1">Coming next.</h2>
-        </div>
-
-        <div class="card-grid">
-          <div class="resource-card resource-card--soon reveal">
-            <div class="resource-card__tag">Diagnostic · PDF</div>
-            <div class="resource-card__title">GTM diagnostic checklist</div>
-            <div class="resource-card__desc">The 12-question checklist I run on the first call. Use it to diagnose your own revenue org before the call.</div>
-            <div class="resource-card__link">Coming soon</div>
-          </div>
-          <div class="resource-card resource-card--soon reveal d2">
-            <div class="resource-card__tag">Template · PDF</div>
-            <div class="resource-card__title">Forecast cadence template</div>
-            <div class="resource-card__desc">The weekly cadence that produces a forecast the team builds, defends, and believes.</div>
-            <div class="resource-card__link">Coming soon</div>
-          </div>
-          <div class="resource-card resource-card--soon reveal d3">
-            <div class="resource-card__tag">Coaching · PDF</div>
-            <div class="resource-card__title">Exec team coaching prompts</div>
-            <div class="resource-card__desc">25 questions to run a HELP-based exec team session without a coach in the room.</div>
-            <div class="resource-card__link">Coming soon</div>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -294,8 +268,19 @@
       f.addEventListener('submit', e => {
         e.preventDefault();
         const btn = f.querySelector('button');
-        btn.textContent = 'Thanks ✓';
+        const data = new FormData(f);
+        data.append('access_key', '66ee8dd3-a70a-466c-bef1-f303cf918d9d');
+        data.append('subject', 'Resources page — newsletter / one-pager request');
+        data.append('from_name', 'OnDemand Leaders · Resources');
         btn.disabled = true;
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        }).then(r => r.json()).then(res => {
+          btn.textContent = res.success ? 'Thanks ✓' : 'Try again';
+          if (!res.success) btn.disabled = false;
+        }).catch(() => { btn.textContent = 'Try again'; btn.disabled = false; });
       });
     });
   </script>

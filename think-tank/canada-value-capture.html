@@ -269,10 +269,6 @@
             Schafer, C. (2026). <em>Canada&rsquo;s Value Capture Gap</em>. OnDemand Leaders Think Tank. Retrieved from https://ondemandleaders.com/think-tank/canada-value-capture
           </div>
 
-          <div class="tbd-banner">
-            <strong>Pre-publish hold:</strong> Final cleaned PDF pending from Chris. NetSuite credential language fix applied in the author bio when the final version drops.
-          </div>
-
         </div>
       </div>
     </section>
@@ -304,9 +300,19 @@
     forms.forEach(f => f.addEventListener('submit', e => {
       e.preventDefault();
       const btn = f.querySelector('button');
-      btn.textContent = 'Thanks · check your email ✓';
+      const data = new FormData(f);
+      data.append('access_key', '66ee8dd3-a70a-466c-bef1-f303cf918d9d');
+      data.append('subject', 'PDF request — Canada’s Value Capture Gap');
+      data.append('from_name', 'OnDemand Leaders · Canada paper');
       btn.disabled = true;
-      // TODO: wire to ESP. On success, deliver PDF and add subscriber.
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      }).then(r => r.json()).then(res => {
+        btn.textContent = res.success ? 'Thanks · PDF on the way ✓' : 'Try again';
+        if (!res.success) btn.disabled = false;
+      }).catch(() => { btn.textContent = 'Try again'; btn.disabled = false; });
     }));
   </script>
 </body>

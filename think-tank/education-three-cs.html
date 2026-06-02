@@ -469,9 +469,19 @@
     forms.forEach(f => f.addEventListener('submit', e => {
       e.preventDefault();
       const btn = f.querySelector('button');
-      btn.textContent = 'Thanks · check your email ✓';
+      const data = new FormData(f);
+      data.append('access_key', '66ee8dd3-a70a-466c-bef1-f303cf918d9d');
+      data.append('subject', 'PDF request — The Education Three Cs');
+      data.append('from_name', 'OnDemand Leaders · Three Cs paper');
       btn.disabled = true;
-      // TODO: wire to ESP. On success, deliver PDF and add subscriber.
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      }).then(r => r.json()).then(res => {
+        btn.textContent = res.success ? 'Thanks · PDF on the way ✓' : 'Try again';
+        if (!res.success) btn.disabled = false;
+      }).catch(() => { btn.textContent = 'Try again'; btn.disabled = false; });
     }));
   </script>
 </body>

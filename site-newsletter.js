@@ -152,12 +152,22 @@
     document.getElementById('nl-form').addEventListener('submit', e => {
       e.preventDefault();
       const btn = document.getElementById('nl-submit');
-      btn.textContent = 'You’re in. Thank you ✓';
+      const data = new FormData(e.currentTarget);
+      data.append('access_key', '66ee8dd3-a70a-466c-bef1-f303cf918d9d');
+      data.append('subject', 'New newsletter subscriber — site popup');
+      data.append('from_name', 'OnDemand Leaders · Newsletter');
       btn.disabled = true;
-      overlay.querySelectorAll('input').forEach(i => i.disabled = true);
-      remember();
-      // TODO: wire to ESP (ConvertKit / Mailchimp / Beehiiv) once selected.
-      setTimeout(close, 1400);
+      const done = () => {
+        btn.textContent = 'You’re in. Thank you ✓';
+        overlay.querySelectorAll('input').forEach(i => i.disabled = true);
+        remember();
+        setTimeout(close, 1400);
+      };
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      }).then(r => r.json()).then(done).catch(done);
     });
 
     const timer = setTimeout(open, DELAY_MS);

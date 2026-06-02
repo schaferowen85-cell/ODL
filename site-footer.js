@@ -208,9 +208,19 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const btn = form.querySelector('button');
-        btn.textContent = 'Thanks ✓';
+        const data = new FormData(form);
+        data.append('access_key', '66ee8dd3-a70a-466c-bef1-f303cf918d9d');
+        data.append('subject', 'New newsletter subscriber — site footer');
+        data.append('from_name', 'OnDemand Leaders · Footer');
         btn.disabled = true;
-        // TODO: wire to ESP (ConvertKit / Mailchimp / Beehiiv) once selected.
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        }).then(r => r.json()).then(res => {
+          btn.textContent = res.success ? 'Thanks ✓' : 'Try again';
+          if (!res.success) btn.disabled = false;
+        }).catch(() => { btn.textContent = 'Try again'; btn.disabled = false; });
       });
     }
   }
