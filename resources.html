@@ -191,7 +191,6 @@
               <button type="submit">Send it to me ↗</button>
             </form>
             <div class="gate-note">PDF · Add me to weekly Insights · Unsubscribe anytime</div>
-            <div class="tbd-banner" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); margin-top: 20px;"><strong>Pending:</strong> final PDF from Chris.</div>
           </div>
           <div class="featured-download__visual">
             <div>
@@ -222,6 +221,20 @@
             <h3 class="card__title">Canada&rsquo;s Value Capture Gap</h3>
             <p class="card__body">Why Canada ships its resources out and buys them back at ten times the price, and what to do about it.</p>
             <a href="/think-tank/canada-value-capture" class="card__link">Read the paper ↗</a>
+          </div>
+        </div>
+
+        <div class="section-head section-head--left">
+          <span class="eyebrow reveal">Interactive tools</span>
+          <h2 class="h2 reveal d1">Run it <em>on your own numbers.</em></h2>
+        </div>
+
+        <div class="card-grid card-grid--2" style="margin-bottom: 56px;">
+          <div class="card reveal">
+            <span class="card__tag">Diagnostic · 2 min · Built on HELP</span>
+            <h3 class="card__title">The Most Profitable Client Diagnostic</h3>
+            <p class="card__body">Your biggest account is rarely your most profitable. List your clients, measure what each one costs to serve, and watch the ranking flip. Hear, Evidence, Learn, Proceed.</p>
+            <a href="/profitable-client" class="card__link">Run the diagnostic ↗</a>
           </div>
         </div>
 
@@ -270,6 +283,7 @@
   </main>
   <div id="site-footer"></div>
   <script src="/site-footer.js" defer></script>
+  <script src="/site-newsletter.js" defer></script>
   <script>
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });

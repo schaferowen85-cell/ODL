@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Most Profitable Client Diagnostic · Tools | Christopher Schafer</title>
+<meta name="description" content="Your biggest client by revenue is rarely your most profitable. Run your accounts through cost-to-serve, built on the HELP operating system, and see the real ranking in two minutes." />
+<link rel="canonical" href="https://ondemandleaders.com/profitable-client" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+<meta name="author" content="Chris Schafer" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<meta name="theme-color" content="#0B1E3B" />
+
+<meta property="og:site_name" content="OnDemand Leaders" />
+<meta property="og:title" content="The Most Profitable Client Diagnostic" />
+<meta property="og:description" content="Your biggest client by revenue is rarely your most profitable. Run your accounts through cost-to-serve, built on HELP, and see the real ranking." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ondemandleaders.com/profitable-client" />
+<meta property="og:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site-core.css" />
+
+<style>
+:root { --signal-red: #C0492F; }
+
+/* ---------- Hero ---------- */
+.tool-hero {
+  padding: calc(var(--nav-h) + 64px) 0 60px;
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(29,70,150,0.5), transparent 55%),
+    linear-gradient(180deg, var(--blue-deepest) 0%, var(--blue-dark) 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.tool-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  pointer-events: none;
+}
+.tool-hero > .container { position: relative; z-index: 2; }
+.tool-hero__crumb {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none; margin-bottom: 22px;
+}
+.tool-hero__crumb:hover { color: var(--white); }
+.tool-hero__h1 {
+  font-size: clamp(34px, 4.4vw, 58px);
+  font-weight: 800; line-height: 1.05;
+  letter-spacing: -0.034em; color: var(--white);
+  margin: 14px 0 18px; max-width: 880px;
+}
+.tool-hero__h1 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: rgba(255,255,255,0.6); }
+.tool-hero__sub {
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.6; color: rgba(255,255,255,0.74);
+  max-width: 720px;
+}
+.tool-hero__steps {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px;
+}
+.tool-hero__steps span {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 100px;
+}
+.tool-hero__steps span b { color: var(--white); font-weight: 600; }
+
+/* ---------- Teaser ---------- */
+.teaser { padding: 74px 0; background: var(--bg-soft); border-bottom: 1px solid var(--border-clean); }
+.teaser__inner { max-width: 940px; margin: 0 auto; }
+.teaser__word { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue-normal); margin-bottom: 14px; }
+.teaser__title { font-size: clamp(24px, 2.6vw, 34px); font-weight: 800; letter-spacing: -0.026em; color: var(--text-main); line-height: 1.12; margin-bottom: 30px; max-width: 720px; }
+.teaser__title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--blue-normal); }
+.teaser__flip { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: stretch; margin-bottom: 28px; }
+.flip-card { background: var(--white); border: 1px solid var(--border-clean); border-radius: var(--r-md); padding: 24px; }
+.flip-card.bleed { border-color: rgba(192,73,47,0.4); }
+.flip-card__k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; }
+.flip-card__name { font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
+.flip-card__fig { font-size: 34px; font-weight: 800; letter-spacing: -0.03em; color: var(--text-main); line-height: 1; }
+.flip-card__fig.neg { color: var(--signal-red); }
+.flip-card__fig u { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--text-light); }
+.flip-card__sub { font-size: 14px; color: var(--text-muted); margin-top: 14px; line-height: 1.55; }
+.teaser__arrow { display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 22px; }
+.teaser__why { font-size: 16.5px; line-height: 1.7; color: var(--text-muted); max-width: 700px; margin-bottom: 28px; }
+.teaser__why strong { color: var(--text-main); font-weight: 600; }
+.teaser__cta {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--blue-normal); color: var(--white);
+  font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 100px;
+  box-shadow: 0 8px 20px -10px rgba(29,70,150,0.6);
+  transition: background .16s ease, transform .12s ease;
+}
+.teaser__cta:hover { background: var(--blue-mid); transform: translateY(-1px); }
+@media (max-width: 680px) {
+  .teaser__flip { grid-template-columns: 1fr; }
+  .teaser__arrow { transform: rotate(90deg); padding: 2px 0; }
+}
+
+/* ---------- Phase band ---------- */
+.phase { padding: 64px 0; }
+.phase--soft { background: var(--bg-soft); }
+.phase__inner { max-width: 940px; margin: 0 auto; }
+.phase__head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 14px; }
+.phase__num {
+  font-family: var(--font-mono);
+  font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+  color: var(--blue-normal);
+  white-space: nowrap;
+}
+.phase__word {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-light);
+}
+.phase__title {
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 800; letter-spacing: -0.024em;
+  color: var(--text-main); margin: 0 0 12px; line-height: 1.12;
+}
+.phase__title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--blue-normal); }
+.phase__lede {
+  font-size: 17px; line-height: 1.7; color: var(--text-muted);
+  max-width: 700px; margin-bottom: 8px;
+}
+.phase__lede strong { color: var(--text-main); font-weight: 600; }
+
+/* ---------- Loaded rate input ---------- */
+.rate-box {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  margin: 26px 0 4px; padding: 22px 24px;
+  background: var(--white); border: 1px solid var(--border-clean);
+  border-radius: var(--r-md);
+}
+.rate-box label { font-size: 15px; font-weight: 600; color: var(--text-main); max-width: 420px; line-height: 1.45; }
+.rate-box label small { display: block; font-weight: 400; color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+.rate-field { position: relative; }
+.rate-field::before {
+  content: '$'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--text-light); font-weight: 600; font-size: 16px;
+}
+.rate-field input {
+  width: 150px; padding: 13px 14px 13px 28px;
+  font: inherit; font-size: 17px; font-weight: 600; color: var(--text-main);
+  border: 1px solid var(--border-mid); border-radius: var(--r-sm);
+  background: var(--bg-soft); outline: none;
+}
+.rate-field input:focus { border-color: var(--blue-normal); background: var(--white); }
+
+/* ---------- Client input grid ---------- */
+.clients { margin-top: 26px; }
+.client-head, .client-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 38px;
+  gap: 12px; align-items: center;
+}
+.client-head {
+  padding: 0 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-light);
+}
+.client-head .grp { color: var(--blue-normal); }
+.client-row {
+  background: var(--white); border: 1px solid var(--border-clean);
+  border-radius: var(--r-md); padding: 12px; margin-bottom: 10px;
+}
+.client-row .cell { position: relative; }
+.client-row .cell label {
+  display: none;
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-light); margin-bottom: 5px;
+}
+.client-row input {
+  width: 100%; padding: 11px 12px;
+  font: inherit; font-size: 15px; color: var(--text-main);
+  border: 1px solid var(--border-mid); border-radius: var(--r-sm);
+  background: var(--bg-soft); outline: none;
+}
+.client-row input.money { padding-left: 24px; }
+.client-row .cell.is-money::before {
+  content: '$'; position: absolute; left: 11px; bottom: 11px;
+  color: var(--text-light); font-size: 14px; pointer-events: none;
+}
+.client-row input:focus { border-color: var(--blue-normal); background: var(--white); }
+.client-row input::placeholder { color: var(--text-light); }
+.row-remove {
+  width: 34px; height: 34px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--text-light); font-size: 18px; line-height: 1;
+  border: 1px solid var(--border-mid); background: var(--white);
+  transition: color .15s ease, border-color .15s ease;
+}
+.row-remove:hover { color: var(--signal-red); border-color: var(--signal-red); }
+
+.clients-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 18px; }
+.add-client {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--blue-normal);
+  border: 1px dashed var(--border-mid); border-radius: 100px;
+  padding: 11px 18px; transition: border-color .15s ease, background .15s ease;
+}
+.add-client:hover { border-color: var(--blue-normal); background: var(--blue-tint-1); }
+
+/* ---------- Gut pick ---------- */
+.gut {
+  margin-top: 30px; padding: 22px 24px;
+  background: var(--blue-tint-1); border: 1px solid #D3E0F5;
+  border-radius: var(--r-md);
+}
+.gut__label { font-size: 15px; font-weight: 600; color: var(--text-main); margin-bottom: 6px; }
+.gut__note { font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5; }
+.gut select {
+  width: 100%; max-width: 360px; padding: 12px 14px;
+  font: inherit; font-size: 15px; color: var(--text-main);
+  border: 1px solid var(--border-mid); border-radius: var(--r-sm);
+  background: var(--white); outline: none;
+}
+.gut select:focus { border-color: var(--blue-normal); }
+
+/* ---------- Calculate ---------- */
+.calc-wrap { margin-top: 34px; }
+.calc-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--blue-normal); color: var(--white);
+  font-size: 16px; font-weight: 600;
+  padding: 16px 30px; border-radius: 100px;
+  box-shadow: 0 8px 20px -10px rgba(29,70,150,0.6);
+  transition: background .16s ease, transform .12s ease;
+}
+.calc-btn:hover { background: var(--blue-mid); transform: translateY(-1px); }
+.calc-btn:active { transform: translateY(1px); }
+.calc-err { color: var(--signal-red); font-size: 14px; margin-top: 14px; display: none; }
+
+/* ---------- Results ---------- */
+.results { display: none; }
+.results.show { display: block; }
+
+.headline {
+  padding: 30px 32px; margin-bottom: 30px;
+  background: var(--blue-dark); color: var(--white);
+  border-radius: var(--r-lg);
+  position: relative; overflow: hidden;
+}
+.headline__eyebrow {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 14px;
+}
+.headline__text { font-size: clamp(18px, 1.9vw, 23px); line-height: 1.45; font-weight: 500; }
+.headline__text b { color: var(--white); font-weight: 700; }
+.headline__text .hl-amber { color: var(--signal-amber); font-weight: 700; }
+.headline__text .hl-green { color: #5FD0A8; font-weight: 700; }
+
+/* ranked rows */
+.rank-head, .rank-row {
+  display: grid;
+  grid-template-columns: 30px 1.4fr 1fr 1fr 0.9fr 1.1fr 1.15fr;
+  gap: 10px; align-items: center;
+}
+.rank-head {
+  padding: 0 16px 10px;
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-light);
+}
+.rank-head .ra { text-align: right; }
+.rank-row {
+  background: var(--white); border: 1px solid var(--border-clean);
+  border-left: 3px solid var(--border-mid);
+  border-radius: var(--r-md); padding: 16px; margin-bottom: 10px;
+}
+.rank-row.v-green { border-left-color: var(--signal-green); }
+.rank-row.v-amber { border-left-color: var(--signal-amber); }
+.rank-row.v-red   { border-left-color: var(--signal-red); }
+.rank-row .rk { font-family: var(--font-mono); font-size: 15px; font-weight: 600; color: var(--text-light); }
+.rank-row .nm { font-size: 16px; font-weight: 700; color: var(--text-main); }
+.rank-row .nm .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+.rank-row .nm .tags span {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 3px 7px; border-radius: 100px; font-weight: 500;
+}
+.tag-rev { background: var(--blue-tint-1); color: var(--blue-normal); }
+.tag-prof { background: rgba(46,139,106,0.12); color: var(--signal-green); }
+.tag-hr  { background: rgba(224,165,58,0.15); color: #9A6B12; }
+.rank-row .num { font-size: 15px; color: var(--text-main); text-align: right; font-variant-numeric: tabular-nums; }
+.rank-row .num small { display: block; font-size: 11px; color: var(--text-light); margin-top: 2px; }
+.rank-row .num.neg { color: var(--signal-red); }
+.verdict {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
+  font-weight: 600; text-align: center; padding: 6px 8px; border-radius: 100px; white-space: nowrap;
+}
+.verdict.v-green { background: rgba(46,139,106,0.12); color: var(--signal-green); }
+.verdict.v-amber { background: rgba(224,165,58,0.16); color: #9A6B12; }
+.verdict.v-red   { background: rgba(192,73,47,0.12); color: var(--signal-red); }
+
+.rank-note {
+  font-size: 13.5px; color: var(--text-muted); line-height: 1.6;
+  margin-top: 18px; padding-left: 16px; border-left: 2px solid var(--border-mid);
+}
+
+/* ---------- Proceed cards ---------- */
+.proceed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
+.pcard {
+  background: var(--white); border: 1px solid var(--border-clean);
+  border-radius: var(--r-md); padding: 24px 22px;
+}
+.pcard__tag {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 12px; font-weight: 600;
+}
+.pcard.v-green .pcard__tag { color: var(--signal-green); }
+.pcard.v-amber .pcard__tag { color: #9A6B12; }
+.pcard.v-red .pcard__tag { color: var(--signal-red); }
+.pcard__title { font-size: 17px; font-weight: 700; color: var(--text-main); margin-bottom: 8px; letter-spacing: -0.01em; }
+.pcard__body { font-size: 14.5px; line-height: 1.6; color: var(--text-muted); }
+.pcard__names { font-size: 13px; color: var(--text-main); font-weight: 600; margin-top: 12px; line-height: 1.5; }
+.pcard__names span { color: var(--text-light); font-weight: 400; }
+
+/* ---------- Service ---------- */
+.svc { padding: 88px 0; background: var(--white); }
+.svc__inner { max-width: 880px; margin: 0 auto; }
+.svc__lede { font-size: 17px; line-height: 1.7; color: var(--text-muted); max-width: 680px; margin-bottom: 8px; }
+.svc__lede strong { color: var(--text-main); font-weight: 600; }
+.svc-card {
+  margin-top: 34px; padding: 38px 36px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(29,70,150,0.06), transparent 60%),
+    var(--bg-soft);
+  border: 1px solid var(--border-clean); border-radius: var(--r-lg);
+}
+.svc-meta {
+  display: flex; flex-wrap: wrap; margin-bottom: 26px;
+  border: 1px solid var(--border-clean); border-radius: var(--r-md);
+  overflow: hidden; background: var(--white);
+}
+.svc-meta__cell { flex: 1 1 160px; padding: 18px 22px; border-right: 1px solid var(--border-clean); }
+.svc-meta__cell:last-child { border-right: none; }
+.svc-meta__k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin-bottom: 7px; }
+.svc-meta__v { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); }
+.svc-meta__v small { font-weight: 500; font-size: 12.5px; color: var(--text-muted); }
+.svc-flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 24px; }
+.svc-flow span {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--blue-normal); padding: 7px 13px;
+  border: 1px solid var(--border-mid); border-radius: 100px; background: var(--white);
+}
+.svc-flow span.kick { color: var(--text-muted); }
+.svc-flow .sep { border: none; padding: 0; background: none; color: var(--text-light); font-family: var(--font-mono); }
+.svc-note { font-size: 14.5px; line-height: 1.7; color: var(--text-muted); margin-bottom: 28px; }
+.svc-note strong { color: var(--text-main); font-weight: 600; }
+@media (max-width: 600px) {
+  .svc-card { padding: 30px 22px; }
+  .svc-meta__cell { flex: 1 1 100%; border-right: none; border-bottom: 1px solid var(--border-clean); }
+  .svc-meta__cell:last-child { border-bottom: none; }
+}
+
+/* ---------- CTA band ---------- */
+.cta-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+.cta-band { padding: 90px 0; background: var(--blue-deepest); color: var(--white); text-align: center; }
+.cta-band__title { font-size: clamp(28px, 3vw, 40px); font-weight: 800; letter-spacing: -0.026em; margin-bottom: 16px; }
+.cta-band__title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: rgba(255,255,255,0.55); }
+.cta-band__body { font-size: 17px; color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto 30px; line-height: 1.6; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px) {
+  .client-head { display: none; }
+  .client-row {
+    grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px 16px 16px; position: relative;
+  }
+  .client-row .cell.c-name { grid-column: 1 / -1; }
+  .client-row .cell label { display: block; }
+  .client-row .cell.is-money::before { bottom: 11px; }
+  .row-remove { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; }
+  .client-row .cell.c-name { padding-right: 44px; }
+
+  .rank-head { display: none; }
+  .rank-row {
+    grid-template-columns: 1fr 1fr; gap: 8px 14px; padding: 18px 16px;
+  }
+  .rank-row .rk { position: absolute; }
+  .rank-row .nm { grid-column: 1 / -1; padding-left: 26px; }
+  .rank-row .num { text-align: left; }
+  .rank-row .num::before {
+    content: attr(data-label); display: block;
+    font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 2px;
+  }
+  .verdict { grid-column: 1 / -1; text-align: left; }
+  .proceed-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .client-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+  <div id="site-nav"></div>
+  <script src="/site-nav.js" defer></script>
+
+  <main>
+    <!-- HERO -->
+    <section class="tool-hero">
+      <div class="container">
+        <a href="/resources" class="tool-hero__crumb reveal">← Resources</a>
+        <div class="reveal d1" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Profit diagnostic · Built on HELP</div>
+        <h1 class="tool-hero__h1 reveal d1">Your most profitable client is <em>almost never the biggest one.</em></h1>
+        <p class="tool-hero__sub reveal d2">The account that pays you the most also tends to consume the most. More meetings. More hand-holding. More people pulled in. Strip the revenue story away, measure what each client actually costs to serve, and the ranking flips. This runs your accounts through that math in two minutes.</p>
+        <div class="tool-hero__steps reveal d3">
+          <span><b>Hear</b> · the whole picture</span>
+          <span><b>Evidence</b> · what they cost</span>
+          <span><b>Learn</b> · the real ranking</span>
+          <span><b>Proceed</b> · the move</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEASER -->
+    <section class="teaser">
+      <div class="container">
+        <div class="teaser__inner">
+          <div class="teaser__word reveal">Why this matters</div>
+          <h2 class="teaser__title reveal">The client who pays you the most <em>can still cost you money.</em></h2>
+          <div class="teaser__flip reveal d1">
+            <div class="flip-card">
+              <div class="flip-card__k">On the invoice</div>
+              <div class="flip-card__name">Marquee Account Inc.</div>
+              <div class="flip-card__fig">$12,000<u>/mo</u></div>
+              <p class="flip-card__sub">Your biggest logo. The one everyone agrees you can't afford to lose.</p>
+            </div>
+            <div class="teaser__arrow" aria-hidden="true">→</div>
+            <div class="flip-card bleed">
+              <div class="flip-card__k">After cost-to-serve</div>
+              <div class="flip-card__name">The same account</div>
+              <div class="flip-card__fig neg">&minus;$400<u>/mo</u></div>
+              <p class="flip-card__sub">120 team hours at $85, plus $2,200 in discounts and tools, costs you $12,400 to keep them. You're paying to hold the logo.</p>
+            </div>
+          </div>
+          <p class="teaser__why reveal d1">Your P&amp;L nets every client together, so it never shows you this. The loss hides inside a healthy-looking top line. It only surfaces when you go account by account, the way the diagnostic below does. <strong>Most companies never look. The ones that do reprice, and their margin climbs without signing a single new client.</strong></p>
+          <a href="#start" class="teaser__cta reveal d1">Run your own numbers <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HEAR -->
+    <section class="phase" id="start">
+      <div class="container">
+        <div class="phase__inner">
+          <div class="phase__head reveal">
+            <span class="phase__num">01</span>
+            <span class="phase__word">Hear</span>
+          </div>
+          <h2 class="phase__title reveal">Get the whole picture <em>on the table.</em></h2>
+          <p class="phase__lede reveal d1">Don't start with the revenue line. Start with the full list. Put down every client that matters, what each one pays you in a typical month, and then the part most people skip: <strong>what they actually take to keep.</strong> List your top accounts. You can refine the numbers later, estimates are fine to start.</p>
+
+          <div class="clients reveal d1">
+            <div class="client-head">
+              <div><span class="grp">Client</span></div>
+              <div><span class="grp">Hear ·</span> Revenue / mo</div>
+              <div><span class="grp">Evidence ·</span> Team hours / mo</div>
+              <div><span class="grp">Evidence ·</span> Direct cost / mo</div>
+              <div></div>
+            </div>
+            <div id="client-rows"></div>
+            <div class="clients-actions">
+              <button type="button" class="add-client" id="add-client">+ Add client</button>
+            </div>
+          </div>
+
+          <div class="gut reveal d1">
+            <div class="gut__label">Before the math runs: which client do you assume is your best?</div>
+            <div class="gut__note">Name it now, on instinct. HELP starts by hearing the story you're carrying, so you can test it against the evidence instead of around it.</div>
+            <select id="gut-pick">
+              <option value="">Pick the one you'd protect first…</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVIDENCE -->
+    <section class="phase phase--soft">
+      <div class="container">
+        <div class="phase__inner">
+          <div class="phase__head reveal">
+            <span class="phase__num">02</span>
+            <span class="phase__word">Evidence</span>
+          </div>
+          <h2 class="phase__title reveal">Separate what they <em>pay</em> from what they <em>cost.</em></h2>
+          <p class="phase__lede reveal d1">Revenue is what you know. Cost-to-serve is what you assume, until you measure it. The two columns above turn the assumption into a number. <strong>Team hours per month</strong> means every person who touches the account, added up: the rep, the CSM, support, your own time on their escalations. <strong>Direct cost</strong> is everything else that's theirs alone: custom discounts, dedicated tools, travel, contractor time. To convert hours into dollars, set one number, the fully loaded cost of an hour of your team's time.</p>
+
+          <div class="rate-box reveal d1">
+            <label>Fully loaded cost of one team hour
+              <small>Salary plus benefits, tools, and overhead, divided by working hours. A rough figure is fine. Default assumes a blended $85.</small>
+            </label>
+            <div class="rate-field">
+              <input type="number" id="loaded-rate" value="85" min="0" step="5" inputmode="decimal" />
+            </div>
+          </div>
+          <p class="phase__lede reveal d1" style="font-size:14.5px; margin-top:18px;">Scroll back up to fill the hours and direct-cost columns for each client, then run it.</p>
+
+          <div class="calc-wrap reveal d1">
+            <button type="button" class="calc-btn" id="calc-btn">Reveal the real ranking →</button>
+            <div class="calc-err" id="calc-err">Add at least one client with a name and a revenue figure.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARN -->
+    <section class="phase" id="learn-phase" style="display:none;">
+      <div class="container">
+        <div class="phase__inner">
+          <div class="phase__head">
+            <span class="phase__num">03</span>
+            <span class="phase__word">Learn</span>
+          </div>
+          <h2 class="phase__title">Read the pattern <em>off your own numbers.</em></h2>
+          <p class="phase__lede">Ranked by true monthly profit, not revenue. The verdict on the right is margin after cost-to-serve. Watch the <strong>profit-per-hour</strong> column, that's where small accounts quietly beat big ones.</p>
+
+          <div class="results show" id="results">
+            <div class="headline" id="headline"></div>
+
+            <div class="rank-head">
+              <div>#</div>
+              <div>Client</div>
+              <div class="ra">Revenue / mo</div>
+              <div class="ra">Cost to serve</div>
+              <div class="ra">Margin</div>
+              <div class="ra">Profit / hour</div>
+              <div class="ra">Verdict</div>
+            </div>
+            <div id="rank-rows"></div>
+            <p class="rank-note" id="rank-note"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCEED -->
+    <section class="phase phase--soft" id="proceed-phase" style="display:none;">
+      <div class="container">
+        <div class="phase__inner">
+          <div class="phase__head">
+            <span class="phase__num">04</span>
+            <span class="phase__word">Proceed</span>
+          </div>
+          <h2 class="phase__title">Surface the options. <em>Then make the move.</em></h2>
+          <p class="phase__lede">HELP doesn't end at the insight. It ends at a decision. Three moves come out of this ranking. You don't have to run all three, but every account below belongs in one of them.</p>
+          <div class="proceed-grid" id="proceed-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE -->
+    <section class="svc">
+      <div class="container">
+        <div class="svc__inner">
+          <div class="phase__head reveal">
+            <span class="phase__num">—</span>
+            <span class="phase__word">The done-with-you version</span>
+          </div>
+          <h2 class="phase__title reveal">Want this run <em>properly?</em></h2>
+          <p class="svc__lede reveal d1">The diagnostic above is free, and it's enough to see roughly where you stand. The harder part is gathering the right information, reading it without flinching, and deciding what to do about each account. That's where most teams guess. So we run it together. I walk your organization through the full HELP process, one stage a week, so the expensive mistakes never get made.</p>
+
+          <div class="svc-card reveal d1">
+            <div class="svc-meta">
+              <div class="svc-meta__cell">
+                <div class="svc-meta__k">Duration</div>
+                <div class="svc-meta__v">One month</div>
+              </div>
+              <div class="svc-meta__cell">
+                <div class="svc-meta__k">Your team's time</div>
+                <div class="svc-meta__v">6&ndash;7 hrs <small>10 at the very most</small></div>
+              </div>
+              <div class="svc-meta__cell">
+                <div class="svc-meta__k">Investment</div>
+                <div class="svc-meta__v">$3,500</div>
+              </div>
+            </div>
+            <div class="svc-flow">
+              <span class="kick">Kickoff</span>
+              <span class="sep">→</span>
+              <span>Wk 1 · Hear</span>
+              <span class="sep">→</span>
+              <span>Wk 2 · Evidence</span>
+              <span class="sep">→</span>
+              <span>Wk 3 · Learn</span>
+              <span class="sep">→</span>
+              <span>Wk 4 · Proceed</span>
+            </div>
+            <p class="svc-note">A kickoff call to scope what data we need, then one call a week through Hear, Evidence, Learn, and Proceed. No call runs more than an hour. The real work happens between them: your team pulling the right information, me pressure-testing it, both sides doing homework before we meet again. <strong>Most engagements take six or seven hours of your time across the month, ten at the very most.</strong> You finish with a profitability ranking you trust and a decision on every account.</p>
+            <a href="/apply.html" class="calc-btn" style="text-decoration:none;">Book a call to start <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="container">
+        <h2 class="cta-band__title reveal">Stuck on the next move? <em>That's the call.</em></h2>
+        <p class="cta-band__body reveal d1">If you're struggling to use this effectively and actually move forward with it, book a call. And if it isn't you, if someone you know is staring at a client list and guessing, send them this page or have them reach out directly. We work with people who want the help.</p>
+        <div class="cta-actions reveal d2">
+          <a href="/apply.html" class="btn btn--invert">Book a call <span class="arrow" aria-hidden="true">↗</span></a>
+          <a id="refer-link" href="/apply.html" class="btn btn--ghost-light">Send this to someone</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/site-footer.js" defer></script>
+  <script src="/site-newsletter.js" defer></script>
+
+  <script>
+    /* ---------- reveal ---------- */
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    /* ---------- helpers ---------- */
+    const $ = s => document.querySelector(s);
+    const rowsEl = $('#client-rows');
+    const gutSel = $('#gut-pick');
+    const money = n => '$' + Math.round(n).toLocaleString('en-US');
+    const num = v => { const n = parseFloat(String(v).replace(/[^0-9.\-]/g, '')); return isNaN(n) ? 0 : n; };
+
+    const PLACEHOLDERS = [
+      ['Marquee Account Inc.', '12000', '120', '2200'],
+      ['Mid-Market Co.', '4500', '14', '120'],
+      ['Small but Steady Ltd.', '2200', '4', '0']
+    ];
+
+    function rowHTML(name, rev, hrs, dir) {
+      return `
+      <div class="cell c-name">
+        <label>Client</label>
+        <input type="text" class="c-client" placeholder="Client name" value="${name || ''}" />
+      </div>
+      <div class="cell is-money">
+        <label>Revenue / mo</label>
+        <input type="number" class="money c-rev" placeholder="0" min="0" step="100" inputmode="decimal" value="${rev || ''}" />
+      </div>
+      <div class="cell">
+        <label>Team hours / mo</label>
+        <input type="number" class="c-hrs" placeholder="0" min="0" step="1" inputmode="decimal" value="${hrs || ''}" />
+      </div>
+      <div class="cell is-money">
+        <label>Direct cost / mo</label>
+        <input type="number" class="money c-dir" placeholder="0" min="0" step="50" inputmode="decimal" value="${dir || ''}" />
+      </div>
+      <button type="button" class="row-remove" aria-label="Remove client">×</button>`;
+    }
+
+    function addRow(data) {
+      const row = document.createElement('div');
+      row.className = 'client-row';
+      const d = data || ['', '', '', ''];
+      row.innerHTML = rowHTML(d[0], d[1], d[2], d[3]);
+      row.querySelector('.row-remove').addEventListener('click', () => {
+        if (rowsEl.children.length > 1) { row.remove(); refreshGut(); }
+        else { row.querySelectorAll('input').forEach(i => i.value = ''); refreshGut(); }
+      });
+      row.querySelector('.c-client').addEventListener('input', refreshGut);
+      rowsEl.appendChild(row);
+    }
+
+    function refreshGut() {
+      const prev = gutSel.value;
+      const names = Array.from(rowsEl.querySelectorAll('.c-client'))
+        .map(i => i.value.trim()).filter(Boolean);
+      gutSel.innerHTML = '<option value="">Pick the one you\'d protect first…</option>'
+        + names.map(n => `<option value="${n.replace(/"/g, '&quot;')}">${n}</option>`).join('');
+      if (names.includes(prev)) gutSel.value = prev;
+    }
+
+    PLACEHOLDERS.forEach(addRow);
+    refreshGut();
+    $('#add-client').addEventListener('click', () => addRow());
+
+    /* ---------- calculate ---------- */
+    function verdictOf(pct) {
+      if (pct >= 40) return { k: 'green', label: 'Profitable' };
+      if (pct >= 15) return { k: 'amber', label: 'Thin' };
+      if (pct >= 0)  return { k: 'red',   label: 'Barely breaks even' };
+      return { k: 'red', label: 'Losing money' };
+    }
+
+    $('#calc-btn').addEventListener('click', () => {
+      const rate = num($('#loaded-rate').value);
+      const clients = Array.from(rowsEl.querySelectorAll('.client-row')).map(r => {
+        const name = r.querySelector('.c-client').value.trim();
+        const rev = num(r.querySelector('.c-rev').value);
+        const hrs = num(r.querySelector('.c-hrs').value);
+        const dir = num(r.querySelector('.c-dir').value);
+        return { name, rev, hrs, dir };
+      }).filter(c => c.name && c.rev > 0);
+
+      if (clients.length < 1) { $('#calc-err').style.display = 'block'; return; }
+      $('#calc-err').style.display = 'none';
+
+      clients.forEach(c => {
+        c.cost = c.hrs * rate + c.dir;
+        c.margin = c.rev - c.cost;
+        c.pct = c.rev > 0 ? (c.margin / c.rev) * 100 : 0;
+        c.pph = c.hrs > 0 ? c.margin / c.hrs : c.margin;
+      });
+
+      const byProfit = [...clients].sort((a, b) => b.margin - a.margin);
+      const topRev = [...clients].sort((a, b) => b.rev - a.rev)[0];
+      const topProfit = byProfit[0];
+      const topPPH = [...clients].filter(c => c.hrs > 0).sort((a, b) => b.pph - a.pph)[0];
+
+      renderRanking(byProfit, topRev, topProfit, topPPH, rate);
+      renderHeadline(byProfit, topRev, topProfit, topPPH);
+      renderProceed(byProfit);
+
+      $('#learn-phase').style.display = 'block';
+      $('#proceed-phase').style.display = 'block';
+      $('#learn-phase').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    function renderRanking(list, topRev, topProfit, topPPH, rate) {
+      const wrap = $('#rank-rows');
+      wrap.innerHTML = '';
+      list.forEach((c, i) => {
+        const v = verdictOf(c.pct);
+        const tags = [];
+        if (c === topRev) tags.push('<span class="tag-rev">Biggest by revenue</span>');
+        if (c === topProfit) tags.push('<span class="tag-prof">Most profitable</span>');
+        if (topPPH && c === topPPH && c !== topProfit) tags.push('<span class="tag-hr">Best per hour</span>');
+        const row = document.createElement('div');
+        row.className = 'rank-row v-' + v.k;
+        row.innerHTML = `
+          <div class="rk">${i + 1}</div>
+          <div class="nm">${c.name}${tags.length ? `<div class="tags">${tags.join('')}</div>` : ''}</div>
+          <div class="num" data-label="Revenue / mo">${money(c.rev)}</div>
+          <div class="num" data-label="Cost to serve">${money(c.cost)}<small>${c.hrs} hrs</small></div>
+          <div class="num ${c.margin < 0 ? 'neg' : ''}" data-label="Margin">${money(c.margin)}<small>${Math.round(c.pct)}%</small></div>
+          <div class="num ${c.pph < 0 ? 'neg' : ''}" data-label="Profit / hour">${c.hrs > 0 ? money(c.pph) : '—'}</div>
+          <div class="verdict v-${v.k}">${v.label}</div>`;
+        wrap.appendChild(row);
+      });
+
+      const total = list.reduce((s, c) => s + c.margin, 0);
+      $('#rank-note').innerHTML =
+        `Loaded at ${money(rate)} per team hour. Combined true profit across these accounts is <strong>${money(total)} per month</strong>, or ${money(total * 12)} a year. The ranking is by profit dollars. Sort it by profit-per-hour in your head and the order shifts again, that's the column that tells you who deserves more of your team's time.`;
+    }
+
+    function renderHeadline(list, topRev, topProfit, topPPH) {
+      const el = $('#headline');
+      const revRank = list.indexOf(topRev) + 1;
+      const gut = gutSel.value;
+      let lines = [];
+
+      if (topRev === topProfit) {
+        lines.push(`Your biggest account, <b>${topRev.name}</b>, is also your most profitable. That's rarer than it sounds, protect it, and check that you're not under-charging it.`);
+      } else {
+        lines.push(`Your biggest account by revenue is <b>${topRev.name}</b>. By true profit it ranks <span class="hl-amber">#${revRank}</span>. The client actually carrying you is <span class="hl-green">${topProfit.name}</span>.`);
+      }
+
+      if (topRev.margin < 0) {
+        lines.push(`On these numbers <b>${topRev.name}</b> loses you <span class="hl-amber">${money(Math.abs(topRev.margin))} a month</span> after cost-to-serve. The revenue is real. So is the bleed underneath it.`);
+      }
+
+      if (topPPH && topPPH !== topProfit && topPPH !== topRev) {
+        lines.push(`And per hour invested, <span class="hl-green">${topPPH.name}</span> returns the most. A smaller account that sips your time, not the one that floods it.`);
+      }
+
+      if (gut && gut !== topProfit.name) {
+        const gObj = list.find(c => c.name === gut);
+        const gRank = gObj ? list.indexOf(gObj) + 1 : null;
+        lines.push(`You said you'd protect <b>${gut}</b> first. It ranks <span class="hl-amber">#${gRank}</span> on true profit. Worth asking what that instinct was actually tracking.`);
+      } else if (gut && gut === topProfit.name) {
+        lines.push(`You picked <b>${gut}</b> as the one to protect, and the math agrees. Your gut was reading profit, not just volume.`);
+      }
+
+      el.innerHTML = `<div class="headline__eyebrow">What the evidence says</div><div class="headline__text">${lines.join('<br><br>')}</div>`;
+    }
+
+    /* ---------- refer a colleague ---------- */
+    const referLink = $('#refer-link');
+    if (referLink) {
+      const url = 'https://ondemandleaders.com/profitable-client';
+      const subject = 'A quick way to find your most profitable clients';
+      const body = 'Saw this and thought of you. It ranks your clients by what they actually cost to serve, not just revenue. Free, takes a couple of minutes:\n\n' + url;
+      // Default action is an email draft. Falls back gracefully everywhere.
+      referLink.setAttribute('href', 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body));
+      // On devices with a native share sheet, prefer that.
+      if (navigator.share) {
+        referLink.addEventListener('click', e => {
+          e.preventDefault();
+          navigator.share({ title: subject, text: body, url }).catch(() => {});
+        });
+      }
+    }
+
+    function renderProceed(list) {
+      const protect = list.filter(c => c.pct >= 40);
+      const fix = list.filter(c => c.pct >= 0 && c.pct < 40);
+      const decide = list.filter(c => c.pct < 0);
+      const grid = $('#proceed-grid');
+
+      const namesHTML = (arr, empty) => arr.length
+        ? `<div class="pcard__names">${arr.map(c => c.name).join(', ')}</div>`
+        : `<div class="pcard__names"><span>${empty}</span></div>`;
+
+      grid.innerHTML = `
+        <div class="pcard v-green">
+          <div class="pcard__tag">Replicate</div>
+          <div class="pcard__title">Protect and clone the profitable ones.</div>
+          <div class="pcard__body">These return real margin per hour. Don't just keep them, study them. What do they have in common, and how do you point sales at more accounts that look exactly like this?</div>
+          ${namesHTML(protect, 'Nothing clears 40% margin yet. That itself is the finding.')}
+        </div>
+        <div class="pcard v-amber">
+          <div class="pcard__tag">Reprice</div>
+          <div class="pcard__title">Reprice or restructure the thin ones.</div>
+          <div class="pcard__body">Margin is positive but soft. The lever is rarely a discount, it's the cost-to-serve. Cut the meeting load, push them to self-serve, or raise the price at renewal to match the effort.</div>
+          ${namesHTML(fix, 'No accounts sitting in the thin band.')}
+        </div>
+        <div class="pcard v-red">
+          <div class="pcard__tag">Decide</div>
+          <div class="pcard__title">Fix the terms or let them go.</div>
+          <div class="pcard__body">These cost more than they pay. A logo isn't worth a monthly loss. Renegotiate the scope, move them to a price that reflects reality, or exit on good terms and free the capacity.</div>
+          ${namesHTML(decide, 'Nothing is underwater. Good.')}
+        </div>`;
+    }
+  </script>
+</body>
+</html>

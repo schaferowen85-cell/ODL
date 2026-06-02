@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>How I Work | Chris Schafer · OnDemand Leaders</title>
-<meta name="description" content="Two engagement models: embedded turnaround as your fractional CRO/interim President, or part-time executive team coaching. Every engagement priced to scope. Every engagement starts with a 30-minute fit call." />
+<meta name="description" content="Three engagement models: embedded turnaround as your fractional CRO/interim President, part-time executive team coaching, or one-on-one executive mentoring. Every engagement priced to scope. Every engagement starts with a 30-minute fit call." />
 <link rel="canonical" href="https://ondemandleaders.com/how-i-work" />
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
 <meta name="author" content="Chris Schafer" />
@@ -14,20 +14,46 @@
 
 <meta property="og:site_name" content="OnDemand Leaders" />
 <meta property="og:title" content="How I Work | Chris Schafer · OnDemand Leaders" />
-<meta property="og:description" content="Two engagement models: embedded turnaround as your fractional CRO/interim President, or part-time executive team coaching. Every engagement priced to scope. Every engagement starts with a 30-minute fit call." />
+<meta property="og:description" content="Three engagement models: embedded turnaround as your fractional CRO/interim President, part-time executive team coaching, or one-on-one executive mentoring. Every engagement priced to scope. Every engagement starts with a 30-minute fit call." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ondemandleaders.com/how-i-work" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="How I Work | Chris Schafer · OnDemand Leaders" />
-<meta name="twitter:description" content="Two engagement models: embedded turnaround as your fractional CRO/interim President, or part-time executive team coaching. Every engagement priced to scope. Every engagement starts with a 30-minute fit call." />
+<meta name="twitter:description" content="Three engagement models: embedded turnaround as your fractional CRO/interim President, part-time executive team coaching, or one-on-one executive mentoring. Every engagement priced to scope. Every engagement starts with a 30-minute fit call." />
 <meta name="twitter:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/site-core.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "How I Work",
+  "description": "Three engagement models with Christopher Schafer: embedded turnaround as your fractional CRO or interim President, part-time executive team coaching, or one-on-one executive mentoring.",
+  "url": "https://ondemandleaders.com/how-i-work",
+  "inLanguage": "en",
+  "primaryImageOfPage": "https://ondemandleaders.com/assets/chris.jpeg",
+  "about": {
+    "@type": "Person",
+    "@id": "https://ondemandleaders.com/#chris",
+    "name": "Christopher Schafer",
+    "alternateName": "Chris Schafer",
+    "jobTitle": "Interim CRO, President & C-Suite Operator",
+    "description": "Interim C-suite operator with 25 years in SaaS go-to-market leadership across North America and APAC. Helped scale NetSuite from roughly $30M to $1B+ through its IPO and the $9.3B Oracle acquisition, and led an 18-month B2C-to-B2B transformation as President at ImportGenius. Co-author of the HELP Operating System.",
+    "url": "https://ondemandleaders.com/about",
+    "image": "https://ondemandleaders.com/assets/chris.jpeg",
+    "worksFor": { "@type": "Organization", "name": "OnDemand Leaders", "url": "https://ondemandleaders.com" },
+    "workLocation": { "@type": "Place", "name": "Greater Toronto Area, Ontario, Canada" },
+    "knowsAbout": ["Go-to-market strategy", "Revenue turnaround", "Fractional CRO and interim executive leadership", "Sales leadership", "Executive coaching and mentoring", "Organizational change", "Leadership communication", "The HELP Operating System", "B2B buyer behavior", "Enterprise scaling", "Capital event and acquisition readiness"],
+    "sameAs": ["https://www.linkedin.com/in/chrisschafer/"]
+  }
+}
+</script>
 
 <style>
 .philosophy { padding: 112px 0; background: var(--white); }
@@ -48,15 +74,33 @@
 
 .engage-x {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   margin-top: 40px;
 }
 .engage-x__card {
   background: var(--white);
   border: 1px solid var(--border-clean);
   border-radius: var(--r-lg);
-  padding: 40px 36px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+}
+.engage-x__card--feature {
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(29,70,150,0.06), transparent 60%),
+    var(--bg-soft);
+  border-color: var(--border-mid);
+}
+.engage-x__more {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: auto; padding-top: 20px;
+  font-size: 13px; font-weight: 600; color: var(--blue-normal);
+  letter-spacing: -0.005em;
+}
+.engage-x__more:hover { color: var(--blue-mid); }
+@media (max-width: 1024px) {
+  .engage-x { grid-template-columns: 1fr; }
 }
 .engage-x__tag {
   display: inline-flex; align-items: center; gap: 8px;
@@ -174,7 +218,7 @@
       <div class="container">
         <div class="section-head section-head--left">
           <span class="eyebrow reveal">How we work together</span>
-          <h2 class="h2 reveal d1">Two engagement <em>models.</em></h2>
+          <h2 class="h2 reveal d1">Three engagement <em>models.</em></h2>
         </div>
 
         <div class="engage-x">
@@ -223,6 +267,30 @@
             </ul>
           </div>
 
+          <div class="engage-x__card engage-x__card--feature reveal d3">
+            <div class="engage-x__tag"><span class="dot"></span> Model 03 &middot; Extreme Mentoring 101</div>
+            <h3 class="engage-x__title">One-on-one <em>mentoring.</em></h3>
+            <p class="engage-x__lead">One executive, complete access. I become the person you think out loud with while you change momentum, reset culture, and stand up a new go-to-market motion. Visible to your team or private to you alone.</p>
+
+            <div class="engage-x__sublabel">This is the right fit when</div>
+            <ul class="engage-x__list">
+              <li>You carry the hardest decisions alone and have no one inside to fully open up to</li>
+              <li>You&rsquo;re a new CEO or founder who can&rsquo;t look uncertain in front of the team</li>
+              <li>You&rsquo;re leading a transition you can feel but can&rsquo;t fully name yet</li>
+              <li>You want a thinking partner who has already crossed a change this size</li>
+            </ul>
+
+            <div class="engage-x__sublabel">What you get</div>
+            <ul class="engage-x__list">
+              <li>Roughly 15 to 20 hours a month, 5 to 6 a week, shaped around your calendar</li>
+              <li>Half-day intensives or weekly check-ins, whichever the moment needs</li>
+              <li>Direct access between sessions for the calls that can&rsquo;t wait</li>
+              <li>Public-figure or private-figure mode, your call</li>
+            </ul>
+
+            <a href="/executive-mentoring" class="engage-x__more">See how mentoring works <span aria-hidden="true">→</span></a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -267,7 +335,7 @@
             <ul class="check-list check-list--light reveal d2">
               <li>What&rsquo;s actually broken, in your words</li>
               <li>What you&rsquo;ve already tried</li>
-              <li>Whether one of the two engagement models fits, or whether you need something else</li>
+              <li>Whether one of the three engagement models fits, or whether you need something else</li>
               <li>What the next step would look like if we work together</li>
             </ul>
           </div>
@@ -288,7 +356,6 @@
           <span>ImportGenius · President</span>
           <span>OnDemand Leaders</span>
         </div>
-        <div class="tbd-banner reveal d2"><strong>Section pending:</strong> client testimonials and named case studies to be added.</div>
       </div>
     </section>
 
