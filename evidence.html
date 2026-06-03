@@ -640,16 +640,6 @@
   <script src="/site-footer.js" defer></script>
 
   <script>
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('solid', window.scrollY > 30);
-    }, { passive: true });
-
-    if (burger) {
-      burger.addEventListener('click', () => drawer.classList.toggle('open'));
-      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
-    }
-
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
