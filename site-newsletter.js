@@ -153,7 +153,7 @@
       e.preventDefault();
       const btn = document.getElementById('nl-submit');
       const data = new FormData(e.currentTarget);
-      data.append('access_key', '66ee8dd3-a70a-466c-bef1-f303cf918d9d');
+      data.append('access_key', '860abb01-77f4-4325-92c0-b7182ea89636');
       data.append('subject', 'New newsletter subscriber — site popup');
       data.append('from_name', 'OnDemand Leaders · Newsletter');
       btn.disabled = true;
