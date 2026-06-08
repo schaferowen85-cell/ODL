@@ -65,8 +65,8 @@
         <div class="sf-col">
           <div class="sf-col-label">Follow</div>
           <ul class="sf-social">
-            <li><a href="https://www.linkedin.com/in/chrisschafer/" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://www.linkedin.com/in/christopher-schafer-9116905/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/@ondemandleaders3178" target="_blank" rel="noopener">YouTube</a></li>
             <li><a href="mailto:chris@ondemandleaders.com">chris@ondemandleaders.com</a></li>
           </ul>
         </div>
