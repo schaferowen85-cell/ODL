@@ -1,0 +1,16 @@
+# Local-only guidance and config. Never publish to the live site.
+# These are already git-ignored (see .git/info/exclude), so they do not reach
+# GitHub and therefore do not reach Vercel via the normal GitHub deploy.
+# This file is the backstop for any direct `vercel` CLI deploy from the local folder.
+
+# Claude Code config: rules, skills, persona, routing, settings
+.claude/
+
+# Stray local-only skills folder, if present
+skills/
+
+# The always-on rulebook
+CLAUDE.md
+
+# Editor and OS cruft
+.DS_Store

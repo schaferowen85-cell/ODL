@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Revenue Turnaround Case Study: A Stuck Company Is a Blind One · Think Tank | Christopher Schafer</title>
+<meta name="description" content="A profitable, founder-run data company had gone a year with near-zero net growth and could not name its best customers. Here is the anonymized turnaround, run on the HELP Operating System: how I found the blindness, the order I fixed it in, and the one system I could not fix. A Think Tank case study by Christopher Schafer." />
+<link rel="canonical" href="https://ondemandleaders.com/think-tank/revenue-turnaround-case-study" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+<meta name="author" content="Chris Schafer" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<meta name="theme-color" content="#0B1E3B" />
+
+<meta property="og:site_name" content="OnDemand Leaders" />
+<meta property="og:title" content="A Stuck Company Is Almost Always a Blind One" />
+<meta property="og:description" content="A profitable, founder-run data company that could not name its best customers. The anonymized turnaround, run on the HELP Operating System." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ondemandleaders.com/think-tank/revenue-turnaround-case-study" />
+<meta property="article:author" content="Christopher Schafer" />
+<meta property="article:published_time" content="2026-06-05" />
+<meta property="og:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site-core.css" />
+
+<style>
+.paper-hero {
+  padding: calc(var(--nav-h) + 64px) 0 56px;
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(29,70,150,0.5), transparent 55%),
+    linear-gradient(180deg, var(--blue-deepest) 0%, var(--blue-dark) 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.paper-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  pointer-events: none;
+}
+.paper-hero > .container { position: relative; z-index: 2; }
+.paper-hero__crumb {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  margin-bottom: 22px;
+}
+.paper-hero__crumb:hover { color: var(--white); }
+.paper-hero__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.paper-hero__tags span {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  padding: 5px 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 100px;
+}
+.paper-hero__h1 {
+  font-size: clamp(36px, 4.4vw, 60px);
+  font-weight: 800; line-height: 1.04;
+  letter-spacing: -0.034em;
+  color: var(--white);
+  margin: 24px 0 16px;
+  max-width: 880px;
+}
+.paper-hero__subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.4;
+  color: rgba(255,255,255,0.72);
+  max-width: 760px;
+}
+.paper-hero__meta {
+  margin-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.paper-body {
+  padding: 80px 0;
+  background: var(--white);
+}
+.paper-body__inner { max-width: 760px; margin: 0 auto; }
+.paper-body h2 {
+  font-size: clamp(24px, 2.2vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.022em;
+  color: var(--text-main);
+  margin: 48px 0 16px;
+}
+.paper-body h3 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--blue-dark);
+  margin: 36px 0 12px;
+}
+.paper-body p {
+  font-size: 17px;
+  line-height: 1.78;
+  color: var(--text-main);
+  margin-bottom: 22px;
+}
+.paper-body p strong { font-weight: 600; }
+.paper-body a.inline { color: var(--blue-normal); text-decoration: underline; text-underline-offset: 2px; }
+.paper-body a.inline:hover { color: var(--blue-mid); }
+.paper-body .lede {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  border-left: 2px solid var(--blue-normal);
+  padding-left: 22px;
+  margin: 0 0 36px;
+}
+.paper-body ol { margin: 18px 0 28px 0; padding-left: 24px; }
+.paper-body ol li { font-size: 16.5px; line-height: 1.7; color: var(--text-main); margin-bottom: 14px; }
+.paper-body ol li strong { font-weight: 600; }
+.paper-body ul { margin: 18px 0 24px 0; padding-left: 24px; }
+.paper-body ul li { font-size: 16.5px; line-height: 1.7; color: var(--text-main); margin-bottom: 10px; }
+.paper-body ul li strong { font-weight: 600; }
+
+/* big stat callout */
+.stat {
+  margin: 34px 0;
+  padding: 26px 28px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-clean);
+  border-left: 3px solid var(--blue-normal);
+  border-radius: var(--r-md);
+}
+.stat__fig {
+  font-size: clamp(30px, 3.4vw, 40px);
+  font-weight: 800; letter-spacing: -0.03em;
+  color: var(--text-main); line-height: 1; margin-bottom: 10px;
+}
+.stat__body { font-size: 15px; line-height: 1.65; color: var(--text-muted); margin: 0; }
+.stat__body strong { color: var(--text-main); font-weight: 600; }
+
+/* inline book-a-call CTA */
+.step-cta {
+  margin: 34px 0;
+  padding: 24px 28px;
+  background: var(--blue-tint-1);
+  border: 1px solid #D3E0F5;
+  border-left: 3px solid var(--blue-normal);
+  border-radius: var(--r-md);
+}
+.step-cta__q {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--text-main); margin: 0 0 8px;
+}
+.step-cta__body { font-size: 15px; line-height: 1.6; color: var(--text-muted); margin: 0 0 18px; }
+.step-cta__btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--blue-normal); color: var(--white);
+  font-size: 14.5px; font-weight: 600; padding: 12px 22px; border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px -10px rgba(29,70,150,0.6);
+  transition: background .16s ease, transform .12s ease;
+}
+.step-cta__btn:hover { background: var(--blue-mid); transform: translateY(-1px); }
+
+.signoff {
+  margin: 40px 0 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--text-muted);
+}
+</style>
+
+</head>
+<body>
+  <div id="site-nav"></div>
+  <script src="/site-nav.js" defer></script>
+
+  <main>
+
+    <section class="paper-hero">
+      <div class="container">
+        <a href="/think-tank" class="paper-hero__crumb reveal">← Think Tank</a>
+        <div class="reveal d1" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Case study · June 2026</div>
+        <h1 class="paper-hero__h1 reveal d1">A Stuck Company Is Almost Always a Blind One</h1>
+        <p class="paper-hero__subtitle reveal d2">I was brought into a profitable data business that had not improved the product its customers actually used in over two years, and could not name its best ones. Nothing was wrong with the market. Everything was wrong with what they could not see.</p>
+        <div class="paper-hero__tags reveal d3">
+          <span>Case Study</span><span>Revenue Turnaround</span><span>HELP</span>
+        </div>
+        <div class="paper-hero__meta reveal d3">By Christopher Schafer · June 2026 · ~15 min read</div>
+      </div>
+    </section>
+
+    <section class="paper-body">
+      <div class="container">
+        <div class="paper-body__inner">
+
+          <p class="lede">I was brought into a profitable data business that had not improved the product its customers actually used in over two years, and could not name its best ones. Nothing was wrong with the market. Everything was wrong with what they could not see.</p>
+
+          <h2>The problem in one paragraph</h2>
+          <p>The company was profitable. Self-funded, more than a decade old, and by every number a founder watches at night, it was fine. It was also stuck. Net subscriber growth had been roughly zero for a year, churn almost exactly cancelling acquisition every month. The product was a website where customers searched a large dataset and filtered it down to what they needed, and that search and filter experience had not been truly improved for those customers in over two years. The product team was not idle. It was working on the pages that sell the product instead of the product itself. They were sharpening the pitch and dulling the thing being pitched. And no one could tell me which customers were the profitable ones. A company that cannot name its best customers is not running a business. It is running a treadmill that happens to throw off cash.</p>
+          <p>For a legal reason I have not named the company. That is all I will say about that. Everything else here is exactly how it happened.</p>
+
+          <h2>They thought they sold software. They sold data.</h2>
+          <p>The first thing I noticed was that the company did not call itself by its real name.</p>
+          <p>They believed they were a software as a service business. They were not. They were a data as a service business. A DaaS company, not a SaaS company. That sounds like a label. It is the opposite of a label. It decides everything downstream. How you price. How you sell. What the product has to do. Who the buyer is and what they are actually paying for.</p>
+          <p>A SaaS company sells a tool someone logs into. A DaaS company sells the truth inside the data and the confidence to act on it. Their product was a website where customers searched a large dataset and filtered it to the slice they needed, so the entire value lived in how fast and how cleanly a customer could find their answer. That is the one thing that had not been enhanced in over two years. The thing customers paid for sat still while the company rebuilt the marketing around it. They had built years of decisions on the wrong noun, and no one in the building had ever said it out loud.</p>
+
+          <h2>Profit was the anesthetic</h2>
+          <p>This is the part most people get backwards. They assume a company in trouble looks like a company in trouble. This one looked healthy. It made money, so no one asked the harder questions.</p>
+          <p>There was no board. There never had been. The only person with a C-level title held it on tenure, not on the work. Every real decision routed through one person, the founder who ran the place and who was not even there full time. The whole company organized around his calendar. That made him the bottleneck and the single point of failure at once, and it is the quiet mechanism that actually stalls a company. Not a soft market. Not a weak product. One part-time decision-maker, and everyone else spending the week getting organized to meet around his schedule.</p>
+          <p>The website brought in more new logos than the sales team did, which tells you the growth was passive and the sales function was a story people told themselves. The one marketing resource I inherited was a contractor halfway around the world who never turned a camera on and never came to a meeting, and who was, on paper, running the company&rsquo;s new marketing.</p>
+          <p>None of that showed up in the bank account. That is exactly why it survived for years. Profit is an anesthetic. It lets a company feel nothing while the thing that drives it quietly stops moving.</p>
+
+          <h2>To see anything, they waited overnight</h2>
+          <p>Here is what visibility actually looked like inside the company. When someone needed an answer, a number, a report, a simple read on what was happening, they could not pull it themselves. They asked a team twelve hours out of phase, on the other side of the world, to get it for them by morning.</p>
+          <p>Think about what that does to a company. The question drifts on the way out. The answer drifts on the way back. And the answer itself had usually been shaped to look good rather than to be true, because the people producing it had learned that good news travels easier than real news. That is not a dashboard problem you can buy your way out of. It is a visibility problem built into the operating model.</p>
+          <p>The company could not see itself in real time, so it could not steer in real time. It could only react to whatever came back overnight, accurate or not. That is the quiet cost of being blind. You do not just miss the answer. You lose the ability to trust any answer at all.</p>
+
+          <h2>Why I consulted before I committed</h2>
+          <p>I did not take the full role on day one. I consulted for a few months first, and I did it for one reason. Not one person in that company had ever seen a company of that size actually operate. Not the founder, not the team. They were smart and they were willing, but they had no pattern to draw on, because they had never been here before.</p>
+          <p>So I gathered evidence before I decided anything, including whether to stay. The pattern I look for is simple. The problem is real, the team is willing, and they are stuck. All three were true. I engaged full time.</p>
+
+          <h2>HELP: see it before you touch it</h2>
+          <p>I run a framework called the HELP Operating System. Hear, Evidence, Learn, Proceed. It exists to stop the thing every reactive company does, which is hear half a story and jump straight to a fix. The discipline is the value. So is the order.</p>
+          <p>Hear came first. I listened to what the company and the data were actually saying before I reframed any of it. Founder-dependent. Reactive. Churn equal to acquisition. I wrote down their words, not my conclusions.</p>
+          <p>Evidence is where it cracked open. I split what was known into facts and interpretations, and almost everything they treated as a fact was an interpretation wearing a suit. &ldquo;We have a sales team&rdquo; was an interpretation. The fact was the website sold better. &ldquo;We are healthy&rdquo; was an interpretation. The fact was a flat year. The single biggest gap was that they had no customer intelligence at all, and no way to see themselves without waiting overnight for it, so I built that visibility before I touched the go-to-market. You cannot fix what you cannot see, and they could not see their own customers.</p>
+          <p>Learn is the phase most leaders skip. I did not hand the team answers. I asked the questions that force pattern recognition, because a team that can only follow instructions stops the moment you leave. Proceed came last, and it ended in ownership, not orders. I stood up a real executive layer and gave it the decisions, and the company finally came off the founder&rsquo;s calendar.</p>
+
+          <h2>Smart people, no EQ system</h2>
+          <p>The people there were not stupid. That is the trap. IQ is the ability to learn, and they had plenty of it. What an organization actually runs on is the application of that learning, which is EQ, and as a system the company had almost none. I think about applied EQ in three parts. The Three Cs. Creativity, Confirmation, and Communication. All three were missing, and you could watch each one fail in an ordinary moment.</p>
+
+          <h3>Confirmation</h3>
+          <p>Confirmation is separating fact from assumption and reasoning about what the evidence actually says. They thought they had it, because they ran tests. They ran long A/B tests on their pages for weeks at a time, with no hypothesis going in. No thought about why one version should win before they spent a month finding out. An A/B test with no hypothesis is not evidence. It is gambling with extra steps.</p>
+          <p>And it showed. When a multi-page checkout beat a single-page checkout, they could not explain why, so they could not use it. A result you cannot explain is not something you learned. It is something you got lucky on once.</p>
+          <p>The why was not even hard, once you ask the right question. Checkout conversion follows perceived value. Whichever page keeps reinforcing the value of the decision as the buyer moves through it is the one that wins. Their multi-page version won for one reason. The second page carried more information, and that made the product feel more proven, more professional, safer to buy.</p>
+          <p>It was never about the number of pages. A single page should beat it, because people want to move faster when moving faster makes sense, but only if that one page carries the same value and the same brand confidence the extra page was providing by accident. They never built it that way. They assumed the format was the answer. They put up a single page and never thought about holding the value, or the perception of the brand, across it. So they tested the container and confirmed the wrong thing. The point was never the result. The point is that no one was asking the real question, which is what Confirmation actually is.</p>
+
+          <h3>Communication</h3>
+          <p>Communication is whether the room can follow, decide, and move. Their meetings were the opposite. Two and three hours long, one leader talking ninety-five percent of the time and barking orders, everyone else pointed in a different direction. You could tell nothing had landed, because the next meeting opened on the exact same problems, untouched. That is not communication. It is a monologue with an audience.</p>
+          <p>Communication is two-way and it ends in movement. So I took over the meetings, all of them, and taught the team what it means to run one and what it means to sit in one. They got shorter. Decisions got made. Things actually moved between sessions, which is the only proof a meeting ever happened.</p>
+
+          <h3>Creativity</h3>
+          <p>Creativity is the original thinking that comes before either of those. The reframe. The willingness to ask why this and not that. It was the first casualty, because creativity is the first thing that dies in a company that rewards activity over thought. The tests with no hypothesis were a creativity failure before they were a confirmation failure. So were the meetings, where no one was allowed to think out loud.</p>
+          <p>This is where HELP and the Three Cs meet. Hear trains Communication. Evidence trains Confirmation. Learn trains the curiosity that becomes Creativity. Run the operating system and you build the EQ. That is the real work, and AI makes it more valuable, not less, because the one thing AI cannot do for you is apply judgment in a room full of people who do not yet agree.</p>
+
+          <h2>The order of operations</h2>
+          <p>Once you can see, the turnaround is not a miracle. It is a sequence. This is the move, in order, and the order is not optional.</p>
+          <ol>
+            <li><strong>Identify your most profitable customers.</strong> Not your customers. Your profitable ones. Most companies have never separated the two, and it is the most expensive thing they have never done. Your biggest client by revenue is rarely your most profitable. I built a free tool for exactly this, the <a class="inline" href="/profitable-client">Most Profitable Client Diagnostic</a>. It runs your accounts through cost-to-serve and ranks them in about two minutes.</li>
+            <li><strong>Confirm the total addressable market for that profile is big enough to build a company on.</strong> A perfect customer who only exists fifty times over is a hobby, not a market.</li>
+            <li><strong>Map the competitive landscape and answer one honest question.</strong> In this specific space, defined this tightly, can I beat everyone? Not &ldquo;are we good.&rdquo; Can I win.</li>
+            <li><strong>Cross the chasm into that space.</strong> Geoffrey Moore named this years ago in <em>Crossing the Chasm</em> and it still holds. The move from early traction to a dominant position in a defined segment is its own discipline, and most companies stall in the gap.</li>
+            <li><strong>Then locate more customers who match the profitable profile and influence them on why you are the best.</strong> If you have done the first four steps and you truly are the best in that tightly defined space, the contest is already over. You win it. You take it. You run the space.</li>
+          </ol>
+          <p>That last point is the one people do not believe until they have done it. When you genuinely understand your most profitable clients, you can find a great many more exactly like them. The game is decided by whether you did the work to know them, not by who shouts loudest in the market.</p>
+
+          <div class="step-cta reveal">
+            <p class="step-cta__q">Do you actually know which of your customers are the profitable ones?</p>
+            <p class="step-cta__body">Most companies have never separated their customers from their profitable customers, and the gap is the most expensive thing they have never measured. The Most Profitable Client Diagnostic runs your accounts through cost-to-serve and ranks them in about two minutes. Start there, then book a call and we will turn the answer into a plan.</p>
+            <a href="/profitable-client" class="step-cta__btn">Run the diagnostic <span aria-hidden="true">→</span></a>
+          </div>
+
+          <h2>Chapter two: cross-pollinate</h2>
+          <p>Winning one space is chapter one. Chapter two is where the real company gets built. Which other verticals, industries, or geographies take the same playbook with the same advantage. That move depends on real questions, not optimism. Do you own the right intellectual property to repeat the win. What is the next act of the offering once AI and modern tooling are in it. For a data business, the product almost always has to change, because the demand is no longer &ldquo;let me log in and search.&rdquo; It is &ldquo;feed this into the systems I already run.&rdquo; A DaaS company that cannot integrate is a DaaS company with an expiry date.</p>
+
+          <h2>What changed</h2>
+          <p>I am going to keep the numbers relative, on purpose. The shape is the point, not the figures. The monthly churn treadmill got replaced by an annual model that compounds instead of resets.</p>
+
+          <div class="stat reveal">
+            <div class="stat__fig">~3&times;</div>
+            <p class="stat__body">New business roughly tripled in the first ten weeks, before the new brand or the new marketing engine had even launched. The company then posted the strongest quarter and the strongest twelve months of revenue in its history. <strong>The result came from the work underneath, not a campaign.</strong></p>
+          </div>
+
+          <p>Here is the part that matters most, and the reason this is a case study and not a story. It happened in the worst conditions the category had ever seen. AI had detonated across the market. A wave of new competitors appeared that the company had not even known to watch. And the number still went up.</p>
+          <p>That is what becomes possible when everyone is pointed at the same vision and the right leader is in the right seat. It is not magic. It is sequence, evidence, and ownership, run in order.</p>
+
+          <h2>What I could not fix, said plainly</h2>
+          <p>I will not pretend it was clean. When I left, one system was still broken, and it was the one that lets a company see. Operations never stood up the business intelligence layer that turns raw data into a clear view of who to sell, where, and why. Without it, even a sharp go-to-market motion runs partly blind.</p>
+          <p>And a company that cannot see defaults to instinct. It chases the loudest hunch in the room, the fire drill that feels like a deal, and the evidence never arrives to confirm it. That is not a character flaw in any one person. It is what every company does in the dark. The fix is never &ldquo;the founder should be more disciplined.&rdquo; The fix is a function that owns visibility and is allowed to do its job. That is the lesson I would carry into any business. A turnaround is only as durable as the weakest function you do not get to fix.</p>
+          <p>The real deliverable was never the quarter anyway. It was a team that could run the playbook without me. Two of those leaders I placed myself, from my own network, within six months of each other. A Chief Product Officer to own product development, and a Chief Marketing Officer to run the go-to-market through marketing. Both are still in those seats, and both are still running it. That is the part that outlasts any quarter.</p>
+
+          <h2>If you want the rules</h2>
+          <p>I left a lot of the mechanics in here on purpose, and I left some out. If you are sitting on a company that looks fine on the P&amp;L and feels stuck everywhere else, that gap is the whole conversation. I am happy to walk through the rules I had to put in place and the order I ran them in, in detail, with anyone who wants to have that conversation honestly.</p>
+          <p>Start with the one question everything else depends on. Do you actually know which of your customers are the profitable ones.</p>
+
+          <div class="step-cta reveal">
+            <p class="step-cta__q">Your company looks fine on paper and still feels stuck.</p>
+            <p class="step-cta__body">That gap is the whole conversation, and it is the one I have run across technology, manufacturing, and services. Book fifteen minutes with me on a Friday. Bring the company that looks healthy and will not move, and we will find the blindness and the order to fix it in.</p>
+            <a href="/apply.html" class="step-cta__btn">Book 15 minutes <span aria-hidden="true">→</span></a>
+          </div>
+
+          <p class="signoff">Chris Schafer</p>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__inner">
+          <h2 class="cta-band__title reveal d1">More from the Think Tank.</h2>
+          <p class="cta-band__body reveal d2">Read the engine behind step one, or subscribe for new releases.</p>
+          <div class="cta-band__actions reveal d3">
+            <a href="/think-tank/best-customer-engine" class="btn btn--invert">The Best-Customer Engine <span class="arrow">↗</span></a>
+            <a href="/insights#subscribe" class="btn btn--ghost-light">Subscribe to Insights</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/site-footer.js" defer></script>
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
