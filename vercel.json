@@ -3,6 +3,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/executive-mentoring",             "destination": "/revenue-leader-mentorship", "permanent": true },
     { "source": "/lba-masterclass-book-now",        "destination": "/training", "permanent": true },
     { "source": "/lba-master-class",                "destination": "/training", "permanent": true },
     { "source": "/bio-elisha-schafer-1",            "destination": "/elisha",   "permanent": true },

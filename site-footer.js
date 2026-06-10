@@ -40,6 +40,7 @@
             <li><a href="/how-i-work">How I Work</a></li>
             <li><a href="/help">HELP</a></li>
             <li><a href="/training">Training</a></li>
+            <li><a href="/public-speaking">Public Speaking Coaching</a></li>
             <li><a href="/speaking">Speaking, Podcasts &amp; Videos</a></li>
             <li><a href="/insights">Insights</a></li>
             <li><a href="/think-tank">Think Tank</a></li>
