@@ -9,7 +9,11 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
 <meta name="author" content="Chris Schafer" />
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#0B1E3B" />
 
 <meta property="og:site_name" content="OnDemand Leaders" />
@@ -21,6 +25,26 @@
 <meta property="article:published_time" content="2026-06-02" />
 <meta property="og:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
 <meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://ondemandleaders.com/"},
+      {"@type":"ListItem","position":2,"name":"Think Tank","item":"https://ondemandleaders.com/think-tank"},
+      {"@type":"ListItem","position":3,"name":"The Best-Customer Engine","item":"https://ondemandleaders.com/think-tank/best-customer-engine"}
+    ]},
+    {"@type":"Article","headline":"The Best-Customer Engine","description":"You already have your most profitable client. This paper shows how to study them to the bone, size the market of look-alikes, read the competition, and rebuild your company to win that one profile.","datePublished":"2026-06-02","dateModified":"2026-06-02","author":{"@type":"Person","@id":"https://ondemandleaders.com/#chris","name":"Christopher Schafer","url":"https://ondemandleaders.com/about","sameAs":["https://www.linkedin.com/in/christopher-schafer-9116905/","https://www.youtube.com/@ondemandleaders3178"]},"publisher":{"@type":"Organization","name":"OnDemand Leaders","logo":{"@type":"ImageObject","url":"https://ondemandleaders.com/assets/chris.jpeg"}},"image":"https://ondemandleaders.com/assets/chris.jpeg","mainEntityOfPage":"https://ondemandleaders.com/think-tank/best-customer-engine","isPartOf":{"@type":"CreativeWorkSeries","name":"Think Tank","url":"https://ondemandleaders.com/think-tank"},"articleSection":"Think Tank","inLanguage":"en-US","keywords":"best customer analysis, ideal customer profile, customer concentration, whale curve, go-to-market strategy, profitable growth"},
+    {"@type":"FAQPage","@id":"https://ondemandleaders.com/think-tank/best-customer-engine#faq","mainEntity":[
+      {"@type":"Question","name":"What is the best-customer engine?","acceptedAnswer":{"@type":"Answer","text":"It is a growth strategy built around your single most profitable client instead of the market average. You study that one account to the bone, size the market of look-alikes, read the competition, and rebuild the company to win that one profile and almost nothing else. Most companies grow by accident. This grows on purpose."}},
+      {"@type":"Question","name":"Why is your most profitable customer not your biggest?","acceptedAnswer":{"@type":"Answer","text":"Revenue is a vanity ranking. The account that pays you the most often consumes the most, and once you load in the true cost to serve, the ranking flips. Your best client is the one that is cheap to serve, quick to renew, and prone to refer others exactly like itself."}},
+      {"@type":"Question","name":"What is the whale curve?","acceptedAnswer":{"@type":"Answer","text":"A profit shape named by Harvard accounting researcher Robert Kaplan. Rank every customer from most to least profitable, plot cumulative profit, and the line climbs past one hundred percent of total profit, then slides back down as unprofitable accounts drag it lower. A small group of clients is not contributing to the company. It is carrying it."}},
+      {"@type":"Question","name":"Why is targeting the average customer a mistake?","acceptedAnswer":{"@type":"Answer","text":"Because the average client does not exist. It is a statistical ghost. When you build your pitch, your roadmap, and your hiring plan around the average of a few accounts that print money and a long tail that drains it, growth feels like pushing a boulder uphill while a competitor who picked one customer rolls past you."}},
+      {"@type":"Question","name":"What does the research say about keeping customers versus winning new ones?","acceptedAnswer":{"@type":"Answer","text":"Frederick Reichheld's research at Bain found that lifting retention by five percent can raise profit by twenty-five to ninety-five percent, because a retained customer costs almost nothing to keep. Acquiring a new customer is widely estimated to cost five to twenty-five times more than holding one you have. The cheapest growth is more customers who look like the ones who already stay."}}
+    ]}
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -129,6 +153,16 @@
 .paper-body ul { margin: 18px 0 24px 0; padding-left: 24px; }
 .paper-body ul li { font-size: 16.5px; line-height: 1.7; color: var(--text-main); margin-bottom: 10px; }
 .paper-body ul li strong { font-weight: 600; }
+
+.faq{margin:56px 0 0}
+.faq__label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue-normal);margin-bottom:16px}
+.faq__heading{font-size:clamp(24px,2.2vw,30px);font-weight:800;letter-spacing:-0.025em;line-height:1.15;margin:0 0 24px;color:var(--text-main)}
+.faq__heading em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--blue-normal)}
+.faq__item{padding:24px 0;border-top:1px solid var(--border-clean)}
+.faq__item:last-child{border-bottom:1px solid var(--border-clean)}
+.faq__q{font-size:19px;font-weight:700;letter-spacing:-0.015em;color:var(--text-main);margin:0 0 10px;line-height:1.3}
+.faq__a{font-size:16px;line-height:1.7;color:var(--text-muted);margin:0}
+.faq__a strong{color:var(--text-main);font-weight:600}
 
 /* phase marker above a major section */
 .phase-tag {
@@ -331,6 +365,36 @@
           <p>Not because it is complicated. The four steps fit on an index card. Hear named the client. Evidence studies them to the bone. Learn sizes the market, tests the reach, and reads the competition. Proceed builds the company around the pattern and says no to everything else.</p>
           <p>They skip it because every step asks them to give something up. Evidence asks them to admit the story they tell about their own business is half wrong. Learn asks them to put a hard number on a market they would rather keep imagining as infinite. Proceed asks them to turn away revenue while the quarter is still open. None of that is hard to understand. All of it is hard to do.</p>
           <p>That is the whole opportunity. The discipline is rare precisely because it is uncomfortable, which means the company willing to sit in the discomfort and run the engine ends up with a market mostly to itself. You already have the one client worth a hundred more. The only question left is whether you build the engine to find them.</p>
+
+          <div class="faq">
+            <div class="faq__label">Questions operators ask</div>
+            <h2 class="faq__heading">The best-customer engine. <em>The questions underneath it.</em></h2>
+
+            <div class="faq__item">
+              <h3 class="faq__q">What is the best-customer engine?</h3>
+              <p class="faq__a">It is a growth strategy built around your single most profitable client instead of the market average. You <strong>study that one account to the bone, size the market of look-alikes, read the competition, and rebuild the company to win that one profile</strong> and almost nothing else. Most companies grow by accident. This grows on purpose.</p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q">Why is your most profitable customer not your biggest?</h3>
+              <p class="faq__a">Revenue is a vanity ranking. The account that pays you the most often consumes the most, and <strong>once you load in the true cost to serve, the ranking flips.</strong> Your best client is the one that is cheap to serve, quick to renew, and prone to refer others exactly like itself.</p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q">What is the whale curve?</h3>
+              <p class="faq__a">A profit shape named by Harvard accounting researcher Robert Kaplan. Rank every customer from most to least profitable, plot cumulative profit, and the line climbs <strong>past one hundred percent of total profit, then slides back down</strong> as unprofitable accounts drag it lower. A small group of clients is not contributing to the company. It is carrying it.</p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q">Why is targeting the average customer a mistake?</h3>
+              <p class="faq__a">Because <strong>the average client does not exist. It is a statistical ghost.</strong> When you build your pitch, your roadmap, and your hiring plan around the average of a few accounts that print money and a long tail that drains it, growth feels like pushing a boulder uphill while a competitor who picked one customer rolls past you.</p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q">What does the research say about keeping customers versus winning new ones?</h3>
+              <p class="faq__a">Frederick Reichheld's research at Bain found that <strong>lifting retention by five percent can raise profit by twenty-five to ninety-five percent,</strong> because a retained customer costs almost nothing to keep. Acquiring a new customer is widely estimated to cost five to twenty-five times more than holding one you have. The cheapest growth is more customers who look like the ones who already stay.</p>
+            </div>
+          </div>
 
         </div>
       </div>

@@ -9,7 +9,11 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
 <meta name="author" content="Chris Schafer" />
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231D4696'/><g fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='16'/><line x1='32' y1='17' x2='32' y2='47'/></g></svg>" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#0B1E3B" />
 
 <meta property="og:site_name" content="OnDemand Leaders" />
@@ -21,6 +25,25 @@
 <meta property="article:published_time" content="2026-04-01" />
 <meta property="og:image" content="https://ondemandleaders.com/assets/chris.jpeg" />
 <meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://ondemandleaders.com/"},
+      {"@type":"ListItem","position":2,"name":"Think Tank","item":"https://ondemandleaders.com/think-tank"},
+      {"@type":"ListItem","position":3,"name":"Canada's Value Capture Gap","item":"https://ondemandleaders.com/think-tank/canada-value-capture"}
+    ]},
+    {"@type":"Article","headline":"Canada's Value Capture Gap","description":"Why Canada ships its resources out and buys them back at ten times the price, and what to do about it. A Think Tank paper by Christopher Schafer.","datePublished":"2026-04-01","dateModified":"2026-04-01","author":{"@type":"Person","@id":"https://ondemandleaders.com/#chris","name":"Christopher Schafer","url":"https://ondemandleaders.com/about","sameAs":["https://www.linkedin.com/in/christopher-schafer-9116905/","https://www.youtube.com/@ondemandleaders3178"]},"publisher":{"@type":"Organization","name":"OnDemand Leaders","logo":{"@type":"ImageObject","url":"https://ondemandleaders.com/assets/chris.jpeg"}},"image":"https://ondemandleaders.com/assets/chris.jpeg","mainEntityOfPage":"https://ondemandleaders.com/think-tank/canada-value-capture","isPartOf":{"@type":"CreativeWorkSeries","name":"Think Tank","url":"https://ondemandleaders.com/think-tank"},"articleSection":"Think Tank","inLanguage":"en-US","keywords":"Canada economy, value capture, value added manufacturing, resource economy, economic policy, productivity"},
+    {"@type":"FAQPage","@id":"https://ondemandleaders.com/think-tank/canada-value-capture#faq","mainEntity":[
+      {"@type":"Question","name":"What is Canada's value capture gap?","acceptedAnswer":{"@type":"Answer","text":"Canada exports raw materials and imports the finished goods made from them. We mine the nickel and import the EV batteries, harvest the timber and import the engineered wood, pump the oil and import the petrochemicals. The upstream margin is small, the downstream margin is large, and we keep choosing the small one."}},
+      {"@type":"Question","name":"Why doesn't the cheap-labour argument for offshore manufacturing hold anymore?","acceptedAnswer":{"@type":"Answer","text":"Because modern manufacturing is increasingly automated, and the cost of automating a Canadian plant looks much like the cost of automating any other plant. Labour cost was the variable that mattered most for fifty years. It matters less today than it has in decades, and policy has not caught up."}},
+      {"@type":"Question","name":"Which countries captured the value from their own resources, and how?","acceptedAnswer":{"@type":"Answer","text":"Four did it differently. Indonesia banned unprocessed nickel ore exports in 2020 and became the world's second largest stainless steel producer. Sweden built a deep wood-products industry. South Korea became a top steel exporter with almost no iron ore of its own. Norway parked its oil revenue in a sovereign wealth fund that now owns about 1.5 percent of every public company on earth."}},
+      {"@type":"Question","name":"What would a serious Canadian value capture strategy require?","acceptedAnswer":{"@type":"Answer","text":"Not a single policy. A coordinated stack: tariff design, processing incentives, sovereign capital deployment, energy pricing, regulatory speed, and a public conversation honest enough to make the trade-offs visible. The first precondition is transparency. Canadians cannot have an honest conversation about industrial policy until they can see what is actually happening with our resources."}}
+    ]}
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -199,6 +222,16 @@
   color: rgba(255,255,255,0.45);
   margin-bottom: 10px;
 }
+
+.faq{margin:56px 0 0}
+.faq__label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue-normal);margin-bottom:16px}
+.faq__heading{font-size:clamp(24px,2.2vw,30px);font-weight:800;letter-spacing:-0.025em;line-height:1.15;margin:0 0 24px;color:var(--text-main)}
+.faq__heading em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--blue-normal)}
+.faq__item{padding:24px 0;border-top:1px solid var(--border-clean)}
+.faq__item:last-child{border-bottom:1px solid var(--border-clean)}
+.faq__q{font-size:19px;font-weight:700;letter-spacing:-0.015em;color:var(--text-main);margin:0 0 10px;line-height:1.3}
+.faq__a{font-size:16px;line-height:1.7;color:var(--text-muted);margin:0}
+.faq__a strong{color:var(--text-main);font-weight:600}
 </style>
 
 </head>
@@ -263,6 +296,31 @@
           <p>A serious value capture strategy isn&rsquo;t a single policy. It&rsquo;s a coordinated stack: tariff design, processing incentives, sovereign capital deployment, energy pricing, regulatory speed, and a public conversation honest enough to make trade-offs visible.</p>
 
           <p style="margin-top: 36px; color: var(--text-light); font-size: 14.5px;">&hellip; the full paper continues with sector-by-sector analysis, the policy stack, and the case for transparency as a precondition for policy. Download the PDF to keep reading.</p>
+
+          <div class="faq">
+            <div class="faq__label">Questions readers ask</div>
+            <h2 class="faq__heading">Canada's value capture gap. <em>The questions underneath it.</em></h2>
+
+            <div class="faq__item">
+              <h3 class="faq__q">What is Canada's value capture gap?</h3>
+              <p class="faq__a">Canada exports raw materials and imports the finished goods made from them. We <strong>mine the nickel and import the EV batteries, harvest the timber and import the engineered wood, pump the oil and import the petrochemicals.</strong> The upstream margin is small, the downstream margin is large, and we keep choosing the small one.</p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q">Why doesn't the cheap-labour argument for offshore manufacturing hold anymore?</h3>
+              <p class="faq__a">Because <strong>modern manufacturing is increasingly automated, and the cost of automating a Canadian plant looks much like the cost of automating any other plant.</strong> Labour cost was the variable that mattered most for fifty years. It matters less today than it has in decades, and policy has not caught up.</p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q">Which countries captured the value from their own resources, and how?</h3>
+              <p class="faq__a">Four did it differently. <strong>Indonesia</strong> banned unprocessed nickel ore exports in 2020 and became the world's second largest stainless steel producer. <strong>Sweden</strong> built a deep wood-products industry. <strong>South Korea</strong> became a top steel exporter with almost no iron ore of its own. <strong>Norway</strong> parked its oil revenue in a sovereign wealth fund that now owns about 1.5 percent of every public company on earth.</p>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q">What would a serious Canadian value capture strategy require?</h3>
+              <p class="faq__a">Not a single policy. <strong>A coordinated stack: tariff design, processing incentives, sovereign capital deployment, energy pricing, regulatory speed,</strong> and a public conversation honest enough to make the trade-offs visible. The first precondition is transparency. Canadians cannot have an honest conversation about industrial policy until they can see what is actually happening with our resources.</p>
+            </div>
+          </div>
 
         </div>
       </div>

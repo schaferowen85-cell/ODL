@@ -8,4 +8,26 @@ Disallow: /thank-you.html
 Disallow: /thank-you
 Disallow: /uploads/
 
+# AI search and answer engines are welcome to crawl and cite this site.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: Amazonbot
+Allow: /
+Disallow: /design-system.html
+Disallow: /design-system
+Disallow: /logo-variations.html
+Disallow: /logo-variations
+Disallow: /thank-you.html
+Disallow: /thank-you
+Disallow: /uploads/
+
 Sitemap: https://ondemandleaders.com/sitemap.xml
