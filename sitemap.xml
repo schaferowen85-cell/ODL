@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url><loc>https://ondemandleaders.com/</loc>            <changefreq>weekly</changefreq>  <priority>1.0</priority></url>
-  <url><loc>https://ondemandleaders.com/about</loc>       <changefreq>monthly</changefreq> <priority>0.9</priority></url>
-  <url><loc>https://ondemandleaders.com/how-i-work</loc>  <changefreq>monthly</changefreq> <priority>0.95</priority></url>
-  <url><loc>https://ondemandleaders.com/help</loc>        <changefreq>monthly</changefreq> <priority>0.9</priority></url>
-  <url><loc>https://ondemandleaders.com/training</loc>    <changefreq>monthly</changefreq> <priority>0.9</priority></url>
-  <url><loc>https://ondemandleaders.com/public-speaking</loc> <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/speaking</loc>    <changefreq>monthly</changefreq> <priority>0.7</priority></url>
-  <url><loc>https://ondemandleaders.com/insights</loc>    <changefreq>weekly</changefreq>  <priority>0.9</priority></url>
-  <url><loc>https://ondemandleaders.com/think-tank</loc>  <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/think-tank/revenue-turnaround-case-study</loc> <lastmod>2026-06-05</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/think-tank/best-customer-engine</loc> <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/think-tank/education-three-cs</loc> <lastmod>2026-04-01</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/think-tank/canada-value-capture</loc> <lastmod>2026-04-01</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/conversation-intelligence</loc> <changefreq>weekly</changefreq> <priority>0.9</priority></url>
-  <url><loc>https://ondemandleaders.com/conversation-intelligence/leadership-same-meeting</loc>          <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/conversation-intelligence/death-of-discovery-calls</loc>         <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/conversation-intelligence/three-advantages-ai-cannot-replace</loc> <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/resources</loc>   <changefreq>monthly</changefreq> <priority>0.8</priority></url>
-  <url><loc>https://ondemandleaders.com/elisha</loc>      <changefreq>monthly</changefreq> <priority>0.6</priority></url>
-  <url><loc>https://ondemandleaders.com/apply</loc>       <changefreq>monthly</changefreq> <priority>0.9</priority></url>
-  <url><loc>https://ondemandleaders.com/revenue-leader-mentorship</loc> <lastmod>2026-06-08</lastmod> <changefreq>monthly</changefreq> <priority>0.9</priority></url>
-  <url><loc>https://ondemandleaders.com/find-your-path</loc> <lastmod>2026-06-08</lastmod> <changefreq>monthly</changefreq> <priority>0.8</priority></url>
-  <url><loc>https://ondemandleaders.com/strategic-session</loc> <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.9</priority></url>
-  <url><loc>https://ondemandleaders.com/profitable-client</loc> <changefreq>monthly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://www.ondemandleaders.com/</loc>            <changefreq>weekly</changefreq>  <priority>1.0</priority></url>
+  <url><loc>https://www.ondemandleaders.com/about</loc>       <changefreq>monthly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://www.ondemandleaders.com/how-i-work</loc>  <changefreq>monthly</changefreq> <priority>0.95</priority></url>
+  <url><loc>https://www.ondemandleaders.com/help</loc>        <changefreq>monthly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://www.ondemandleaders.com/training</loc>    <changefreq>monthly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://www.ondemandleaders.com/public-speaking</loc> <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/speaking</loc>    <changefreq>monthly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://www.ondemandleaders.com/insights</loc>    <changefreq>weekly</changefreq>  <priority>0.9</priority></url>
+  <url><loc>https://www.ondemandleaders.com/think-tank</loc>  <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/think-tank/revenue-turnaround-case-study</loc> <lastmod>2026-06-05</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/think-tank/best-customer-engine</loc> <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/think-tank/education-three-cs</loc> <lastmod>2026-04-01</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/think-tank/canada-value-capture</loc> <lastmod>2026-04-01</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/conversation-intelligence</loc> <changefreq>weekly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://www.ondemandleaders.com/conversation-intelligence/leadership-same-meeting</loc>          <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/conversation-intelligence/death-of-discovery-calls</loc>         <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/conversation-intelligence/three-advantages-ai-cannot-replace</loc> <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/resources</loc>   <changefreq>monthly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://www.ondemandleaders.com/elisha</loc>      <changefreq>monthly</changefreq> <priority>0.6</priority></url>
+  <url><loc>https://www.ondemandleaders.com/apply</loc>       <changefreq>monthly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://www.ondemandleaders.com/revenue-leader-mentorship</loc> <lastmod>2026-06-08</lastmod> <changefreq>monthly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://www.ondemandleaders.com/find-your-path</loc> <lastmod>2026-06-08</lastmod> <changefreq>monthly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://www.ondemandleaders.com/strategic-session</loc> <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://www.ondemandleaders.com/profitable-client</loc> <changefreq>monthly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://www.ondemandleaders.com/fractional-cro</loc> <lastmod>2026-06-16</lastmod> <changefreq>monthly</changefreq> <priority>0.95</priority></url>
+  <url><loc>https://www.ondemandleaders.com/fractional-cro-toronto</loc> <lastmod>2026-06-16</lastmod> <changefreq>monthly</changefreq> <priority>0.9</priority></url>
 
   <!-- HELP stage pages (current URLs; will migrate to /help/* in Phase 5) -->
-  <url><loc>https://ondemandleaders.com/hear</loc>       <changefreq>monthly</changefreq> <priority>0.7</priority></url>
-  <url><loc>https://ondemandleaders.com/evidence</loc>   <changefreq>monthly</changefreq> <priority>0.7</priority></url>
-  <url><loc>https://ondemandleaders.com/learn</loc>      <changefreq>monthly</changefreq> <priority>0.7</priority></url>
-  <url><loc>https://ondemandleaders.com/proceed</loc>    <changefreq>monthly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://www.ondemandleaders.com/hear</loc>       <changefreq>monthly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://www.ondemandleaders.com/evidence</loc>   <changefreq>monthly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://www.ondemandleaders.com/learn</loc>      <changefreq>monthly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://www.ondemandleaders.com/proceed</loc>    <changefreq>monthly</changefreq> <priority>0.7</priority></url>
 
-  <!-- Insights / blog posts -->
-  <url><loc>https://ondemandleaders.com/blog/</loc>                                  <changefreq>weekly</changefreq>  <priority>0.9</priority></url>
-  <url><loc>https://ondemandleaders.com/blog/chris-schafer.html</loc>                <lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.95</priority></url>
-  <url><loc>https://ondemandleaders.com/blog/interim-president-toronto.html</loc>    <lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/blog/fractional-cro-vs-interim-cro.html</loc><lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/blog/founder-led-selling-stops-scaling.html</loc><lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/blog/why-profitable-companies-stall.html</loc>   <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/blog/leadership-in-the-age-of-ai.html</loc>      <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/blog/selling-to-educated-buyers.html</loc>   <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/blog/executive-mentor-ai-transition.html</loc><lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/blog/why-saas-revenue-plans-miss.html</loc>  <lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
-  <url><loc>https://ondemandleaders.com/blog/saas-acquisition-readiness.html</loc>   <lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <!-- Insights / blog posts (extension-less final URLs; cleanUrls 308-redirects the .html forms) -->
+  <url><loc>https://www.ondemandleaders.com/blog</loc>                                  <changefreq>weekly</changefreq>  <priority>0.9</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/chris-schafer</loc>                <lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.95</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/interim-president-toronto</loc>    <lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/fractional-cro-vs-interim-cro</loc><lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/founder-led-selling-stops-scaling</loc><lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/why-profitable-companies-stall</loc>   <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/leadership-in-the-age-of-ai</loc>      <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/selling-to-educated-buyers</loc>   <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/executive-mentor-ai-transition</loc><lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/why-saas-revenue-plans-miss</loc>  <lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/saas-acquisition-readiness</loc>   <lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
 
 </urlset>

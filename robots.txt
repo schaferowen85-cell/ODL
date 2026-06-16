@@ -30,4 +30,4 @@ Disallow: /thank-you.html
 Disallow: /thank-you
 Disallow: /uploads/
 
-Sitemap: https://ondemandleaders.com/sitemap.xml
+Sitemap: https://www.ondemandleaders.com/sitemap.xml

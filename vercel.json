@@ -7,6 +7,8 @@
     { "source": "/lba-masterclass-book-now",        "destination": "/training", "permanent": true },
     { "source": "/lba-master-class",                "destination": "/training", "permanent": true },
     { "source": "/bio-elisha-schafer-1",            "destination": "/elisha",   "permanent": true },
+    { "source": "/bio-susan-giroux",                "destination": "/about",    "permanent": true },
+    { "source": "/coaching-fundamentals",           "destination": "/how-i-work", "permanent": true },
     { "source": "/our-methodology",                 "destination": "/help",     "permanent": true },
     { "source": "/our-framework-for-clarity",       "destination": "/help",     "permanent": true },
     { "source": "/upcoming-webinars",               "destination": "/training", "permanent": true },

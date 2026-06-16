@@ -38,6 +38,8 @@
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/how-i-work">How I Work</a></li>
+            <li><a href="/fractional-cro">Fractional &amp; Interim CRO</a></li>
+            <li><a href="/fractional-cro-toronto">Fractional CRO in Toronto</a></li>
             <li><a href="/help">HELP</a></li>
             <li><a href="/training">Training</a></li>
             <li><a href="/public-speaking">Public Speaking Coaching</a></li>
@@ -46,7 +48,7 @@
             <li><a href="/think-tank">Think Tank</a></li>
             <li><a href="/resources">Resources</a></li>
             <li><a href="/elisha">Meet Elisha</a></li>
-            <li><a href="/apply.html">Book a Call</a></li>
+            <li><a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener">Book a Call</a></li>
           </ul>
         </div>
 
