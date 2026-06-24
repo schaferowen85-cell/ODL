@@ -5,6 +5,7 @@
   <url><loc>https://www.ondemandleaders.com/about</loc>       <changefreq>monthly</changefreq> <priority>0.9</priority></url>
   <url><loc>https://www.ondemandleaders.com/how-i-work</loc>  <changefreq>monthly</changefreq> <priority>0.95</priority></url>
   <url><loc>https://www.ondemandleaders.com/help</loc>        <changefreq>monthly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://www.ondemandleaders.com/help-one-pager</loc> <changefreq>monthly</changefreq> <priority>0.7</priority></url>
   <url><loc>https://www.ondemandleaders.com/training</loc>    <changefreq>monthly</changefreq> <priority>0.9</priority></url>
   <url><loc>https://www.ondemandleaders.com/public-speaking</loc> <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
   <url><loc>https://www.ondemandleaders.com/speaking</loc>    <changefreq>monthly</changefreq> <priority>0.7</priority></url>
@@ -42,6 +43,8 @@
   <url><loc>https://www.ondemandleaders.com/blog/founder-led-selling-stops-scaling</loc><lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
   <url><loc>https://www.ondemandleaders.com/blog/why-profitable-companies-stall</loc>   <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
   <url><loc>https://www.ondemandleaders.com/blog/leadership-in-the-age-of-ai</loc>      <lastmod>2026-06-10</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/executive-peer-groups-ai</loc>         <lastmod>2026-06-23</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
+  <url><loc>https://www.ondemandleaders.com/blog/how-to-have-better-conversations</loc> <lastmod>2026-06-24</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
   <url><loc>https://www.ondemandleaders.com/blog/selling-to-educated-buyers</loc>   <lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
   <url><loc>https://www.ondemandleaders.com/blog/executive-mentor-ai-transition</loc><lastmod>2026-06-02</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
   <url><loc>https://www.ondemandleaders.com/blog/why-saas-revenue-plans-miss</loc>  <lastmod>2026-05-18</lastmod> <changefreq>monthly</changefreq> <priority>0.85</priority></url>
