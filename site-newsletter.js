@@ -1,10 +1,10 @@
-// Sitewide newsletter pop-up — self-injecting. Just add:
+// Sitewide newsletter pop-up. Self-injecting. Just add:
 //   <script src="/site-newsletter.js" defer></script>
 // Own CSS prefix (nl-) so it never collides with page styles.
 // Shows once per visitor: after a delay OR once they scroll past the midpoint,
 // whichever comes first. Dismissible. Remembers the choice in localStorage.
 (function() {
-  const SEEN_KEY = 'odl_nl_seen';   // dismissed or subscribed — don't show again
+  const SEEN_KEY = 'odl_nl_seen';   // dismissed or subscribed, don't show again
   const DELAY_MS = 16000;           // time before it appears on its own
   const SCROLL_AT = 0.5;            // or once half the page is read
 
@@ -154,7 +154,7 @@
       const btn = document.getElementById('nl-submit');
       const data = new FormData(e.currentTarget);
       data.append('access_key', '860abb01-77f4-4325-92c0-b7182ea89636');
-      data.append('subject', 'New newsletter subscriber — site popup');
+      data.append('subject', 'New newsletter subscriber from the site popup');
       data.append('from_name', 'OnDemand Leaders · Newsletter');
       btn.disabled = true;
       const done = () => {

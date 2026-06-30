@@ -574,7 +574,7 @@
       <div class="container">
         <div class="svc__inner">
           <div class="phase__head reveal">
-            <span class="phase__num">—</span>
+            <span class="phase__num">·</span>
             <span class="phase__word">The done-with-you version</span>
           </div>
           <h2 class="phase__title reveal">Want this run <em>properly?</em></h2>
@@ -756,7 +756,7 @@
           <div class="num" data-label="Revenue / mo">${money(c.rev)}</div>
           <div class="num" data-label="Cost to serve">${money(c.cost)}<small>${c.hrs} hrs</small></div>
           <div class="num ${c.margin < 0 ? 'neg' : ''}" data-label="Margin">${money(c.margin)}<small>${Math.round(c.pct)}%</small></div>
-          <div class="num ${c.pph < 0 ? 'neg' : ''}" data-label="Profit / hour">${c.hrs > 0 ? money(c.pph) : '—'}</div>
+          <div class="num ${c.pph < 0 ? 'neg' : ''}" data-label="Profit / hour">${c.hrs > 0 ? money(c.pph) : 'n/a'}</div>
           <div class="verdict v-${v.k}">${v.label}</div>`;
         wrap.appendChild(row);
       });

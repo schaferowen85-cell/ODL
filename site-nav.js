@@ -1,4 +1,4 @@
-// Sitewide nav — injects into any element with id="site-nav".
+// Sitewide nav. Injects into any element with id="site-nav".
 // Self-contained: own CSS prefix (sn-) so it doesn't collide with page styles.
 // 7 top-level items + Book a Call CTA.
 (function() {
@@ -6,7 +6,7 @@
   <nav class="sn-nav" id="sn-nav" aria-label="Primary">
     <div class="sn-container">
       <div class="sn-inner">
-        <a href="/" class="sn-logo" aria-label="OnDemand Leaders — Home">
+        <a href="/" class="sn-logo" aria-label="OnDemand Leaders Home">
           <svg class="sn-mark" viewBox="0 0 360 130" role="img" aria-label="ODL">
             <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
               <circle cx="65" cy="65" r="58"></circle>

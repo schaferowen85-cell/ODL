@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────
-   OnDemand Leaders — shared core styles.
+   OnDemand Leaders. Shared core styles.
    Tokens, type, buttons, sections, eyebrow, h2/lead, page-hero.
    Page-specific styles live inline in each page.
    ───────────────────────────────────────────────────────────── */
@@ -217,7 +217,7 @@ img { max-width: 100%; display: block; }
 .section-head h2 { margin-top: 6px; }
 .section-head .lead { margin-top: 20px; }
 
-/* TBD callout — used on scaffold pages */
+/* TBD callout. Used on scaffold pages */
 .tbd-banner {
   background: rgba(224,165,58,0.08);
   border: 1px solid rgba(224,165,58,0.28);

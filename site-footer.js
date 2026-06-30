@@ -1,4 +1,4 @@
-// Sitewide footer — injects into any element with id="site-footer".
+// Sitewide footer. Injects into any element with id="site-footer".
 // 4-column layout per change-request spec §2.8.
 (function() {
   const YEAR = new Date().getFullYear();
@@ -213,7 +213,7 @@
         const btn = form.querySelector('button');
         const data = new FormData(form);
         data.append('access_key', '860abb01-77f4-4325-92c0-b7182ea89636');
-        data.append('subject', 'New newsletter subscriber — site footer');
+        data.append('subject', 'New newsletter subscriber from the site footer');
         data.append('from_name', 'OnDemand Leaders · Footer');
         btn.disabled = true;
         fetch('https://api.web3forms.com/submit', {
