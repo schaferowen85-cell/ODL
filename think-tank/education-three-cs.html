@@ -241,6 +241,28 @@
 .faq__q{font-size:19px;font-weight:700;letter-spacing:-0.015em;color:var(--text-main);margin:0 0 10px;line-height:1.3}
 .faq__a{font-size:16px;line-height:1.7;color:var(--text-muted);margin:0}
 .faq__a strong{color:var(--text-main);font-weight:600}
+
+/* Print: produce a clean, board-ready PDF of the paper. Reveal all content
+   (the site hides it until scroll), drop site chrome, lighten the hero. */
+@media print {
+  #site-nav, #site-footer, .cta-band, #download, .paper-gate,
+  [id^="odlc-"], [class^="odlc-"] { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  body { background: #fff !important; }
+  .paper-hero { padding: 0 0 20px !important; background: #fff !important; color: #111 !important; overflow: visible !important; }
+  .paper-hero::before { display: none !important; }
+  .paper-hero__crumb, .paper-hero__meta { color: #555 !important; }
+  .paper-hero__h1 { color: #0B1E3B !important; }
+  .paper-hero__subtitle { color: #333 !important; }
+  .paper-hero__tags span { color: #333 !important; border-color: #ccc !important; }
+  .paper-body { padding: 12px 0 0 !important; }
+  .paper-body h2, .paper-body h3, .paper-body p, .paper-body li { color: #111 !important; }
+  .paper-body h2, .paper-body h3 { break-after: avoid; }
+  .paper-body p, .faq__item, .citation { break-inside: avoid; }
+  a { color: #1d4696 !important; }
+  .citation { background: #f2f4f8 !important; color: #111 !important; }
+  .citation__label { color: #555 !important; }
+}
 </style>
 
 </head>
@@ -302,10 +324,10 @@
           <div id="download" class="paper-gate">
             <div class="paper-gate__title">Prefer to read offline</div>
             <h3>Get the PDF</h3>
-            <p>The full paper is below. If you&rsquo;d like a clean PDF copy to share with a board or a leadership team, we&rsquo;ll send it over and add you to the weekly Insights newsletter. Unsubscribe anytime.</p>
+            <p>The full paper is below. If you&rsquo;d like a clean PDF copy to share with a board or a leadership team, enter your email and I&rsquo;ll open it for you right here. You&rsquo;ll also join the weekly Insights newsletter. Unsubscribe anytime.</p>
             <form class="paper-gate__form" action="#" method="post" novalidate>
               <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required aria-label="Email address" />
-              <button type="submit">Send me the PDF <span>↗</span></button>
+              <button type="submit">Get the PDF <span>↗</span></button>
             </form>
             <div class="paper-gate__note">No spam · Unsubscribe anytime</div>
           </div>
@@ -524,23 +546,34 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+    const PDF_URL = '/assets/education-three-cs.pdf';
     const forms = document.querySelectorAll('.paper-gate__form');
     forms.forEach(f => f.addEventListener('submit', e => {
       e.preventDefault();
       const btn = f.querySelector('button');
+      const email = f.querySelector('input[name="email"]');
+      if (email && !email.checkValidity()) { email.reportValidity(); return; }
       const data = new FormData(f);
       data.append('access_key', '860abb01-77f4-4325-92c0-b7182ea89636');
       data.append('subject', 'PDF request for The Education Three Cs');
       data.append('from_name', 'OnDemand Leaders · Three Cs paper');
       btn.disabled = true;
+      btn.textContent = 'Opening the PDF ✓';
+      // Capture the lead, then hand over the PDF in the same click (no email wait).
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
-        body: data
-      }).then(r => r.json()).then(res => {
-        btn.textContent = res.success ? 'Thanks · PDF on the way ✓' : 'Try again';
-        if (!res.success) btn.disabled = false;
-      }).catch(() => { btn.textContent = 'Try again'; btn.disabled = false; });
+        body: data,
+        keepalive: true
+      }).catch(() => {});
+      const a = document.createElement('a');
+      a.href = PDF_URL;
+      a.download = 'The Education Three Cs.pdf';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
     }));
   </script>
 </body>
