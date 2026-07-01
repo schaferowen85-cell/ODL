@@ -269,11 +269,11 @@
 
           <div id="download" class="paper-gate">
             <div class="paper-gate__title">Read the full paper</div>
-            <h3>Download the PDF</h3>
-            <p>Email-gated. We&rsquo;ll send the paper as a PDF and add you to the weekly Insights newsletter. Unsubscribe anytime.</p>
+            <h3>Get the full paper</h3>
+            <p>Enter your email and I will take you straight to the full paper. You will also join the weekly Insights newsletter. Unsubscribe anytime.</p>
             <form class="paper-gate__form" action="#" method="post" novalidate>
               <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required aria-label="Email address" />
-              <button type="submit">Send me the PDF <span>↗</span></button>
+              <button type="submit">Read the full paper <span>↗</span></button>
             </form>
             <div class="paper-gate__note">No spam · Unsubscribe anytime</div>
           </div>
@@ -295,7 +295,7 @@
           <h2>What Canada would need to do</h2>
           <p>A serious value capture strategy isn&rsquo;t a single policy. It&rsquo;s a coordinated stack: tariff design, processing incentives, sovereign capital deployment, energy pricing, regulatory speed, and a public conversation honest enough to make trade-offs visible.</p>
 
-          <p style="margin-top: 36px; color: var(--text-light); font-size: 14.5px;">&hellip; the full paper continues with sector-by-sector analysis, the policy stack, and the case for transparency as a precondition for policy. Download the PDF to keep reading.</p>
+          <p style="margin-top: 36px; color: var(--text-light); font-size: 14.5px;">&hellip; the full paper continues with sector-by-sector analysis, the policy stack, and the case for transparency as a precondition for policy. Read the full paper to keep reading.</p>
 
           <div class="faq">
             <div class="faq__label">Questions readers ask</div>
@@ -349,23 +349,27 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+    const PAPER_URL = '/blog/canada-value-capture-problem';
     const forms = document.querySelectorAll('.paper-gate__form');
     forms.forEach(f => f.addEventListener('submit', e => {
       e.preventDefault();
       const btn = f.querySelector('button');
+      const email = f.querySelector('input[name="email"]');
+      if (email && !email.checkValidity()) { email.reportValidity(); return; }
       const data = new FormData(f);
       data.append('access_key', '860abb01-77f4-4325-92c0-b7182ea89636');
-      data.append('subject', 'PDF request for Canada’s Value Capture Gap');
+      data.append('subject', 'Full paper request for Canada’s Value Capture Gap');
       data.append('from_name', 'OnDemand Leaders · Canada paper');
       btn.disabled = true;
+      btn.textContent = 'Opening the paper ✓';
+      // Capture the lead, then send the reader to the full paper no matter what.
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
-        body: data
-      }).then(r => r.json()).then(res => {
-        btn.textContent = res.success ? 'Thanks · PDF on the way ✓' : 'Try again';
-        if (!res.success) btn.disabled = false;
-      }).catch(() => { btn.textContent = 'Try again'; btn.disabled = false; });
+        body: data,
+        keepalive: true
+      }).catch(() => {});
+      window.location.href = PAPER_URL;
     }));
   </script>
 </body>
