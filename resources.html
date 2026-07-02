@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Resources · Downloads | OnDemand Leaders</title>
-<meta name="description" content="Frameworks, one-pagers, and tools you can use the same week you download them. The HELP Operating System one-pager, Think Tank papers, and forthcoming diagnostics." />
+<meta name="description" content="Frameworks, one-pagers, and tools you can use the same week you download them. The HELP Operating System one-pager, interactive diagnostics, and the video channel." />
 <link rel="canonical" href="https://www.ondemandleaders.com/resources" />
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
 <meta name="author" content="Chris Schafer" />
@@ -16,7 +16,7 @@
 <meta name="theme-color" content="#0B1E3B" />
 <meta property="og:site_name" content="OnDemand Leaders" />
 <meta property="og:title" content="Resources · Downloads | OnDemand Leaders" />
-<meta property="og:description" content="Frameworks, one-pagers, and tools you can use the same week you download them. The HELP Operating System one-pager, Think Tank papers, and forthcoming diagnostics." />
+<meta property="og:description" content="Frameworks, one-pagers, and tools you can use the same week you download them. The HELP Operating System one-pager, interactive diagnostics, and the video channel." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.ondemandleaders.com/resources" />
 <meta property="og:image" content="https://www.ondemandleaders.com/assets/chris.jpeg" />
@@ -29,7 +29,7 @@
 <style>
 .featured-download {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 56px;
   align-items: center;
   background:
@@ -125,10 +125,10 @@
 .featured-download__visual-steps {
   display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
   font-family: var(--font-mono);
-  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--text-muted);
 }
-.featured-download__visual-steps div { padding: 6px 8px; background: var(--bg-soft); border-radius: 4px; text-align: center; }
+.featured-download__visual-steps div { padding: 6px 8px; background: var(--bg-soft); border-radius: 4px; text-align: center; white-space: nowrap; }
 
 .resource-card {
   border: 1px solid var(--border-clean);
@@ -159,8 +159,10 @@
 .resource-card--soon { opacity: 0.55; }
 .resource-card--soon .resource-card__link { color: var(--text-light); }
 
+.featured-download > * { min-width: 0; }
+
 @media (max-width: 900px) {
-  .featured-download { grid-template-columns: 1fr; gap: 36px; padding: 40px 32px; }
+  .featured-download { grid-template-columns: minmax(0, 1fr); gap: 36px; padding: 40px 32px; }
   .featured-download__visual { margin: 0 auto; }
 }
 </style>
@@ -177,7 +179,7 @@
         <div class="page-hero__inner">
           <span class="eyebrow eyebrow--light reveal">Resources</span>
           <h1 class="page-hero__h1 reveal d1">Frameworks and tools you can use <em>the same week.</em></h1>
-          <p class="page-hero__sub reveal d2">One-pagers, diagnostics, white papers, and operating templates. Built for use, not for shelfware.</p>
+          <p class="page-hero__sub reveal d2">One-pagers, diagnostics, and videos. Built for use, not for shelfware.</p>
         </div>
       </div>
     </section>
@@ -209,28 +211,8 @@
         </div>
 
         <div class="section-head section-head--left">
-          <span class="eyebrow reveal">Research papers</span>
-          <h2 class="h2 reveal d1">From the <em>Think Tank.</em></h2>
-        </div>
-
-        <div class="card-grid card-grid--2" style="margin-bottom: 56px;">
-          <div class="card reveal">
-            <span class="card__tag">White paper · 24 min</span>
-            <h3 class="card__title">The Education Three Cs</h3>
-            <p class="card__body">Curiosity, Communication, Confirmation. Why the skills schools were never built to teach are now the only ones that matter.</p>
-            <a href="/think-tank/education-three-cs" class="card__link">Read the paper ↗</a>
-          </div>
-          <div class="card reveal d2">
-            <span class="card__tag">White paper · 28 min</span>
-            <h3 class="card__title">Canada&rsquo;s Value Capture Gap</h3>
-            <p class="card__body">Why Canada ships its resources out and buys them back at ten times the price, and what to do about it.</p>
-            <a href="/think-tank/canada-value-capture" class="card__link">Read the paper ↗</a>
-          </div>
-        </div>
-
-        <div class="section-head section-head--left">
-          <span class="eyebrow reveal">Interactive tools</span>
-          <h2 class="h2 reveal d1">Run it <em>on your own numbers.</em></h2>
+          <span class="eyebrow reveal">Tools &amp; videos</span>
+          <h2 class="h2 reveal d1">Run it, then <em>watch the thinking.</em></h2>
         </div>
 
         <div class="card-grid card-grid--2" style="margin-bottom: 56px;">
@@ -239,6 +221,20 @@
             <h3 class="card__title">The Most Profitable Client Diagnostic</h3>
             <p class="card__body">Your biggest account is rarely your most profitable. List your clients, measure what each one costs to serve, and watch the ranking flip. Hear, Evidence, Learn, Proceed.</p>
             <a href="/profitable-client" class="card__link">Run the diagnostic ↗</a>
+          </div>
+          <a class="card reveal d2" href="https://www.youtube.com/@ondemandleaders3178" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+            <span class="card__tag">Videos · YouTube</span>
+            <h3 class="card__title">The OnDemand Leaders channel</h3>
+            <p class="card__body">Short, direct videos on revenue mechanics, HELP in practice, and better conversations. The three latest always sit on the Insights page.</p>
+            <span class="card__link">Watch on YouTube ↗</span>
+          </a>
+        </div>
+
+        <div class="kx reveal">
+          <span class="kx__label">Also in Knowledge</span>
+          <div class="kx__links">
+            <a href="/insights">Insights →</a>
+            <a href="/think-tank">Think Tank →</a>
           </div>
         </div>
 
