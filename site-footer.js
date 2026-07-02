@@ -48,7 +48,7 @@
             <li><a href="/think-tank">Think Tank</a></li>
             <li><a href="/resources">Resources</a></li>
             <li><a href="/elisha">Meet Elisha</a></li>
-            <li><a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener">Book a Call</a></li>
+            <li><a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener">Book a Friday call</a></li>
           </ul>
         </div>
 

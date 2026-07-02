@@ -37,7 +37,7 @@
           </li>
         </ul>
         <div class="sn-right">
-          <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="sn-cta">Book a call <span class="sn-arrow" aria-hidden="true">↗</span></a>
+          <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="sn-cta">Book a Friday call <span class="sn-arrow" aria-hidden="true">↗</span></a>
           <button class="sn-burger" id="sn-burger" aria-label="Open navigation" aria-expanded="false" aria-controls="sn-drawer">
             <span></span><span></span><span></span>
           </button>
@@ -56,7 +56,7 @@
       <a href="/think-tank">Think Tank</a>
       <a href="/resources">Resources</a>
     </div>
-    <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="sn-drawer-cta">Book a call</a>
+    <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="sn-drawer-cta">Book a Friday call</a>
   </div>
   `;
 

@@ -532,6 +532,14 @@
     color: var(--blue-normal);
     padding-top: 3px;
   }
+  .door { display: flex; flex-direction: column; gap: 8px; }
+  .door__line { color: var(--text-main); transition: color .16s ease; }
+  .door:hover .door__line { color: var(--blue-normal); }
+  .door__go {
+    font-family: var(--font-mono);
+    font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--blue-normal);
+  }
 
   /* ─── ENGAGEMENT MODELS (two-card) ───────────────────────── */
   .engage-grid {
@@ -1462,8 +1470,8 @@
           </h1>
           <p class="hero__sub reveal d2">Founders, CEOs, and boards bring me in when the market shifts, the technology outruns the org, or the team stops working as one. I fix it by mentoring the people you already have, every leader in seat, until revenue moves again. <strong>A fix, not a deck.</strong> Embedded daily, or part-time alongside your team.</p>
           <div class="hero__actions reveal d3">
-            <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--invert">Book a strategy call <span class="arrow">↗</span></a>
-            <a href="/how-i-work" class="btn btn--ghost-light">How I work</a>
+            <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--invert">Book your Friday call <span class="arrow">↗</span></a>
+            <a href="https://www.linkedin.com/in/christopher-schafer-9116905/" target="_blank" rel="noopener" class="btn btn--ghost-light">Message me on LinkedIn</a>
           </div>
         </div>
 
@@ -1522,7 +1530,7 @@
               <span class="prob__quote-by">My operating principle, every engagement</span>
             </div>
             <div style="margin-top:32px;">
-              <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--primary">Book a strategy call <span class="arrow">↗</span></a>
+              <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--primary">Book your Friday call <span class="arrow">↗</span></a>
             </div>
           </div>
 
@@ -1565,21 +1573,21 @@
     <section class="section section--soft" id="when" data-screen-label="03 When companies call me">
       <div class="container">
         <div style="max-width: 820px; margin: 0 auto 56px;">
-          <span class="eyebrow reveal">02 · When companies call me</span>
-          <h2 class="h2 reveal d1" style="margin-top:6px;">Revenue is breaking and the team <em>can't see why.</em></h2>
-          <p class="lead reveal d2" style="margin-top:20px;">What I see most often:</p>
+          <span class="eyebrow reveal">02 · Start with your problem</span>
+          <h2 class="h2 reveal d1" style="margin-top:6px;">Name the problem. <em>I've seen it before.</em></h2>
+          <p class="lead reveal d2" style="margin-top:20px;">Six ways companies arrive here. Pick the one that sounds like yours.</p>
         </div>
 
         <ul class="when-list reveal d1">
-          <li><span class="when-list__num">01</span><span>Pipeline is moving but close rates are dropping and no one can explain it.</span></li>
-          <li><span class="when-list__num">02</span><span>The sales team is missing forecast three quarters in a row.</span></li>
-          <li><span class="when-list__num">03</span><span>Customer success and sales are pointing fingers about churn.</span></li>
-          <li><span class="when-list__num">04</span><span>A new product launched and revenue didn't move.</span></li>
-          <li><span class="when-list__num">05</span><span>The brand says one thing, the sales team says another, the website says a third.</span></li>
-          <li><span class="when-list__num">06</span><span>The PE board is losing patience and the CEO needs a credible operator in the seat now.</span></li>
+          <li><span class="when-list__num">01</span><a class="door" href="/help"><span class="door__line">"My leadership team is the problem. Good people, pointing fingers, and nothing moves."</span><span class="door__go">People problem → Start with HELP</span></a></li>
+          <li><span class="when-list__num">02</span><a class="door" href="/how-i-work"><span class="door__line">"Revenue is flat and nobody can tell me why."</span><span class="door__go">Revenue problem → How I work</span></a></li>
+          <li><span class="when-list__num">03</span><a class="door" href="/profitable-client"><span class="door__line">"I don't actually know who my ideal client is, and growth has stalled."</span><span class="door__go">Ideal client → Run the diagnostic</span></a></li>
+          <li><span class="when-list__num">04</span><a class="door" href="/strategic-session"><span class="door__line">"I know there's revenue in this company. I can't find it."</span><span class="door__go">Find the revenue → Book a strategic session</span></a></li>
+          <li><span class="when-list__num">05</span><a class="door" href="/apply"><span class="door__line">"I need an operator in the seat, hands on, until this is fixed."</span><span class="door__go">Hands-on help → Apply for an engagement</span></a></li>
+          <li><span class="when-list__num">06</span><a class="door" href="/revenue-leader-mentorship"><span class="door__line">"I need a private mentor. Someone who has been here, and keeps it quiet."</span><span class="door__go">Private mentorship → Start with a free call</span></a></li>
         </ul>
 
-        <p class="lead reveal d2" style="max-width: 820px; margin: 48px auto 0;"><strong>None of those are sales problems by themselves.</strong> They're system problems. That's what I'm built for.</p>
+        <p class="lead reveal d2" style="max-width: 820px; margin: 48px auto 0;"><strong>Six doors, one system underneath.</strong> Every one of these is the same broken revenue engine showing up in a different room. If your version isn't on the list, <a href="https://www.linkedin.com/in/christopher-schafer-9116905/" target="_blank" rel="noopener" style="color: var(--blue-normal); font-weight:600;">message me on LinkedIn</a> and describe it. I'll tell you what I see.</p>
       </div>
     </section>
 
@@ -1648,11 +1656,48 @@
 
         </div>
 
+        <div class="network reveal d2">
+          <div class="network__lhs">
+            <div class="network__label">The network</div>
+            <div class="network__title">I don't come <em>alone.</em></div>
+            <p class="network__body">25 years builds a deep bench of operators I trust. I bring them in on demand when an engagement needs more than me, and I have placed leaders full time, over and over, when that was the right answer. Often the right answer is a referral, and I make those for free. <strong>Even if I'm not the right individual, let's connect, and I'll do my best to point you to the right person.</strong></p>
+          </div>
+          <div class="network__seats">
+            <div class="seat">
+              <div class="seat__avatar">CRO</div>
+              <div>
+                <div class="seat__role">Revenue and sales leaders</div>
+                <div class="seat__sub">Interim · Full time</div>
+              </div>
+            </div>
+            <div class="seat">
+              <div class="seat__avatar">CMO</div>
+              <div>
+                <div class="seat__role">Marketing leaders</div>
+                <div class="seat__sub">On demand</div>
+              </div>
+            </div>
+            <div class="seat">
+              <div class="seat__avatar">CS</div>
+              <div>
+                <div class="seat__role">Customer success leaders</div>
+                <div class="seat__sub">On demand</div>
+              </div>
+            </div>
+            <div class="seat">
+              <div class="seat__avatar">OPS</div>
+              <div>
+                <div class="seat__role">RevOps and delivery leaders</div>
+                <div class="seat__sub">On demand</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:42px;">
-          <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--invert">Book a strategy call <span class="arrow">↗</span></a>
-          <a href="/how-i-work" class="btn btn--ghost-light">See how I work</a>
+          <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--invert">Book your Friday call <span class="arrow">↗</span></a>
+          <a href="https://www.linkedin.com/in/christopher-schafer-9116905/" target="_blank" rel="noopener" class="btn btn--ghost-light">Message me on LinkedIn</a>
           <a href="/find-your-path" style="font-family: var(--font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-left:6px; text-decoration:underline; text-underline-offset:3px;">Not sure which one fits? Find your path →</a>
-          <p style="flex-basis:100%; margin:6px 0 0; font-size:15px; line-height:1.6; color:rgba(255,255,255,0.75);">Not hiring for a seat? <a href="/revenue-leader-mentorship" style="color:#fff; font-weight:600; text-decoration:underline; text-underline-offset:3px;">One-on-one mentorship starts with a free 30-minute call →</a></p>
         </div>
 
       </div>
@@ -1675,7 +1720,7 @@
             <p class="proof__video-note reveal d2">This is me. New videos most days on the <a href="https://www.youtube.com/@ondemandleaders3178" target="_blank" rel="noopener">OnDemand Leaders channel</a>.</p>
             <div style="margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;">
               <a href="/about" class="btn btn--primary">Read the full story <span class="arrow">↗</span></a>
-              <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--secondary">Book a strategy call</a>
+              <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--secondary">Book your Friday call</a>
             </div>
           </div>
 
@@ -1802,7 +1847,7 @@
 
         <div style="margin-top:44px; display:flex; gap:14px; flex-wrap:wrap;">
           <a href="/help" class="btn btn--invert">Learn the HELP Operating System <span class="arrow">↗</span></a>
-          <a href="/resources" class="btn btn--ghost-light">Download the one-pager</a>
+          <a href="/resources" class="btn btn--ghost-light">Download the quick reference guide</a>
         </div>
 
       </div>
@@ -1945,10 +1990,10 @@
         <div class="cta__inner">
           <span class="eyebrow eyebrow--light reveal">10 &middot; Let&rsquo;s fix it</span>
           <h2 class="cta__title reveal d1" style="margin-top:18px;">Revenue is breaking. <em>Let&rsquo;s fix it.</em></h2>
-          <p class="cta__body reveal d2">If you&rsquo;re a founder, CEO, or board member watching the numbers slip and the team spin, the first conversation is free. <strong>I&rsquo;ll tell you what I see, what I&rsquo;d do, and whether we&rsquo;re a fit.</strong> No pitch deck.</p>
+          <p class="cta__body reveal d2">If you&rsquo;re a founder, CEO, or board member watching the numbers slip and the team spin, the first conversation is free. I hold Fridays for these calls. <strong>I&rsquo;ll tell you what I see, what I&rsquo;d do, and whether we&rsquo;re a fit.</strong> No pitch deck. Need me before Friday? Message me on LinkedIn.</p>
           <div class="cta__actions reveal d3">
-            <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--invert">Book a strategy call <span class="arrow">↗</span></a>
-            <a href="mailto:chris@ondemandleaders.com" class="btn btn--ghost-light">Send a direct message</a>
+            <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--invert">Book your Friday call <span class="arrow">↗</span></a>
+            <a href="https://www.linkedin.com/in/christopher-schafer-9116905/" target="_blank" rel="noopener" class="btn btn--ghost-light">Message me on LinkedIn</a>
             <a href="/apply" style="font-family: var(--font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-left:6px; text-decoration:underline; text-underline-offset:3px;">Ready to hire? Apply for an engagement &rarr;</a>
           </div>
           <p class="cta__note reveal d4">Greater Toronto Area &middot; serving NA &amp; APAC</p>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The HELP Operating System One-Pager | Chris Schafer · OnDemand Leaders</title>
-<meta name="description" content="The HELP Operating System on one page. Hear, Evidence, Learn, Proceed. The four-step method Chris Schafer uses for every meeting, coaching session, and turnaround. Print it. Put it on the wall. Try it Monday." />
+<title>The HELP Quick Reference Guide | Chris Schafer · OnDemand Leaders</title>
+<meta name="description" content="The HELP quick reference guide. Hear, Evidence, Learn, Proceed, with the real questions to ask in five situations: finding revenue, broken process, coaching, selling to existing clients, and customer success. Print it. Use it Monday." />
 <link rel="canonical" href="https://www.ondemandleaders.com/help-one-pager" />
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
 <meta name="author" content="Chris Schafer" />
@@ -15,8 +15,8 @@
 <link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#0B1E3B" />
 <meta property="og:site_name" content="OnDemand Leaders" />
-<meta property="og:title" content="The HELP Operating System One-Pager | Chris Schafer · OnDemand Leaders" />
-<meta property="og:description" content="The HELP Operating System on one page. Hear, Evidence, Learn, Proceed. Print it. Put it on the wall. Try it Monday." />
+<meta property="og:title" content="The HELP Quick Reference Guide | Chris Schafer · OnDemand Leaders" />
+<meta property="og:description" content="Hear, Evidence, Learn, Proceed, with the real questions to ask in five situations. Print it. Use it Monday." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.ondemandleaders.com/help-one-pager" />
 <meta property="og:image" content="https://www.ondemandleaders.com/assets/chris.jpeg" />
@@ -40,14 +40,32 @@
 .op-head__sub { margin-top: 10px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-normal); }
 .op-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-.op-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 30px; }
+.op-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue-normal); margin: 0 0 16px; }
+
+.op-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 40px; }
 @media (max-width: 600px) { .op-steps { grid-template-columns: 1fr; } }
 .op-step { border: 1px solid var(--border-clean); border-radius: var(--r-md); padding: 26px 28px; background: var(--white); }
 .op-step__num { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue-normal); margin-bottom: 12px; }
 .op-step__word { font-family: var(--font-serif); font-style: italic; font-size: 34px; font-weight: 400; line-height: 1; color: var(--text-main); margin-bottom: 14px; }
 .op-step__body { font-size: 14.5px; line-height: 1.6; color: var(--text-muted); }
+.op-step__body strong { color: var(--text-main); font-weight: 600; }
 
-.op-scale { font-size: 15.5px; line-height: 1.6; color: var(--text-main); border-left: 3px solid var(--blue-normal); padding-left: 18px; margin-bottom: 30px; }
+.op-scen { border: 1px solid var(--border-clean); border-radius: var(--r-md); padding: 24px 28px 10px; background: var(--white); margin-bottom: 18px; }
+.op-scen__title { font-size: 17px; font-weight: 700; letter-spacing: -0.015em; color: var(--text-main); }
+.op-scen__ask { font-size: 13.5px; color: var(--text-muted); margin: 4px 0 16px; }
+.op-scen__row { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px; align-items: start; padding: 12px 0; border-top: 1px solid var(--border-clean); }
+.op-scen__letter { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--white); background: var(--blue-normal); border-radius: 6px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.op-scen__q { font-size: 14.5px; line-height: 1.6; color: var(--text-main); }
+.op-scen__q em { font-style: normal; color: var(--text-muted); }
+
+.op-tells { background: var(--blue-deepest); border-radius: var(--r-lg); padding: 30px 34px; margin: 40px 0; }
+.op-tells .op-label { color: rgba(255,255,255,0.65); }
+.op-tells ul { list-style: none; margin: 0; padding: 0; }
+.op-tells li { font-size: 14.5px; line-height: 1.6; color: rgba(255,255,255,0.85); padding: 9px 0 9px 22px; position: relative; }
+.op-tells li + li { border-top: 1px solid rgba(255,255,255,0.08); }
+.op-tells li::before { content: '×'; position: absolute; left: 0; color: rgba(255,255,255,0.45); font-weight: 600; }
+
+.op-scale { font-size: 15.5px; line-height: 1.6; color: var(--text-main); border-left: 3px solid var(--blue-normal); padding-left: 18px; margin-bottom: 40px; }
 
 .op-cta { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; background: var(--blue-deepest); color: var(--white); border-radius: var(--r-lg); padding: 28px 34px; }
 .op-cta__title { font-size: 19px; font-weight: 700; color: var(--white); letter-spacing: -0.015em; }
@@ -56,11 +74,13 @@
 .op-foot { display: none; margin-top: 26px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
 
 @media print {
-  #site-nav, #site-footer, .op-actions, .op-cta { display: none !important; }
+  #site-nav, #site-footer, .sn-nav, .sn-drawer, .sf-footer, [class^="odlc-"], [class*=" odlc-"], .op-actions, .op-cta { display: none !important; }
   body { background: #fff; }
   .op-section { padding: 0; }
   .op-foot { display: block; }
-  .op-step { break-inside: avoid; }
+  .op-step, .op-scen, .op-tells { break-inside: avoid; }
+  .op-tells { background: #fff; border: 1px solid #ccc; }
+  .op-tells .op-label, .op-tells li, .op-tells li::before { color: #333; }
   a { color: inherit; text-decoration: none; }
 }
 </style>
@@ -77,8 +97,8 @@
 
           <div class="op-head">
             <div>
-              <span class="eyebrow">One-pager</span>
-              <h1 class="op-head__title">The HELP <em>Operating System.</em></h1>
+              <span class="eyebrow">Quick reference guide</span>
+              <h1 class="op-head__title">HELP. <em>The quick reference guide.</em></h1>
               <div class="op-head__sub">Hear · Evidence · Learn · Proceed</div>
             </div>
             <div class="op-actions">
@@ -86,30 +106,89 @@
             </div>
           </div>
 
+          <p class="op-label">The four moves</p>
           <div class="op-steps">
             <div class="op-step">
               <div class="op-step__num">Step 01</div>
               <div class="op-step__word">Hear</div>
-              <p class="op-step__body">Full attention, not partial input. Skip it and you train the team to escalate just to be heard.</p>
+              <p class="op-step__body">Open with <strong>&ldquo;What is going on?&rdquo;</strong> and hold the silence. Every follow-up starts with what, where, who, when, or how. Never why. Close by reflecting it back in their words: <strong>&ldquo;Did I get that right?&rdquo;</strong></p>
             </div>
             <div class="op-step">
               <div class="op-step__num">Step 02</div>
               <div class="op-step__word">Evidence</div>
-              <p class="op-step__body">Separate what you know from what you assume. The diagnosis cracks at the spot you treated a story as a fact.</p>
+              <p class="op-step__body">Sort into two columns, facts and interpretations. A fact survives <strong>&ldquo;How do we know that?&rdquo;</strong> Words like obviously and clearly mark a story. End with the short list of what is still missing.</p>
             </div>
             <div class="op-step">
               <div class="op-step__num">Step 03</div>
               <div class="op-step__word">Learn</div>
-              <p class="op-step__body">Recognition over instruction. The team gets sharper when they pull the pattern from their own past, not yours.</p>
+              <p class="op-step__body">Never give the answer. Ask <strong>&ldquo;Where have you seen this before?&rdquo;</strong> and let them pull the pattern from their own experience. The lesson they find sticks. The one you hand them does not.</p>
             </div>
             <div class="op-step">
               <div class="op-step__num">Step 04</div>
               <div class="op-step__word">Proceed</div>
-              <p class="op-step__body">Surface the options. Do not name the winner. The team gets a decision either way. Only one version gets conviction.</p>
+              <p class="op-step__body">Ask <strong>&ldquo;What are you leaning toward?&rdquo;</strong> Then three words: <strong>&ldquo;Trust your gut.&rdquo;</strong> The decision has to feel theirs, not a lightly edited version of yours.</p>
             </div>
           </div>
 
-          <p class="op-scale">The same four steps hold whether the conversation is two minutes in the hallway or a six-month turnaround. The depth changes. The steps do not. Run it until the team runs the cadence without you.</p>
+          <p class="op-label">Which problem are you holding?</p>
+
+          <div class="op-scen">
+            <div class="op-scen__title">Find revenue you already have.</div>
+            <div class="op-scen__ask">Growth flattened and everyone is staring at new logos.</div>
+            <div class="op-scen__row"><span class="op-scen__letter">H</span><p class="op-scen__q">Walk me through where the number comes from today. Which accounts carry it, and what do they actually buy from us?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">E</span><p class="op-scen__q">Which customers use half of what they pay for? <em>&ldquo;There is no budget out there&rdquo; is a story.</em> What do renewals and usage actually show?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">L</span><p class="op-scen__q">Where have we grown an account before without adding a logo? What made that work?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">P</span><p class="op-scen__q">Which two accounts are you leaning toward starting with this week?</p></div>
+          </div>
+
+          <div class="op-scen">
+            <div class="op-scen__title">Diagnose a broken process.</div>
+            <div class="op-scen__ask">Something in the machine is failing and everyone has a theory.</div>
+            <div class="op-scen__row"><span class="op-scen__letter">H</span><p class="op-scen__q">Where does the work pile up? Who touches it between the handoff and the miss? When did this last run clean?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">E</span><p class="op-scen__q">Is &ldquo;the handoff is broken&rdquo; a fact or a story? What does the cycle time show at each step? How do we know?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">L</span><p class="op-scen__q">Where have you seen a process fail like this before? What was actually underneath it?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">P</span><p class="op-scen__q">Which step are you leaning toward fixing first?</p></div>
+          </div>
+
+          <div class="op-scen">
+            <div class="op-scen__title">Coach someone better.</div>
+            <div class="op-scen__ask">A direct report is off their number and you want to fix them fast. Do not.</div>
+            <div class="op-scen__row"><span class="op-scen__letter">H</span><p class="op-scen__q">&ldquo;What is going on?&rdquo; Then silence. Let them describe their own quarter. Reflect it back in their words and confirm you got it.</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">E</span><p class="op-scen__q">Closed-won is down. That is a fact. <em>&ldquo;The market got harder&rdquo; goes in which column?</em> What would tell us?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">L</span><p class="op-scen__q">You have dug out of a slow quarter before. What did you do first back then?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">P</span><p class="op-scen__q">What are you leaning toward? Trust your gut.</p></div>
+          </div>
+
+          <div class="op-scen">
+            <div class="op-scen__title">Sell more to the clients you have.</div>
+            <div class="op-scen__ask">The buyer arrives educated. Run HELP on the account, not a pitch.</div>
+            <div class="op-scen__row"><span class="op-scen__letter">H</span><p class="op-scen__q">What changed in your business since we started working together? What is next quarter&rsquo;s problem?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">E</span><p class="op-scen__q">What tells us this account is healthy: usage, new stakeholders, or just the renewal? Who have we heard from besides the champion?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">L</span><p class="op-scen__q">Where has this client solved a problem like this before? Let them recognize the pattern themselves.</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">P</span><p class="op-scen__q">Ask the buyer what they are leaning toward. A conclusion they own moves faster than one you pitched.</p></div>
+          </div>
+
+          <div class="op-scen">
+            <div class="op-scen__title">Keep and grow your customers.</div>
+            <div class="op-scen__ask">Customer success, before the quiet account becomes a churn call.</div>
+            <div class="op-scen__row"><span class="op-scen__letter">H</span><p class="op-scen__q">When did engagement drop? Who stopped joining the calls? What did the last business review actually cover?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">E</span><p class="op-scen__q">Is &ldquo;they are fine, they renewed&rdquo; a fact or a story? What does usage show since the champion left?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">L</span><p class="op-scen__q">Where have we seen a quiet account before? What did the silence turn out to mean?</p></div>
+            <div class="op-scen__row"><span class="op-scen__letter">P</span><p class="op-scen__q">Which three accounts are you leaning toward calling this week?</p></div>
+          </div>
+
+          <div class="op-tells">
+            <p class="op-label">You are off the method when</p>
+            <ul>
+              <li>You fill the silence after &ldquo;What is going on?&rdquo; Most leaders collapse it inside fifteen seconds. The collapse is the failure.</li>
+              <li>You ask why during Hear. Why asks people to defend. Save it for the evidence, never aim it at the person.</li>
+              <li>You let &ldquo;obviously&rdquo; or &ldquo;clearly&rdquo; into the fact column. Those words are how a guess dresses up as a fact.</li>
+              <li>You start solving before the sorting is done. The first fact you find is rarely the whole picture.</li>
+              <li>You name the winner in Proceed. Surface the options and hand over the call. Only an owned decision gets conviction.</li>
+            </ul>
+          </div>
+
+          <p class="op-scale">The same four moves hold whether the conversation is two minutes in the hallway or a six-month turnaround. The depth changes. The moves do not. Run it until the team runs the cadence without you.</p>
 
           <div class="op-cta">
             <div>
