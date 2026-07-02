@@ -43,7 +43,7 @@
             <li><a href="/help">HELP</a></li>
             <li><a href="/training">Training</a></li>
             <li><a href="/public-speaking">Public Speaking Coaching</a></li>
-            <li><a href="/speaking">Speaking, Podcasts &amp; Videos</a></li>
+            <li><a href="/speaking">Speaking &amp; Workshops</a></li>
             <li><a href="/insights">Insights</a></li>
             <li><a href="/think-tank">Think Tank</a></li>
             <li><a href="/resources">Resources</a></li>
@@ -315,7 +315,8 @@
 
   @media (prefers-reduced-motion: reduce) { .odlc-launch, .odlc-panel { transition: none; } }
   @media (max-width: 480px) {
-    .odlc-launch { right: 16px; bottom: 16px; padding: 12px 16px; }
+    .odlc-launch { right: 16px; bottom: 16px; padding: 0; width: 52px; height: 52px; justify-content: center; gap: 0; }
+    .odlc-launch .odlc-launch__lbl { display: none; }
     .odlc-panel { right: 12px; left: 12px; bottom: 12px; width: auto; }
   }
   `;
@@ -349,7 +350,7 @@
   </div>
   <button class="odlc-launch" id="odlc-launch" aria-label="Send a message" aria-expanded="false" aria-controls="odlc-panel">
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 0 1-.9-3.8A8.38 8.38 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Message me
+    <span class="odlc-launch__lbl">Message me</span>
   </button>
   `;
 

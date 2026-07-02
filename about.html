@@ -242,15 +242,6 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    document.querySelectorAll('form.gate-form, form.subscribe-form').forEach(f => {
-      f.addEventListener('submit', e => {
-        e.preventDefault();
-        const btn = f.querySelector('button');
-        btn.textContent = 'Thanks ✓';
-        btn.disabled = true;
-      });
-    });
   </script>
 </body>
 </html>

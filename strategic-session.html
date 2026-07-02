@@ -534,6 +534,7 @@
     .side { padding: 0; margin-top: 24px; }
     .nav__inner { padding: 0 22px; }
     .row, .row--3 { grid-template-columns: 1fr; }
+    .choice-grid { grid-template-columns: 1fr 1fr !important; }
     .nav__name { display: none; }
     .submit-row { flex-direction: column; align-items: stretch; }
     .submit-row .btn { width: 100%; }
@@ -646,7 +647,7 @@
 
             <div class="field">
               <label class="field__label">Format<span class="req">*</span></label>
-              <div class="choice-grid" style="grid-template-columns: repeat(2, 1fr);">
+              <div class="choice-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
                 <label class="choice">
                   <input type="radio" name="format" value="in-person" required />
                   <span class="choice__dot"></span>
@@ -708,7 +709,7 @@
 
             <div class="field">
               <label class="field__label">How did you hear about Chris?</label>
-              <div class="choice-grid" style="grid-template-columns: repeat(3, 1fr);">
+              <div class="choice-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
                 <label class="choice">
                   <input type="radio" name="source" value="referral" />
                   <span class="choice__dot"></span>

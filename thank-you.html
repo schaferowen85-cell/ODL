@@ -355,7 +355,6 @@
           </span>
           Submission received
         </div>
-        <div id="ref">Ref · ODL-<span id="refnum"></span></div>
       </div>
 
       <h2 class="receipt__title" id="cardTitle">
@@ -396,7 +395,7 @@
   <script src="/site-footer.js" defer></script>
 
   <script>
-    // Source-aware copy + a stable-ish ref number (date + 4 random chars).
+    // Source-aware copy.
     const params = new URLSearchParams(window.location.search);
     const source = (params.get('source') || '').toLowerCase();
 
@@ -427,11 +426,6 @@
         <li><span><strong>If it's a fit.</strong> The assessment, the session with a registered psychotherapist, then the 12-week program.</span></li>
       `;
     }
-
-    const d = new Date();
-    const stamp = `${d.getFullYear().toString().slice(-2)}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
-    const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
-    document.getElementById('refnum').textContent = `${stamp}-${rand}`;
   </script>
 
 </body>
