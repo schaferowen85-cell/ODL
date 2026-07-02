@@ -800,6 +800,13 @@
   .proof__layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 96px; align-items: start; }
   .proof__head .h2 { margin-bottom: 24px; }
   .proof__head .lead + .lead { margin-top: 14px; }
+  .proof__video { position: relative; display: block; width: 100%; margin-top: 28px; aspect-ratio: 16/9; border: 1px solid var(--border-clean); border-radius: var(--r-lg); overflow: hidden; background: #0B1E3B; cursor: pointer; padding: 0; }
+  .proof__video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .proof__video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .proof__video-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; border-radius: 50%; background: rgba(11,30,59,0.72); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; padding-left: 4px; transition: transform 0.15s ease, background 0.15s ease; }
+  .proof__video:hover .proof__video-badge { transform: translate(-50%, -50%) scale(1.06); background: rgba(11,30,59,0.88); }
+  .proof__video-note { margin-top: 12px; font-size: 13.5px; color: var(--text-muted); }
+  .proof__video-note a { color: var(--blue-normal); font-weight: 600; }
 
   .proof__hi { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
   .phigh {
@@ -1661,6 +1668,11 @@
             <h2 class="h2 reveal d1">25 years operating, building, and turning around <em>revenue orgs.</em></h2>
             <p class="lead reveal d2" style="margin-top:24px;">I spent over a decade at NetSuite as one of the key global leaders through its growth from $30M to over $1B in revenue, including its IPO and the Oracle acquisition. I built and ran multiple verticals and led teams across North America, Asia, and Australia through that growth.</p>
             <p class="lead reveal d2">Most recently I served as President at ImportGenius. Today I run OnDemand Leaders with my wife Elisha, and I co-authored the HELP Operating System.</p>
+            <button class="proof__video reveal d2" id="meetVideo" type="button" aria-label="Play video: How to Become a Great Conversationalist">
+              <img src="https://img.youtube.com/vi/CCL7SEX_O_0/maxresdefault.jpg" alt="Chris Schafer talking to camera about how to become a great conversationalist" loading="lazy" />
+              <span class="proof__video-badge" aria-hidden="true">▶</span>
+            </button>
+            <p class="proof__video-note reveal d2">This is me. New videos most days on the <a href="https://www.youtube.com/@ondemandleaders3178" target="_blank" rel="noopener">OnDemand Leaders channel</a>.</p>
             <div style="margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;">
               <a href="/about" class="btn btn--primary">Read the full story <span class="arrow">↗</span></a>
               <a href="https://calendly.com/christopherschafer/go-to-market-office-hours" target="_blank" rel="noopener" class="btn btn--secondary">Book a strategy call</a>
@@ -1949,6 +1961,21 @@
   <!-- ─── FOOTER ─── -->
   <div id="site-footer"></div>
   <script src="/site-footer.js" defer></script>
+  <script>
+    (function() {
+      var v = document.getElementById('meetVideo');
+      if (!v) return;
+      v.addEventListener('click', function() {
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/CCL7SEX_O_0?autoplay=1&rel=0';
+        f.title = 'How to Become a Great Conversationalist';
+        f.allow = 'autoplay; encrypted-media; picture-in-picture';
+        f.allowFullscreen = true;
+        v.replaceChildren(f);
+        v.style.cursor = 'default';
+      }, { once: true });
+    })();
+  </script>
 
   <script>
     // Nav solidify + mobile drawer are handled by /site-nav.js.
