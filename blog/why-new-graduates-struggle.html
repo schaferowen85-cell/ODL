@@ -32,6 +32,7 @@
       {"@type":"ListItem","position":3,"name":"Why New Graduates Struggle at Work","item":"https://www.ondemandleaders.com/blog/why-new-graduates-struggle"}
     ]},
     {"@type":"BlogPosting","headline":"Why New Graduates Struggle at Work. The EQ Gap School Never Graded.","description":"Recent-grad unemployment is elevated and underemployment sits above 40 percent. The cause is not intelligence. School graded the ability to learn and never graded the application. The data, the science, and the three skills that close the gap.","datePublished":"2026-07-08","dateModified":"2026-07-08","author":{"@type":"Person","@id":"https://www.ondemandleaders.com/#chris","name":"Chris Schafer","url":"https://www.ondemandleaders.com/","sameAs":["https://www.linkedin.com/in/christopher-schafer-9116905/","https://www.youtube.com/@ondemandleaders3178"]},"publisher":{"@type":"Organization","name":"OnDemand Leaders","logo":{"@type":"ImageObject","url":"https://www.ondemandleaders.com/assets/chris.jpeg"}},"image":"https://www.ondemandleaders.com/assets/eq-students-video-poster.jpg","mainEntityOfPage":"https://www.ondemandleaders.com/blog/why-new-graduates-struggle","isPartOf":{"@id":"https://www.ondemandleaders.com/blog/#blog"},"inLanguage":"en-US","keywords":"why new graduates struggle, new grad job market 2026, skills employers say graduates lack, emotional intelligence for new graduates, EQ vs IQ, soft skills gap college graduates, career readiness, Three Cs, HELP method, Chris Schafer"},
+    {"@type":"VideoObject","name":"EQ vs IQ: What Graduating Students Actually Need to Succeed","description":"IQ is the ability to learn. EQ is the application of that learning. The three skills every graduating student has to build: curiosity, confirmation, and communication, from the HELP Operating System.","thumbnailUrl":"https://www.ondemandleaders.com/assets/eq-students-video-poster.jpg","uploadDate":"2026-07-08","duration":"PT6M45S","contentUrl":"https://youtu.be/064aSfOhJSA","embedUrl":"https://www.youtube-nocookie.com/embed/064aSfOhJSA","publisher":{"@type":"Organization","name":"OnDemand Leaders","logo":{"@type":"ImageObject","url":"https://www.ondemandleaders.com/assets/chris.jpeg"}}},
     {
       "@type": "FAQPage",
       "@id": "https://www.ondemandleaders.com/blog/why-new-graduates-struggle#faq",
@@ -141,7 +142,7 @@
   .callout__label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:12px}
   .callout p{color:rgba(255,255,255,0.85);font-size:17px;margin:0}
   .callout p strong{color:var(--white)}
-  .post-video{display:block;position:relative;margin:40px 0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border-clean);aspect-ratio:16/9;background:var(--blue-deepest)}
+  .post-video{display:block;position:relative;margin:40px 0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border-clean);aspect-ratio:16/9;background:var(--blue-deepest);padding:0;width:100%;cursor:pointer}
   .post-video img{width:100%;height:100%;object-fit:cover}
   .post-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .post-video__badge{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--white)}
@@ -271,11 +272,11 @@
 
             <p>I recorded a short video for students on exactly this, the same material I teach leadership teams, aimed at the people about to walk out of school.</p>
 
-            <a class="post-video" href="https://www.youtube.com/@ondemandleaders3178" target="_blank" rel="noopener" aria-label="Watch: EQ vs IQ, what graduating students actually need to succeed">
+            <button class="post-video" id="gradVideo" type="button" aria-label="Play video: EQ vs IQ, what graduating students actually need to succeed">
               <img src="/assets/eq-students-video-poster.jpg" alt="Chris Schafer teaching the Three Cs in the EQ vs IQ video for graduating students" loading="lazy" />
               <span class="post-video__badge" aria-hidden="true"><span>▶</span></span>
-            </a>
-            <p class="post-video__note">EQ vs IQ: what graduating students actually need · 6 min · OnDemand Leaders channel</p>
+            </button>
+            <p class="post-video__note">EQ vs IQ: what graduating students actually need · 6 min · <a href="https://youtu.be/064aSfOhJSA" target="_blank" rel="noopener">watch on YouTube</a></p>
 
             <h2>The good news. <em>This trains.</em></h2>
 
@@ -384,6 +385,21 @@
 
   <div id="site-footer"></div>
   <script src="/site-footer.js" defer></script>
+  <script>
+    (function() {
+      var v = document.getElementById('gradVideo');
+      if (!v) return;
+      v.addEventListener('click', function() {
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/064aSfOhJSA?autoplay=1&rel=0';
+        f.title = 'EQ vs IQ: What Graduating Students Actually Need to Succeed';
+        f.allow = 'autoplay; encrypted-media; picture-in-picture';
+        f.allowFullscreen = true;
+        v.replaceChildren(f);
+        v.style.cursor = 'default';
+      }, { once: true });
+    })();
+  </script>
 
 </body>
 </html>
