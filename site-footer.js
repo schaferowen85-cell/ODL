@@ -10,19 +10,7 @@
 
         <div class="sf-brand">
           <div class="sf-brand-row">
-            <svg viewBox="0 0 360 130" role="img" aria-label="ODL" style="display:block;height:28px;width:auto;">
-              <g fill="none" stroke="rgba(245,243,238,0.9)" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
-                <circle cx="65" cy="65" r="58"></circle>
-                <circle cx="65" cy="65" r="46"></circle>
-                <line x1="65" y1="32" x2="65" y2="100"></line>
-                <path d="M 42 48 L 42 72 Q 42 82 52 82"></path>
-                <path d="M 88 48 L 88 72 Q 88 82 78 82"></path>
-                <line x1="55" y1="100" x2="75" y2="100"></line>
-                <path d="M 150 12 L 150 118 L 198 118 Q 252 118 252 65 Q 252 12 198 12 Z"></path>
-                <path d="M 162 24 L 162 106 L 196 106 Q 240 106 240 65 Q 240 24 196 24 Z"></path>
-                <path d="M 274 12 L 274 118 L 348 118 L 348 106 L 286 106 L 286 12 Z"></path>
-              </g>
-            </svg>
+            <img src="/assets/odl-mark-white.png" alt="ODL" width="979" height="382" style="display:block;height:28px;width:auto;opacity:0.9;" />
             <div class="sf-brand-name">OnDemand Leaders</div>
           </div>
           <p class="sf-tag">Fractional CRO. GTM turnaround operator.</p>
