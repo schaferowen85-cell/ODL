@@ -3,3 +3,5 @@ node_modules/
 .env
 .env.local
 .vercel
+auto-deploy-relay.log
+auto-deploy-relay.sh
